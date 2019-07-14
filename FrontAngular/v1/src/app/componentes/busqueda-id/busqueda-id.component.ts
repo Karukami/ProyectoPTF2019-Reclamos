@@ -36,7 +36,10 @@ export class BusquedaIdComponent implements OnInit {
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
-  
+  //buscarPorId():vacio -> vacio
+  //guarda el valor de la variable idBusqueda
+  //en localStorage y luego redirige al componente
+  //de busqueda
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
