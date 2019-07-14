@@ -10,7 +10,7 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 })
 export class HomeComponent implements OnInit {
 
-  idbusqueda:number;
+  idBusqueda:number;
   rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }
   nombre:string = localStorage.getItem('Email');
@@ -32,11 +32,10 @@ export class HomeComponent implements OnInit {
   }
 
   buscarPorId(){
-    this.service.getReclamo(this.idbusqueda).subscribe(data=>{
-      this.rs=data;
-      console.log("estado: "+this.rs.estado);
-
-    });
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
     
   }
+    
+  
 }

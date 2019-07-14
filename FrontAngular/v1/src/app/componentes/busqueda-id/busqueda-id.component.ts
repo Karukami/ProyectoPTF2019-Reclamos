@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 
 @Component({
   selector: 'app-busqueda-id',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaIdComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private rsService:RsServiceService) { }
+  rs:ReclamoSugerencia;
   ngOnInit() {
+    this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
+      this.rs=params;
+    });
+
   }
 
 }
