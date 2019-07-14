@@ -65,7 +65,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 
                     <div class="col-8 padding-0" style="text-align: right">
-                        <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                        <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
                                      
                     </div>
                     <div class="col padding-0">
@@ -82,27 +82,31 @@
     
     <!-- CONTENIDO -->
 <div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
-    <div class="col-3" style="background-color: #dddddd">
-    <div>
-    <br>
-    <img src="../../assets/photo-placeholder.jpeg">
-    <div style="background-color: darkgray; height:10px; width: 200px; transform: translate(150px, -100px);"></div>
-        <div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
-            <button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
-            <br><br><br><br>
-            <button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
-            <br>
-            <button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
-            <br>
-            <button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
-            <br>
+    
+    <div class="col-3" >
+        <div class="container-fluid " *ngIf="!mostrarPerfil" style="background-color: #dddddd">
+        <div>
+        <br>
+        <img src="../../assets/photo-placeholder.jpeg">
+        <div  style="background-color: darkgray; height:10px; width: 200px; transform: translate(150px, -100px);padding-left: 30%"></div>
+            <div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
+                <button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
+                <br><br><br><br>
+                <button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+                <br>
+                <button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
+                <br>
+                <button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
+                <br>
+            </div>
         </div>
     </div>
    
+   
     <div class="col-9 lead" style="color: white;background-color:#355C7D">
         <hr>
-        <p>Id Reclamo: {{rs.idReclamoSugerencia}}  Fecha: {{rs.fechaReclamoSugerencia}}</p>
-        
+        <p>Id Reclamo: {{rs.idReclamoSugerencia}}  </p>
+        <p>Fecha: {{rs.fechaReclamoSugerencia}}</p>
         <p>Empresa: {{rs.idEmpresa}}</p>
         
         <p></p>
