@@ -7,10 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./reclamo-enviado.component.css']
 })
 export class ReclamoEnviadoComponent implements OnInit {
-
+  idBusqueda:number;
   constructor(private router:Router) { }
 
   ngOnInit() {
   }
+  cerrarSesion(){
+    localStorage.setItem("Email", "anonimo");
+    this.router.navigate(["home"])
+  }
+  buscarPorId(){
 
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
 }

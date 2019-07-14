@@ -3,6 +3,7 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-realizar-sugerencia',
   templateUrl: './realizar-sugerencia.component.html',
@@ -10,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class RealizarSugerenciaComponent implements OnInit {
 
-  rs:ReclamoSugerencia=new ReclamoSugerencia();
-  idbusqueda:number;
+rs:ReclamoSugerencia=new ReclamoSugerencia();
+idBusqueda:number;
 empresas:string[]=["aguas andinas","enel","gasco","vtr"];
 empresa:string;
 
@@ -37,6 +38,13 @@ realizarReclamoSugerencia() {
 }
 
 buscarPorId(){
-  this.serviceRS.getReclamo(this.idbusqueda);
+  localStorage.setItem("idBusqueda",""+this.idBusqueda);
+  this.router.navigate(['buscar_id']);
+  
 }
+cerrarSesion(){
+  localStorage.setItem("Email", "anonimo");
+  this.router.navigate(["home"])
+}
+
 }
