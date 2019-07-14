@@ -16,6 +16,7 @@ export class BusquedaIdComponent implements OnInit {
   idBusqueda:number;
   mostrarPerfil:boolean=false;
   noMostrarPerfil:boolean;
+
   ngOnInit() {
     this.noMostrarPerfil=!this.mostrarPerfil;
     console.log(localStorage.getItem("Email"))
@@ -25,12 +26,17 @@ export class BusquedaIdComponent implements OnInit {
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
     });
-
   }
+
+  //cerrarSesion():vacio ->vacio
+  //cierra la secion de usuario 
+  //cambia el valor de la variable Email
+  //guardada en localStorage a anonimo
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
+  
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
