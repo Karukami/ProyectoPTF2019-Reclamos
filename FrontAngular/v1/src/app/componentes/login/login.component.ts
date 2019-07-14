@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
       this.service.logIn(this.credenciales).subscribe(data=>{
         this.credenciales=data;
         if(this.credenciales.passUsuario=="valido"){
+          localStorage.setItem("nombre",this.credenciales.nombreUsuario);
+          localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
           localStorage.setItem("Email", email);
           this.router.navigate(["perfil"]);
         }else {
