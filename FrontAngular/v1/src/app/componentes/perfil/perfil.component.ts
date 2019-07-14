@@ -21,6 +21,9 @@ export class PerfilComponent implements OnInit {
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);
   }
+  realizarSugerencia(){
+    this.router.navigate(['realizar_sugerencia']);
+  }
 
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
