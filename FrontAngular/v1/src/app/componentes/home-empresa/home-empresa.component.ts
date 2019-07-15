@@ -16,15 +16,22 @@ export class HomeEmpresaComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //HomeEmpresa():vacio->vacio
+  //redirige al componente home_empresa
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
-
+  //registrar(): vacio->vacio
+  //redirige a la url empresa/registro
+  //que hace referencia al componente registro-empresa
+  //la referencia esta declarada en el archivo app-routing.module
   registrar(){
     this.router.navigate(["empresa/registro"]);
   }
-
+ //loginEmpresa(): vacio->vacio
+  //redirige a la url empresa/login
+  //que hace referencia al componente login-empresa
+  //la referencia esta declarada en el archivo app-routing.module
   loginEmpresa(){
   	this.router.navigate(["empresa/login"]);
   }
