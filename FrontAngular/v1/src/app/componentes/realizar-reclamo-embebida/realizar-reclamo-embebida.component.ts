@@ -32,6 +32,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
     this.rs.estado="en proseso";
     this.rs.usuarioReclamoSugerencia=0;
     this.rs.tipo=this.tipo
+    this.rs.respuestaRS="aun no tiene respuestas";
     
     this.rs.fechaReclamoSugerencia=new Date();
 
