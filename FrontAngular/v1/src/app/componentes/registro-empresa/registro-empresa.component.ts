@@ -19,9 +19,12 @@ export class RegistroEmpresaComponent implements OnInit {
   }
 
   registrar(){
-    this.empresaService.crearEmpresa(this.empresa);
-    this.empresaService.crearTrabajador(this.trabajador);
-    this.router.navigate(['perfilEmpresa']);
+    if(this.validarPass){
+
+      this.empresaService.crearEmpresa(this.empresa);
+      this.empresaService.crearTrabajador(this.trabajador);
+      this.router.navigate(['perfilEmpresa']);
+    }
   }
 
   loginEmpresa(){
