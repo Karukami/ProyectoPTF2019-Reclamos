@@ -11,6 +11,7 @@ import { HomeEmpresaComponent } from './componentes/home-empresa/home-empresa.co
 import { RealizarSugerenciaComponent } from './componentes/realizar-sugerencia/realizar-sugerencia.component';
 import { BusquedaIdComponent } from './componentes/busqueda-id/busqueda-id.component';
 import { RegistroEmpresaComponent } from './componentes/registro-empresa/registro-empresa.component';
+import { LoginEmpresaComponent} from './componentes/login-empresa/login-empresa.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:"home_empresa",component:HomeEmpresaComponent},
   {path:"realizar_sugerencia",component:RealizarSugerenciaComponent},
   {path:"buscar_id",component:BusquedaIdComponent},
-  {path:"empresa/registro",component:RegistroEmpresaComponent}
+  {path:"empresa/registro",component:RegistroEmpresaComponent},
+  {path:"empresa/login",component:LoginEmpresaComponent}
 ];
 
 @NgModule({

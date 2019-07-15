@@ -1,3 +1,9 @@
+#loginerror{
+	color: white;
+	background-color: rgba(255, 0, 0, 0.6);
+	border-radius: 30px;
+}
+
 #navbar {
 	background-color: #F8F9FB;
 }

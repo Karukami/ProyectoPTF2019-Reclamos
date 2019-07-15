@@ -4,13 +4,12 @@ import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/Services/service.service';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 
-
 @Component({
-  selector: 'app-home-empresa',
-  templateUrl: './home-empresa.component.html',
-  styleUrls: ['./home-empresa.component.css']
+  selector: 'app-login-empresa',
+  templateUrl: './login-empresa.component.html',
+  styleUrls: ['./login-empresa.component.css']
 })
-export class HomeEmpresaComponent implements OnInit {
+export class LoginEmpresaComponent implements OnInit {
 
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
 
@@ -23,10 +22,6 @@ export class HomeEmpresaComponent implements OnInit {
 
   registrar(){
     this.router.navigate(["empresa/registro"]);
-  }
-
-  loginEmpresa(){
-  	this.router.navigate(["empresa/login"]);
   }
 
 }
