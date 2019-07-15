@@ -6,7 +6,7 @@ import { ReclamoSugerencia } from '../Modelo/ReclamoSugerencia';
   providedIn: 'root'
 })
 export class RsServiceService {
-
+ 
   constructor(private http:HttpClient) { }
   url='http://localhost:8080/ReclamoSugerencia'
 

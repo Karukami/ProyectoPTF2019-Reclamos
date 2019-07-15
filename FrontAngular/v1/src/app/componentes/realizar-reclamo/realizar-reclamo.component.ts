@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class RealizarReclamoComponent implements OnInit {
 
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
-    idbusqueda:number;
+  idBusqueda:number;
   empresas:string[]=["aguas andinas","enel","gasco","vtr"];
   empresa:string;
 
@@ -28,7 +28,7 @@ export class RealizarReclamoComponent implements OnInit {
     this.rs.idReclamoSugerencia=0;
     this.rs.idEmpleado=0;
     this.rs.estado="en proseso";
-    this.rs.usuarioReclamoSugerencia=0;
+    this.rs.usuarioReclamoSugerencia=Number(localStorage.getItem('idUsuario'));
     
     this.rs.fechaReclamoSugerencia=new Date();
 
@@ -38,7 +38,13 @@ export class RealizarReclamoComponent implements OnInit {
   }
 
   buscarPorId(){
-    this.serviceRS.getReclamo(this.idbusqueda);
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
+  cerrarSesion(){
+    localStorage.setItem("Email", "anonimo");
+    this.router.navigate(["home"])
   }
 
 }

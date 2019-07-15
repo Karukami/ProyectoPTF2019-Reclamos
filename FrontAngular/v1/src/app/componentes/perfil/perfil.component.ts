@@ -11,7 +11,7 @@ export class PerfilComponent implements OnInit {
 
   constructor(private router:Router, private serviceRS:RsServiceService) { }
   nombre:string = localStorage.getItem('Email');
-    idbusqueda:number;
+    idBusqueda:number;
 
   ngOnInit() {
     if(this.nombre=="anonimo"){
@@ -30,7 +30,9 @@ export class PerfilComponent implements OnInit {
     this.router.navigate(["home"])
   }
 
-   buscarPorId(){
-    this.serviceRS.getReclamo(this.idbusqueda);
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
 }

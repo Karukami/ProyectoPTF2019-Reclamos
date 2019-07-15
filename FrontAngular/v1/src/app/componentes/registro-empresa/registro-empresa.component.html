@@ -1,13 +1,11 @@
-<!--------------------------------------------------------------------->
-<!-- HOME COMPONENT : COMPONENTE PRINCIPAL DE LA INTERFAZ DE USUARIO -->
-<!--------------------------------------------------------------------->
-<div class="container-fluid">
+<!------------------------------------------------------------------------->
+<!-- REGISTRO-USUARIO COMPONENT: FORMULARIO DE REGISTRO DE NUEVO USUARIO -->
+<!------------------------------------------------------------------------->
 
     <!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
 
-    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
     <div class="row" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,7 +17,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" href="/home">
+                            <a class="nav-link" href="#">
                                 <img src="../../assets/homeiconmini.png" alt="">
                                 <br>
                                 INICIO
@@ -28,7 +26,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="/reclamo">
+                            <a class="nav-link" href="#">
                                 <img src="../../assets/reclamoiconmini.png" alt="">
                                 <br>
                                 RECLAMO
@@ -37,7 +35,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="/historial">
+                            <a class="nav-link" href="#">
                                 <img src="../../assets/historialiconmini.png" alt="">
                                 <br>
                                 HISTORIAL
@@ -59,7 +57,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px">¡Regístrate!</button>   
+                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px" disabled>¡Regístrate!</button>   
                         </li>
                         <li>
                             <button type="button" class="btn btn-success" style="margin-left: 10px; margin-right: 10px" (click)="login()">Login</button>  
@@ -83,7 +81,7 @@
                           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         <div class="col-8 padding-0" style="text-align: right">
-                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                          <input [(ngModel)]="idbusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
                              
                         </div>
                         <div class="col padding-0">
@@ -98,28 +96,63 @@
         <router-outlet></router-outlet>
     </div>  
 
-  <!-- CONTENIDO -->
-  <div class="row">
-        <div class="col-8" style="height:730px; background-color: #000000; background-image: url('../assets/fondousuario.png'); background-repeat: no-repeat; ">
-        </div>
-        <div class="col" style="height:730px; background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
-            <form>
-                <h4 style="color: #eeeeee; text-align: center; margin-top: 150px; text-shadow: 2px 2px 5px black">
-                    ¡Bienvenido/a a Grupo 3!
-                </h4><br>
 
-                <p style="color: #eeeeee; text-align: center">
-                    ¿Has tenido algún inconveniente con alguna empresa? <br>
-                    Si necesitas ayuda, nosotros somos a quien acudir, ya que hacemos
-                    llegar tus sugerencias y reclamos a las empresas. <br><br>
-                    Estás a un paso de recibir tu solución.
-                </p>
-                <button (click)="registrar()" class="btn btn-primary btn-lg btn-block">Registrarse</button>
-                <button class="btn btn-danger btn-block">Ingresa como anónimo</button>
-                <a href="" style="color: #eeeeee; text-align: center"><small id="emailHelp" class="form-text" style="color: #eeeeee">Ver beneficios de un Usuario Registrado</small></a>
-            </form>
-        </div>
-    </div>
+<!-- CONTENIDO -->
+            <div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+                <div class="col-4"></div>
+                <div class="col-4 " style="color: #dddddd;">
+            
 
-<router-outlet></router-outlet>
-</div>
+                    <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
+                        Registro empresa
+                    </h4><br>
+                    <div clas="form-grup">
+                        <label for="">Rut Empresa</label>
+                        <input class="form-control" type="text"> 
+                    </div> 
+                    <div clas="form-grup">
+                        <label for="">Nombre Empresa</label> 
+                        <input class="form-control" type="text">   
+                    </div>
+                    <div clas="form-grup">
+                        <label for="">Email Empresa</label>
+                        <input class="form-control" type="text"> 
+                    </div>    
+                    <div clas="form-grup">
+                        <label for="">Tipo</label>
+                        <input class="form-control" type="text">     
+                    </div> 
+                    <div clas="form-grup">
+                        <label for="">Tag Empresa</label>
+                        <input class="form-control" type="text">                 
+                    </div> 
+                    <hr>
+                    <h2 style="color: white">informacion del usuario</h2>
+
+                    <div clas="form-grup">  
+                        <label for="">Nombre Trabajador</label>  
+                        <input class="form-control" type="text">              
+                    </div>
+                    <div clas="form-grup">  
+                        <label for="">Tipo trabajador</label> 
+                        <select class="browser-default custom-select " name="" id="">
+                            <option value="moderador">Moderador</option>
+                            <option value="administrador">Administrador</option>
+                        </select>          
+                    </div>
+                    <div clas="form-grup"> 
+                        <label for="">Contraseña trabajador </label>
+                        <input class="form-control" type="password">            
+                    </div>
+                    <div clas="form-grup"> 
+                        <label for="">Confirmar Contraseña trabajador </label>
+                        <input class="form-control" type="password">            
+                    </div>
+                    <button type="button" (click)="registro()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button>
+                    
+             
+                        
+                   
+                </div>
+                <div class="col-4"></div>
+            </div>
