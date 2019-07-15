@@ -7,6 +7,6 @@ import com.example.proyectoV1.entities.ReclamoSugerencia;
 public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerencia,Integer>{
 	ReclamoSugerencia save (ReclamoSugerencia r);
 	ReclamoSugerencia findOne(int idReclamoSugerencia);
-	
+	boolean update(String respuesta);
 	
 }
