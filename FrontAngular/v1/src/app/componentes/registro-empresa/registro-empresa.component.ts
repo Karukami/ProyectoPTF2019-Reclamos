@@ -31,5 +31,11 @@ export class RegistroEmpresaComponent implements OnInit {
   homeEmpresa(){
   	this.router.navigate(['home_empresa']);
   }
-
+  validarPass(){
+    let iguales:boolean=false;
+    if(this.pass2=this.trabajador.passTrabajador){
+      iguales=true;
+    }
+    return iguales; 
+  }
 }
