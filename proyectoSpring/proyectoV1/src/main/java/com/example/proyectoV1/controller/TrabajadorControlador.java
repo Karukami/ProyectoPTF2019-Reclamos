@@ -28,6 +28,5 @@ public class TrabajadorControlador {
 	@GetMapping
 	public List<Trabajador> listar(){
 		return service.listar();
-	}
-	
+	} 
 }
