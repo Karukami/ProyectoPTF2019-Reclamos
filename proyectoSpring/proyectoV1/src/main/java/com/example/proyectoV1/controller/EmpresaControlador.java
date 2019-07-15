@@ -16,7 +16,7 @@ import com.example.proyectoV1.services.EmpresaService;
 public class EmpresaControlador {
 	@Autowired
 	EmpresaService service;
-	
+	//Guarda una empresa en la DB
 	@PostMapping
 	public Empresa agregar(@RequestBody Empresa e) {
 		return service.add(e);
