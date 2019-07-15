@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("nombre",this.credenciales.nombreUsuario);
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
           localStorage.setItem("Email", email);
+          localStorage.setItem("idUsuario",""+this.credenciales.rutUsuario);
           this.router.navigate(["perfil"]);
         }else {
           this.errorMsg="Correo o Contraseña incorrectos";
