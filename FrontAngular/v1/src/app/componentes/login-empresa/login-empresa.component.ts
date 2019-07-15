@@ -15,11 +15,14 @@ export class LoginEmpresaComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //homeEmpresa():vacio->vacio
+  //redirige al compoenente Home_empresa
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
-
+  //registrar():vacio->vacio
+  //redirige a la url empresa/registro
+  //que hace referencia al componente registro-empresa 
   registrar(){
     this.router.navigate(["empresa/registro"]);
   }
