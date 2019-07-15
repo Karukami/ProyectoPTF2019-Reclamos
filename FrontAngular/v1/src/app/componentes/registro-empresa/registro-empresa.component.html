@@ -108,45 +108,45 @@
                     </h4><br>
                     <div clas="form-grup">
                         <label for="">Rut Empresa</label>
-                        <input class="form-control" type="text"> 
+                        <input [(ngModel)]="empresa.rutEmpresa" class="form-control" type="text"> 
                     </div> 
                     <div clas="form-grup">
                         <label for="">Nombre Empresa</label> 
-                        <input class="form-control" type="text">   
+                        <input [(ngModel)]="empresa.nombreEmpresa"class="form-control" type="text">   
                     </div>
                     <div clas="form-grup">
                         <label for="">Email Empresa</label>
-                        <input class="form-control" type="text"> 
+                        <input [(ngModel)]="empresa.emailEmpresa"class="form-control" type="text"> 
                     </div>    
                     <div clas="form-grup">
                         <label for="">Tipo</label>
-                        <input class="form-control" type="text">     
+                        <input [(ngModel)]="empresa.tipoEmpresa"class="form-control" type="text">     
                     </div> 
                     <div clas="form-grup">
                         <label for="">Tag Empresa</label>
-                        <input class="form-control" type="text">                 
+                        <input [(ngModel)]="emrpesa.tipoEmpresa"class="form-control" type="text">                 
                     </div> 
                     <hr>
+                    
                     <h2 style="color: white">informacion del usuario</h2>
-
+                    <!-- retustro trabajador empresa-->
                     <div clas="form-grup">  
-                        <label for="">Nombre Trabajador</label>  
-                        <input class="form-control" type="text">              
+                        <label for="">Nombre Trabajador/Username</label>  
+                        <input [(ngModel)]="nombreTrabajador"class="form-control" type="text">              
                     </div>
                     <div clas="form-grup">  
                         <label for="">Tipo trabajador</label> 
                         <select class="browser-default custom-select " name="" id="">
-                            <option value="moderador">Moderador</option>
                             <option value="administrador">Administrador</option>
                         </select>          
                     </div>
                     <div clas="form-grup"> 
                         <label for="">Contraseña trabajador </label>
-                        <input class="form-control" type="password">            
+                        <input [(ngModel)]="passTrabajador"class="form-control" type="password">            
                     </div>
                     <div clas="form-grup"> 
                         <label for="">Confirmar Contraseña trabajador </label>
-                        <input class="form-control" type="password">            
+                        <input [(ngModel)]="pass2" class="form-control" type="password">            
                     </div>
                     <button type="button" (click)="registro()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button>
                     

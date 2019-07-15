@@ -1,17 +1,17 @@
 export class Trabajador{
     idTrabajador:number;
-    nombretrabajador:string;
+    nombreTrabajador:string;
     apellidoTrabajador:string;
     tipoTrabajador:string;
-    passtrabajador:string;
+    passTrabajador:string;
   
     
     constructor(){
 
       this.idTrabajador=0;
-      this.nombretrabajador="";
+      this.nombreTrabajador="";
       this.tipoTrabajador="";
-      this.passtrabajador="";
+      this.passTrabajador="";
     }
   
     

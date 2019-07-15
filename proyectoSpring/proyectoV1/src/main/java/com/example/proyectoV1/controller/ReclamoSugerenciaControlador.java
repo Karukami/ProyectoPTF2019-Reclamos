@@ -26,7 +26,11 @@ public class ReclamoSugerenciaControlador {
 	}
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
-		System.out.println("dendro de editar");
+		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
+	}
+	@PostMapping
+	public boolean agregarRespuesta(String respuesta) {
+		return service.addRespuesta(respuesta);
 	}
 }
