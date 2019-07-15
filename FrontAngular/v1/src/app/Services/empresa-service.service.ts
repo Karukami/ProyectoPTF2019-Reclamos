@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Empresa } from '../Modelo/Empresa';
-import { trabajador } from '../Modelo/trabajador';
+import { Trabajador } from '../Modelo/trabajador';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,8 @@ export class EmpresaServiceService {
   //crearTrabajador():Trabajador ->vacio ->realiza una pericion post al servicor de back-end
   //envia atravex de metodo post el objeto Trabajador 
   //el cual sera agregado a la db desde el back
-  crearTrabajador(trabajador:trabajador){
-    return this.http.post<trabajador>(this.url,trabajador);
+  crearTrabajador(trabajador:Trabajador){
+    return this.http.post<Trabajador>(this.url,trabajador);
   }
 
 }

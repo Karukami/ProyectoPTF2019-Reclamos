@@ -1,4 +1,4 @@
-export class trabajador{
+export class Trabajador{
     idTrabajador:number;
     nombretrabajador:string;
     apellidoTrabajador:string;
