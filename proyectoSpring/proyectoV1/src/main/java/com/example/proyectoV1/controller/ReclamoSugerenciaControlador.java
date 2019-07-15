@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,5 +30,11 @@ public class ReclamoSugerenciaControlador {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
+	@PutMapping(path = {"/id"})
+	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
+		x.setRespuestaRS(respuesta);
+		return service.edit(x);
+	}
+	
 		
 }

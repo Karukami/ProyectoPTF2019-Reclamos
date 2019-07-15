@@ -18,6 +18,10 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	public ReclamoSugerencia listarIdReclamoSugerencia(int idReclamoSugerencia) {
 		return repositorio.findOne(idReclamoSugerencia);
 	}
+	@Override
+	public ReclamoSugerencia edit(ReclamoSugerencia x) {
+		return repositorio.save(x);
+	}
 
 	
 }
