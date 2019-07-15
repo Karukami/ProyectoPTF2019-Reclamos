@@ -44,10 +44,10 @@ public Usuario agregar(@RequestBody Usuario p) {
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 	return service.listarId_RutUsuario(rutusuario);
 }
-
+//Edita un rut de usuario 
 @PutMapping(path= {"/{rutUsuario}"})
 public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
-	System.out.println("dendro de editar");
+
 p.setRutUsuario(rutusuario);
 return service.edit(p);
 }
