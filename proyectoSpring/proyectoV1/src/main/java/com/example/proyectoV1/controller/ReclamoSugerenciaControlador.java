@@ -17,7 +17,7 @@ import com.example.proyectoV1.services.ReclamoSugerenciaService;
 @RestController
 @RequestMapping({"/ReclamoSugerencia"})
 @EnableAutoConfiguration
-public class ReclamoSugerenciaControlador {
+public class ReclamoSugerenciaControlador { 
 	@Autowired
 	ReclamoSugerenciaService service;
 	

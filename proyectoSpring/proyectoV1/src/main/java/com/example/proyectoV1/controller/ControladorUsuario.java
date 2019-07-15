@@ -40,7 +40,6 @@ public Usuario agregar(@RequestBody Usuario p) {
 
 @RequestMapping(value="/{rutUsuario}", method=RequestMethod.GET)
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
-	System.out.println("dendro de editar");
 	return service.listarId_RutUsuario(rutusuario);
 }
 
