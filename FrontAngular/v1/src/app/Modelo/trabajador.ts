@@ -1,5 +1,3 @@
-import { stringify } from 'querystring';
-
 export class Trabajador{
     idTrabajador:number;
     nombreTrabajador:string;
