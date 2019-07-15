@@ -17,12 +17,15 @@ export class EmpresaServiceService {
   	return this.http.post<Empresa>(this.url,empresa);
   }
   
-  //crearTrabajador():Trabajador ->vacio ->realiza una pericion post al servicor de back-end
-  //envia atravex de metodo post el objeto Trabajador 
-  //el cual sera agregado a la db desde el back
+  //crearTrabajador():Trabajador -><trabajador> ->realiza una pericion post al servicor de back-end
+  //envia atravez de metodo post el objeto Trabajador 
+  //el cual sera agregado a la db desde el back-end
   crearTrabajador(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url,trabajador);
   }
+  //logIn(): trabajador -><Trabajador> -> realiza una peticion post al servidor de back-end
+  //envia a travezdel metodo post el objeto trabajador 
+  // el cual contiene las credenciales para realizar el logIn
   logIn(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url,trabajador);
   }

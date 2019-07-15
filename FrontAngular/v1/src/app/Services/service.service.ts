@@ -8,10 +8,12 @@ export class ServiceService {
 
   constructor(private http:HttpClient) { }
   url='http://localhost:8080/Usuario'
-
+  //getUsuario(): vacio->devuelve-> UsuaroRegistrado[] 
+  //devuelve todos los usuarios resitrados
   getUsuarios(){
     return this.http.get<UsuarioRegistrado[]>(this.url);
   }
+  //
   crearUsuario(usuarioregistrado:UsuarioRegistrado){
     return this.http.post<UsuarioRegistrado>(this.url,usuarioregistrado);
   }
