@@ -24,4 +24,12 @@ export class RegistroEmpresaComponent implements OnInit {
     this.router.navigate(['perfilEmpresa']);
   }
 
+  loginEmpresa(){
+  	this.router.navigate(["empresa/login"])
+  }
+
+  homeEmpresa(){
+  	this.router.navigate(["home_empresa"])
+  }
+
 }
