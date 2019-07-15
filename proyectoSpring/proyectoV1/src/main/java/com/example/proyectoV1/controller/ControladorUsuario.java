@@ -39,7 +39,7 @@ return service.listar();
 public Usuario agregar(@RequestBody Usuario p) {
 	return service.add(p);
 }
-
+//Lista por rut de usuario
 @RequestMapping(value="/{rutUsuario}", method=RequestMethod.GET)
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 	return service.listarId_RutUsuario(rutusuario);
