@@ -23,5 +23,8 @@ export class EmpresaServiceService {
   crearTrabajador(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url,trabajador);
   }
+  logIn(trabajador:Trabajador){
+    return this.http.post<Trabajador>(this.url,trabajador);
+  }
 
 }
