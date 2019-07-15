@@ -17,19 +17,21 @@ import com.example.proyectoV1.services.ReclamoSugerenciaService;
 @RestController
 @RequestMapping({"/ReclamoSugerencia"})
 @EnableAutoConfiguration
-public class ReclamoSugerenciaControlador {
+public class ReclamoSugerenciaControlador { 
 	@Autowired
 	ReclamoSugerenciaService service;
-	
+	//Agrega un RS en la DB
 	@PostMapping
 	public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
 		return service.add(r);
 	}
+	//Lista los RS por id
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
+	//Permite agregar una respuesta al RS
 	@PutMapping(path = {"/id"})
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);

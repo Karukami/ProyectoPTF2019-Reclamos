@@ -20,11 +20,12 @@ import com.example.proyectoV1.services.TrabajadorService;
 public class TrabajadorControlador {
 	@Autowired
 	TrabajadorService service;
-	
+	//Agrga un Trabajador a la DB
 	@PostMapping
 	public Trabajador agregar(@RequestBody Trabajador t) {
 		return service.add(t);
 	}
+	//Lista los trabajadores
 	@GetMapping
 	public List<Trabajador> listar(){
 		return service.listar();
