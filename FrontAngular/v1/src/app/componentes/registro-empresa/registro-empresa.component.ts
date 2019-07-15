@@ -25,11 +25,11 @@ export class RegistroEmpresaComponent implements OnInit {
   }
 
   loginEmpresa(){
-  	this.router.navigate(["empresa/login"])
+  	this.router.navigate(['empresa/login']);
   }
 
   homeEmpresa(){
-  	this.router.navigate(["home_empresa"])
+  	this.router.navigate(['home_empresa']);
   }
 
 }
