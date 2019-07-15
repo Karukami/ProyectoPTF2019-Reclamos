@@ -7,6 +7,7 @@ export class ReclamoSugerencia{
     idEmpleado:number;
     estado:string;
     tipo:string;
+    respuesta:string;
     
     constructor(){
         this.idReclamoSugerencia=0;
@@ -17,6 +18,7 @@ export class ReclamoSugerencia{
         this.idEmpleado=0;
         this.estado="";
         this.tipo="";
+        this.respuesta="";
     }
   
     
