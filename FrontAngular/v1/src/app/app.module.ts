@@ -17,6 +17,7 @@ import { HomeEmpresaComponent } from './componentes/home-empresa/home-empresa.co
 import { RealizarReclamoEmbebidaComponent } from './componentes/realizar-reclamo-embebida/realizar-reclamo-embebida.component';
 import { RealizarSugerenciaComponent } from './componentes/realizar-sugerencia/realizar-sugerencia.component';
 import { BusquedaIdComponent } from './componentes/busqueda-id/busqueda-id.component';
+import { RegistroEmpresaComponent } from './componentes/registro-empresa/registro-empresa.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { BusquedaIdComponent } from './componentes/busqueda-id/busqueda-id.compo
     HomeEmpresaComponent,
     RealizarReclamoEmbebidaComponent,
     RealizarSugerenciaComponent,
-    BusquedaIdComponent
+    BusquedaIdComponent,
+    RegistroEmpresaComponent
 
   ],
   imports: [
