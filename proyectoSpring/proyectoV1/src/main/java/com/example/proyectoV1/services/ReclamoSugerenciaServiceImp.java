@@ -18,8 +18,6 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	public ReclamoSugerencia listarIdReclamoSugerencia(int idReclamoSugerencia) {
 		return repositorio.findOne(idReclamoSugerencia);
 	}
-	@Override
-	public boolean addRespuesta(String respuesta) {
-		return repositorio.update(respuesta);
-	}
+
+	
 }

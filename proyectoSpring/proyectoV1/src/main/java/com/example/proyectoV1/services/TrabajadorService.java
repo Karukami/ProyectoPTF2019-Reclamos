@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.example.proyectoV1.entities.Trabajador;
-@Service
+
 public interface TrabajadorService {	
 	 Trabajador add(Trabajador t);
 	 List<Trabajador>listar();

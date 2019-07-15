@@ -29,8 +29,5 @@ public class ReclamoSugerenciaControlador {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
-	@PostMapping
-	public boolean agregarRespuesta(String respuesta) {
-		return service.addRespuesta(respuesta);
-	}
+		
 }
