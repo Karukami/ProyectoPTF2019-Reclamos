@@ -132,17 +132,17 @@
                     <!-- retustro trabajador empresa-->
                     <div clas="form-grup">  
                         <label for="">Nombre Trabajador/Username</label>  
-                        <input [(ngModel)]="nombreTrabajador"class="form-control" type="text">              
+                        <input [(ngModel)]="trabajador.nombreTrabajador"class="form-control" type="text">              
                     </div>
                     <div class="form-grup">  
                         <label for="">Tipo trabajador</label> 
-                        <select class="browser-default custom-select " name="" id="">
+                        <select class="browser-default custom-select " [(ngModel)]="trabajador.tipo"name="" id="">
                             <option value="administrador">Administrador</option>
                         </select>          
                     </div>
                     <div class="form-grup"> 
                         <label for="">Contraseña trabajador </label>
-                        <input [(ngModel)]="passTrabajador"class="form-control" type="password">            
+                        <input [(ngModel)]="trabajador.passTrabajador"class="form-control" type="password">            
                     </div>
                     <div class="form-grup"> 
                         <label for="">Confirmar Contraseña trabajador </label>
