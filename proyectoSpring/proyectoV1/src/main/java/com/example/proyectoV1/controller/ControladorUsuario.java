@@ -28,6 +28,7 @@ public class ControladorUsuario {
 @Autowired
 UsuarioService service;
 
+//Listar todos los usuarios de la DATABASE
 @GetMapping
 public List<Usuario>Listar(){
 return service.listar(); 
