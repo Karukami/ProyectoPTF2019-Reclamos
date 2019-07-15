@@ -20,7 +20,7 @@ import com.example.proyectoV1.services.ReclamoSugerenciaService;
 public class ReclamoSugerenciaControlador { 
 	@Autowired
 	ReclamoSugerenciaService service;
-	
+	//Agrega un RS en la DB
 	@PostMapping
 	public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
 		return service.add(r);
