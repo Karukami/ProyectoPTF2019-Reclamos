@@ -25,6 +25,7 @@ public class ReclamoSugerenciaControlador {
 	public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
 		return service.add(r);
 	}
+	//Lista los RS por id
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
