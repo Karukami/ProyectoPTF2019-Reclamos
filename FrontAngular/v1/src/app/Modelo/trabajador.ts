@@ -1,10 +1,12 @@
+import { stringify } from 'querystring';
+
 export class Trabajador{
     idTrabajador:number;
     nombreTrabajador:string;
     apellidoTrabajador:string;
     tipoTrabajador:string;
     passTrabajador:string;
-  
+    empresa:string;
     
     constructor(){
 
@@ -12,6 +14,7 @@ export class Trabajador{
       this.nombreTrabajador="";
       this.tipoTrabajador="";
       this.passTrabajador="";
+      this.empresa="";
     }
   
     
