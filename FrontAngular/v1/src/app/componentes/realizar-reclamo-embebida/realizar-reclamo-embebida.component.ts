@@ -21,6 +21,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
   ngOnInit() {
     if (localStorage.getItem('Email')!="anonimo"){
       this.sesion=true;
+      this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
     }
     this.pathVariavles.params.subscribe(params=> this.idEmpresa=params['id']);
   console.log("id_ "+this.idEmpresa);
@@ -30,7 +31,6 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
     this.rs.idReclamoSugerencia=0;
     this.rs.idEmpleado=0;
     this.rs.estado="en proseso";
-    this.rs.usuarioReclamoSugerencia=0;
     this.rs.tipo=this.tipo
     this.rs.respuestaRS="aun no tiene respuestas";
     
