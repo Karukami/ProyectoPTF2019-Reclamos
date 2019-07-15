@@ -10,8 +10,11 @@ export class TrabajadorServiceService {
   constructor(private http:HttpClient) { }
   url='http://localhost:8080/Trabajador';
 
+  //obtenerReclamosSugerencias(): vacio->ReclamoSugerencia[]
+  //hace la peticion al back en para que le envie todos los reclamos y digerencia 
+  //la cinsulta se realiza a travez del metodo post 
   obtenerReclamosSugerencias(){
-    return this.http.get<ReclamoSugerencia>(this.url);
+    return this.http.get<ReclamoSugerencia[]>(this.url);
   }
   //crearTrabajador():Trabajador ->vacio ->realiza una pericion post al servicor de back-end
   //envia atravex de metodo post el objeto Trabajador 
