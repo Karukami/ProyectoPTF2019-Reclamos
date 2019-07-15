@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Empresa } from '../Modelo/Empresa';
+import { trabajador } from '../Modelo/trabajador';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,8 @@ export class EmpresaServiceService {
   }
   
 
-  
+  crearTrabajador(trabajador:trabajador){
+    return this.http.post<trabajador>(this.url,trabajador);
+  }
 
 }
