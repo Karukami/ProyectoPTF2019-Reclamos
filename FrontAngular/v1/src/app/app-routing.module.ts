@@ -27,7 +27,8 @@ const routes: Routes = [
   {path:"realizar_sugerencia",component:RealizarSugerenciaComponent},
   {path:"buscar_id",component:BusquedaIdComponent},
   {path:"empresa/registro",component:RegistroEmpresaComponent},
-  {path:"empresa/login",component:LoginEmpresaComponent}
+  {path:"empresa/login",component:LoginEmpresaComponent},
+  {path:"empresa",component:HomeEmpresaComponent}
 ];
 
 @NgModule({
