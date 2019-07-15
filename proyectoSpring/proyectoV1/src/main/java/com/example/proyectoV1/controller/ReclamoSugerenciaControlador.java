@@ -31,7 +31,7 @@ public class ReclamoSugerenciaControlador {
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
 	@PutMapping(path = {"/id"})
-	public ReclamoSugerencia editar(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
+	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);
 		return service.edit(x);
 	}
