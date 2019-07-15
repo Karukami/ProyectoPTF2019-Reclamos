@@ -59,13 +59,15 @@ public class UsuarioServiceImp  implements UsuarioService{
 			}
 			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
 			usuarioAVerificar.setPassUsuario("valido");
-			
+			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
 			}else {
-				usuarioAVerificar.setPassUsuario("no valido");
+				Usuario userInvalido = new Usuario();
+				userInvalido.setPassUsuario("no valido");
+				return ResponseEntity.status(HttpStatus.OK).body(userInvalido);
 			}
 			
 			
-			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
+			
 			
 		}catch(NullPointerException ex) {
 			usuarioAVerificar=new Usuario();
