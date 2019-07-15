@@ -29,7 +29,7 @@ export class RealizarReclamoComponent implements OnInit {
     this.rs.idEmpleado=0;
     this.rs.estado="en proseso";
     this.rs.usuarioReclamoSugerencia=Number(localStorage.getItem('idUsuario'));
-    
+    this.rs.respuestaRS="aun no hay respuesta";
     this.rs.fechaReclamoSugerencia=new Date();
 
     this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
