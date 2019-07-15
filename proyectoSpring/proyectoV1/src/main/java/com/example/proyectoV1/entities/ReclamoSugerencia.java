@@ -24,6 +24,10 @@ public class ReclamoSugerencia {
   private String estado; 
   @Column (name = "tipo")
   private String tipo;
+  @Column (name = "respuesta")
+  private String respuestaRS;
+  @Column (name = "titulo")
+  private String tituloRS;
 public int getIdReclamoSugerencia() {
 	return idReclamoSugerencia;
 }
@@ -72,6 +76,19 @@ public String getTipo() {
 public void setTipo(String tipo) {
 	this.tipo = tipo;
 }
+public String getRespuestaRS() {
+	return respuestaRS;
+}
+public void setRespuestaRS(String respuestaRS) {
+	this.respuestaRS = respuestaRS;
+}
+public String getTituloRS() {
+	return tituloRS;
+}
+public void setTituloRS(String tituloRS) {
+	this.tituloRS = tituloRS;
+}
+
   
 
    

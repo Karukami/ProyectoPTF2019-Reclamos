@@ -2,36 +2,33 @@ package com.example.proyectoV1.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 
 import com.example.proyectoV1.entities.Trabajador;
+import com.example.proyectoV1.repositories.TrabajadorRepositorio;
 
 public class TrabajadorServiceImp implements TrabajadorService{
 
+	@Autowired
+	TrabajadorRepositorio repositorio;
+	
 	@Override
 	public Trabajador add(Trabajador t) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorio.save(t);
 	}
-
 	@Override
 	public List<Trabajador> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorio.findAll();
 	}
-
 	@Override
 	public Trabajador edit(Trabajador p) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorio.save(p);
 	}
-
 	@Override
 	public Trabajador delete(Trabajador p) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorio.delete(p);
 	}
-
 	@Override
 	public ResponseEntity<Trabajador> logIn(Trabajador p) {
 		// TODO Auto-generated method stub
