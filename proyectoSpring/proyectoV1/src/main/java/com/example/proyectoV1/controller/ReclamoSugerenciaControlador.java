@@ -31,6 +31,7 @@ public class ReclamoSugerenciaControlador {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
+	//Permite agregar una respuesta al RS
 	@PutMapping(path = {"/id"})
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);
