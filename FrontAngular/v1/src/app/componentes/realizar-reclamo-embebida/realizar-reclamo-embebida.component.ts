@@ -19,7 +19,7 @@ export class RealizarReclamoEmbebidaComponent implements OnInit {
   constructor(private router:Router,private serviceRS:RsServiceService,private pathVariavles:ActivatedRoute) { }
 
   ngOnInit() {
-    if (localStorage.getItem('Email')!='anonimo'){
+    if (localStorage.getItem('Email')!="anonimo"){
       this.sesion=true;
     }
     this.pathVariavles.params.subscribe(params=> this.idEmpresa=params['id']);
