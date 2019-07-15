@@ -57,7 +57,7 @@ return service.edit(p);
 public boolean logIn(@RequestBody Usuario p){
 	
 	return service.logIn(p); */
-
+//Permite a un usuario hacer login
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
 	
