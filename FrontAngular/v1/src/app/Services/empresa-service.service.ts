@@ -29,5 +29,15 @@ export class EmpresaServiceService {
   logIn(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url,trabajador);
   }
+  listaEmpresas(){
+    return this.http.get<string[]>(this.url+"/");
+  }
+  nombreEmpresa(id:number){
+    return this.http.get<string>(this.url+"/"+id);
+
+  }
+  idEmpresa(nombre:string){
+    return this.http.get(this.url+"/id/"+nombre);
+  }
 
 }

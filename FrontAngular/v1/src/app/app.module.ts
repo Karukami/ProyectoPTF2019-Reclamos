@@ -20,6 +20,10 @@ import { BusquedaIdComponent } from './componentes/busqueda-id/busqueda-id.compo
 import { RegistroEmpresaComponent } from './componentes/registro-empresa/registro-empresa.component';
 import { LoginEmpresaComponent } from './componentes/login-empresa/login-empresa.component';
 import { PerfilEmpresaComponent } from './componentes/perfil-empresa/perfil-empresa.component';
+import { ReclamoAnonimoComponent } from './componentes/anonimo/reclamo-anonimo/reclamo-anonimo.component';
+import { SugerenciaAnonimoComponent } from './componentes/anonimo/sugerencia-anonimo/sugerencia-anonimo.component';
+import { BusquedaAnonimoComponent } from './componentes/anonimo/busqueda-anonimo/busqueda-anonimo.component';
+import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { PerfilEmpresaComponent } from './componentes/perfil-empresa/perfil-empr
     BusquedaIdComponent,
     RegistroEmpresaComponent,
     LoginEmpresaComponent,
-    PerfilEmpresaComponent
+    PerfilEmpresaComponent,
+    ReclamoAnonimoComponent,
+    SugerenciaAnonimoComponent,
+    BusquedaAnonimoComponent,
+    ReclamoSugerenciaEnviadoComponent
 
   ],
   imports: [

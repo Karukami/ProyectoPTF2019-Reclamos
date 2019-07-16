@@ -12,6 +12,9 @@ import { RealizarSugerenciaComponent } from './componentes/realizar-sugerencia/r
 import { BusquedaIdComponent } from './componentes/busqueda-id/busqueda-id.component';
 import { RegistroEmpresaComponent } from './componentes/registro-empresa/registro-empresa.component';
 import { LoginEmpresaComponent} from './componentes/login-empresa/login-empresa.component';
+import { ReclamoAnonimoComponent } from './componentes/anonimo/reclamo-anonimo/reclamo-anonimo.component';
+import { SugerenciaAnonimoComponent } from './componentes/anonimo/sugerencia-anonimo/sugerencia-anonimo.component';
+import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -28,7 +31,10 @@ const routes: Routes = [
   {path:"buscar_id",component:BusquedaIdComponent},
   {path:"empresa/registro",component:RegistroEmpresaComponent},
   {path:"empresa/login",component:LoginEmpresaComponent},
-  {path:"empresa",component:HomeEmpresaComponent}
+  {path:"empresa",component:HomeEmpresaComponent},
+  {path:"anonimo/realizar_reclamo",component:ReclamoAnonimoComponent},
+  {path:"anonimo/realizar_sugerencia",component:SugerenciaAnonimoComponent},
+  {path:"anonimo/reclamo_sugerencia_anonimo_enviado",component:ReclamoSugerenciaEnviadoComponent}
 ];
 
 @NgModule({
