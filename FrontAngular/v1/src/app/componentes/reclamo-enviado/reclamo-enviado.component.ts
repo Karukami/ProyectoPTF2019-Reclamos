@@ -24,11 +24,14 @@ export class ReclamoEnviadoComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  //formatoParrafo():string->string[]
+  //genera un areglo de string con el tamaño necesario para
+  //que no se alga del pdf 
   formatoParafo(cadena:string):string[]{
     let parafo:string[]=[];
     let cantfiilas=Number(cadena.length/42)+1;
-    let  CANRTCHARORFILA=70;
-    let indice:number=70;
+    let  CANRTCHARORFILA:number=70;
+    let indice:number=CANRTCHARORFILA;
     let inicio:number=0;
 
 
