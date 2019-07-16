@@ -33,6 +33,12 @@ realizarReclamoSugerencia() {
   
   this.rs.fechaReclamoSugerencia=new Date();
 
+  localStorage.setItem("tituloRS",this.rs.tituloRS);
+  localStorage.setItem("empresa",""+this.rs.idEmpresa);
+  localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
+  localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
+  localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
+  localStorage.setItem("tipo",this.rs.tipo);
   this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
   //alert("reclamo generado enviado con exito ");
   this.router.navigate(["rs_enviado"]);
