@@ -77,14 +77,15 @@ export class ReclamoEnviadoComponent implements OnInit {
     doc.text(10,70,"Empresa:"+empresa);
     doc.text(10,80,"Titulo: "+titulo);
     doc.text(10, 90, "Detalle:");
-    
+    doc.setFontSize(12);
     let parafo=this.formatoParafo(detalle);
+    
     let posicion=100;
     for(let i=0;i<parafo.length;i++){
       doc.text(10,posicion,parafo[i]);
       posicion+=10;
     }
-    
+    doc.setFontSize(16);
     //linea de separacion entre "body" y "footer"
     doc.line(6, 280, 200, 280)
     doc.setFontSize(12);
