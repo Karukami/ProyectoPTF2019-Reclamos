@@ -46,5 +46,5 @@ export class RealizarReclamoComponent implements OnInit {
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
-
+  
 }
