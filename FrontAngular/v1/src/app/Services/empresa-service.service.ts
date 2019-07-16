@@ -30,10 +30,10 @@ export class EmpresaServiceService {
     return this.http.post<Trabajador>(this.url,trabajador);
   }
   listaEmpresas(){
-    return this.http.get<string[]>(this.url+"/");
+    return this.http.get<string[]>(this.url+"/nombre");
   }
   nombreEmpresa(id:number){
-    return this.http.get<string>(this.url+"/"+id);
+    return this.http.get<string>(this.url+"/nombre/"+id);
 
   }
   idEmpresa(nombre:string){
