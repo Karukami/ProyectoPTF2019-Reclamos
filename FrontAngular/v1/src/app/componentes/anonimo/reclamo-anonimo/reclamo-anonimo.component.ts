@@ -13,7 +13,7 @@ export class ReclamoAnonimoComponent implements OnInit {
 
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
-  empresas:string[]=["aguas andinas","enel","gasco","vtr"];
+  empresas:string[]=[];
   empresa:string;
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;

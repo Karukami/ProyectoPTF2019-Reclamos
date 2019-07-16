@@ -44,7 +44,12 @@ export class HomeComponent implements OnInit {
     
   }
   reclamo(){
-    this.router.navigate(["realizar_reclamo"]);
+    if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+      this.router.navigate(["anonimo/realizar_reclamo"]);
+    }else{
+      this.router.navigate(["realizar_reclamo"]);
+
+    }
   }
     
   
