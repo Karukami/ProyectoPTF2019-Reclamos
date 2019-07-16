@@ -91,5 +91,10 @@ export class ReclamoEnviadoComponent implements OnInit {
     //metodo para generar el pdf
     doc.save(nombreArchivo);
   }
-
+  realizarSugerencia(){
+    this.router.navigate(["realizar_sugerencia"]);
+  }
+  realizarReclamo(){
+    this.router.navigate(["realizar_reclamo"]);
+  }
 }
