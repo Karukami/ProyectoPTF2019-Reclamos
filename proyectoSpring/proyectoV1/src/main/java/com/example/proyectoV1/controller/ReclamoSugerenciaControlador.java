@@ -1,7 +1,5 @@
-
 package com.example.proyectoV1.controller;
-
-
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 import com.example.proyectoV1.services.ReclamoSugerenciaService;
-
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
 @RequestMapping({"/ReclamoSugerencia"})
@@ -39,6 +36,34 @@ public class ReclamoSugerenciaControlador {
 		x.setRespuestaRS(respuesta);
 		return service.edit(x);
 	}
-
+	@RequestMapping(value = "/id/{usuarioReclamoSugerencia}",method = RequestMethod.GET)
+	public int rsByUser (@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia) {
+		ArrayList<ReclamoSugerencia> rsUser = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
+		return rsUser.get(rsUser.size()-1).getIdReclamoSugerencia();
+		
+	}
 		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
