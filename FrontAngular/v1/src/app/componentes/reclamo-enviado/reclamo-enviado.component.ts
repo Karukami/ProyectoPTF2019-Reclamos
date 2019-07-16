@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as jsPDF from 'jspdf';
-import { Base64 } from 'js-base64';
+
+import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 
 @Component({
   selector: 'app-reclamo-enviado',
@@ -10,7 +11,7 @@ import { Base64 } from 'js-base64';
 })
 export class ReclamoEnviadoComponent implements OnInit {
   idBusqueda:number;
-  constructor(private router:Router) { }
+  constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
 
   ngOnInit() {
   }
@@ -50,14 +51,22 @@ export class ReclamoEnviadoComponent implements OnInit {
     return parafo;
   }
   generarPdf(){
+    
     //informacion del reclamo o sujerencia
     let titulo=localStorage.getItem("tituloRS");
-    let empresa=localStorage.getItem("empresa");
+    let idEmpresa=localStorage.getItem("empresa");
     let id=localStorage.getItem("idRS");
     let fecha=localStorage.getItem("fecha");
     let detalle=localStorage.getItem("detalleRS");
     let tipo=localStorage.getItem("tipo");
     //fecha.toDateString().replace(" ","_")// convertir objeto Date a string
+    let nombreEmpresa:string;
+    try {
+      this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{nombreEmpresa=data})
+      
+    } catch (error) {
+     nombreEmpresa="no se puedo ver empresa"
+    }
 
     let doc = new jsPDF();
     //añadir imagen (logo superior)
@@ -74,7 +83,7 @@ export class ReclamoEnviadoComponent implements OnInit {
     doc.text(10,60,"fecha: "+fecha);
     
     doc.setFontSize(16);
-    doc.text(10,70,"Empresa:"+empresa);
+    doc.text(10,70,"Empresa:"+nombreEmpresa);
     doc.text(10,80,"Titulo: "+titulo);
     doc.text(10, 90, "Detalle:");
     doc.setFontSize(12);
