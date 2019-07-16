@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ReclamoSugerencia} from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
+import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
+import { Observable } from 'rxjs';
 
 
 
@@ -14,12 +16,12 @@ export class RealizarReclamoComponent implements OnInit {
 
 	rs:ReclamoSugerencia=new ReclamoSugerencia();
   idBusqueda:number;
-  empresas:string[]=["aguas andinas","enel","gasco","vtr"];
+  empresas:Array<string>=[];
   empresa:string;
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
 
-  constructor(private router:Router, private serviceRS:RsServiceService) { }
+  constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
   ngOnInit() {
     this.rs.idReclamoSugerencia=0;
@@ -28,6 +30,11 @@ export class RealizarReclamoComponent implements OnInit {
     if(credencial=="anonimo"|| credencial==null){
       this.router.navigate(["home"]);
     }
+    this.servicioEmpresa.listaEmpresas().subscribe(data=>{
+      this.empresas=data;
+      console.log(data);
+    });
+
   }
   
   realizarReclamoSugerencia() {
