@@ -32,7 +32,7 @@ export class RealizarReclamoComponent implements OnInit {
     }
     this.servicioEmpresa.listaEmpresas().subscribe(data=>{
       this.empresas=data;
-      console.log(data);
+    
     });
 
   }
