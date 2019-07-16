@@ -20,6 +20,10 @@ constructor(private router:Router, private serviceRS:RsServiceService) { }
 
 ngOnInit() {
   this.rs.idReclamoSugerencia=0;
+  let credencial=localStorage.getItem("Email");
+  if(credencial=="anonimo"|| credencial==null){
+    this.router.navigate(["home"]);
+  }
 }
 
 realizarReclamoSugerencia() {
