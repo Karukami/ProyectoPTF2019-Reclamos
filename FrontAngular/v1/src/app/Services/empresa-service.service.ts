@@ -33,11 +33,11 @@ export class EmpresaServiceService {
     return this.http.get<string[]>(this.url+"/nombre");
   }
   nombreEmpresa(id:number){
-    return this.http.get<string>(this.url+"/nombre/"+id);
-
+    return this.http.get<Empresa>(this.url+"/nombre/"+id);
+  
   }
   idEmpresa(nombre:string){
-    return this.http.get(this.url+"/id/"+nombre);
+    return this.http.get(this.url+"/nombre/id/"+nombre);
   }
 
 }

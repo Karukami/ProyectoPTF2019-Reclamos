@@ -34,30 +34,34 @@ ngOnInit() {
 
 realizarReclamoSugerencia() {
   try {
-    this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{this.rs.idEmpresa=Number(data)})
+    this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
+      this.rs.idEmpresa=Number(data)
+      console.log(this.rs.idEmpresa);
+      this.rs.tipo="sugerencia";
+ 
+      this.rs.idReclamoSugerencia=0;
+      this.rs.idEmpleado=0;
+      this.rs.estado="en proseso";
+      this.rs.usuarioReclamoSugerencia=0;
+      this.rs.respuestaRS="aun no tiene respuesta";
+      
+      this.rs.fechaReclamoSugerencia=new Date();
+    
+      localStorage.setItem("tituloRS",this.rs.tituloRS);
+      localStorage.setItem("empresa",this.rs.idEmpresa+"");
+      localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
+      localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
+      localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
+      localStorage.setItem("tipo",this.rs.tipo);
+      this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
+      //alert("reclamo generado enviado con exito ");
+      this.router.navigate(["rs_enviado"]);
+    })
     
   } catch (error) {
    this.rs.idEmpresa=0; 
   }
-  this.rs.tipo="sugerencia";
-  this.rs.idEmpresa=1;
-  this.rs.idReclamoSugerencia=0;
-  this.rs.idEmpleado=0;
-  this.rs.estado="en proseso";
-  this.rs.usuarioReclamoSugerencia=0;
-  this.rs.respuestaRS="aun no tiene respuesta";
   
-  this.rs.fechaReclamoSugerencia=new Date();
-
-  localStorage.setItem("tituloRS",this.rs.tituloRS);
-  localStorage.setItem("empresa",""+this.rs.idEmpresa);
-  localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
-  localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
-  localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
-  localStorage.setItem("tipo",this.rs.tipo);
-  this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
-  //alert("reclamo generado enviado con exito ");
-  this.router.navigate(["rs_enviado"]);
 }
 
 buscarPorId(){

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import * as jsPDF from 'jspdf';
 
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
+import { ConditionalExpr } from '@angular/compiler';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 @Component({
   selector: 'app-reclamo-enviado',
@@ -11,6 +13,8 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
 })
 export class ReclamoEnviadoComponent implements OnInit {
   idBusqueda:number;
+  nombreEmpresa:string;
+  empresa:Empresa=new Empresa();
   constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
 
   ngOnInit() {
@@ -60,49 +64,53 @@ export class ReclamoEnviadoComponent implements OnInit {
     let detalle=localStorage.getItem("detalleRS");
     let tipo=localStorage.getItem("tipo");
     //fecha.toDateString().replace(" ","_")// convertir objeto Date a string
-    let nombreEmpresa:string;
+
     try {
-      this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{nombreEmpresa=data})
+      console.log(localStorage.getItem("empresa"));
+      console.log(this.servicioEmpresa.nombreEmpresa(+idEmpresa).subscribe(data=>{
+        this.empresa=data;
+        let doc = new jsPDF();
+        //añadir imagen (logo superior)
+        let logo=new Image();
+        logo.src="../../../assets/logo.png";
+        doc.addImage(logo,"png",6,6,40,40);
+        //linea de separacion entre "header" y "body"
+        doc.line(6, 54, 200, 54)
+    
+        doc.setFontSize(22);
+        doc.text(100,30,"ID: "+id);
+        doc.setFontSize(12);
+        doc.text(100,40,"tipo: "+tipo);
+        doc.text(10,60,"fecha: "+fecha);
+        
+        doc.setFontSize(16);
+        doc.text(10,70,"Empresa:"+this.empresa.nombreEmpresa);
+        doc.text(10,80,"Titulo: "+titulo);
+        doc.text(10, 90, "Detalle:");
+        doc.setFontSize(12);
+        let parafo=this.formatoParafo(detalle);
+        
+        let posicion=100;
+        for(let i=0;i<parafo.length;i++){
+          doc.text(10,posicion,parafo[i]);
+          posicion+=10;
+        }
+        doc.setFontSize(16);
+        //linea de separacion entre "body" y "footer"
+        doc.line(6, 280, 200, 280)
+        doc.setFontSize(12);
+        doc.text(80,290,"www.g3reclamos.cl");
+        //asignacion de nombre al pdf
+        let nombreArchivo:string="G3_"+fecha+"_"+id+".pdf";
+        //metodo para generar el pdf
+        doc.save(nombreArchivo);
+      }));
       
     } catch (error) {
-     nombreEmpresa="no se puedo ver empresa"
+     this.empresa.nombreEmpresa="no se puedo ver empresa"
     }
 
-    let doc = new jsPDF();
-    //añadir imagen (logo superior)
-    let logo=new Image();
-    logo.src="../../../assets/logo.png";
-    doc.addImage(logo,"png",6,6,40,40);
-    //linea de separacion entre "header" y "body"
-    doc.line(6, 54, 200, 54)
-
-    doc.setFontSize(22);
-    doc.text(100,30,"ID: "+id);
-    doc.setFontSize(12);
-    doc.text(100,40,"tipo: "+tipo);
-    doc.text(10,60,"fecha: "+fecha);
-    
-    doc.setFontSize(16);
-    doc.text(10,70,"Empresa:"+nombreEmpresa);
-    doc.text(10,80,"Titulo: "+titulo);
-    doc.text(10, 90, "Detalle:");
-    doc.setFontSize(12);
-    let parafo=this.formatoParafo(detalle);
-    
-    let posicion=100;
-    for(let i=0;i<parafo.length;i++){
-      doc.text(10,posicion,parafo[i]);
-      posicion+=10;
-    }
-    doc.setFontSize(16);
-    //linea de separacion entre "body" y "footer"
-    doc.line(6, 280, 200, 280)
-    doc.setFontSize(12);
-    doc.text(80,290,"www.g3reclamos.cl");
-    //asignacion de nombre al pdf
-    let nombreArchivo:string="G3_"+fecha+"_"+id+".pdf";
-    //metodo para generar el pdf
-    doc.save(nombreArchivo);
+   
   }
   realizarSugerencia(){
     this.router.navigate(["realizar_sugerencia"]);
