@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 
 @Component({
   selector: 'app-reclamo-anonimo',
@@ -17,11 +18,15 @@ export class ReclamoAnonimoComponent implements OnInit {
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
 
-  constructor(private router:Router, private serviceRS:RsServiceService) { }
+  constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
   ngOnInit() {
     this.rs.idReclamoSugerencia=0;
     this.rs.detalleReclamoSugerencia=" ";
+    this.servicioEmpresa.listaEmpresas().subscribe(data=>{
+      this.empresas=data;
+    
+    });
     }
   
   realizarReclamoSugerencia() {
