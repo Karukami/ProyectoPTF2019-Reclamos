@@ -8,4 +8,7 @@ public interface EmpresaRepositorio extends Repository<Empresa,Integer>{
 	Empresa save(Empresa e);
 	Empresa findOne(int rutEmpresa);
 	List<Empresa> findAll();
+	//Empresa findByName(String nombreEmpresa);
+	Empresa findBynombreEmpresa(String nombreEmpresa);
+	
 }

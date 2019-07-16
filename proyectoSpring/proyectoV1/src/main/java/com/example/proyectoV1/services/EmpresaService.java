@@ -6,4 +6,5 @@ public interface EmpresaService {
 	Empresa add(Empresa e);
 	List<Empresa> listarEmpresa();
 	Empresa idEmpresa(int idEmpresa);
+	Empresa nombreEmpresa(String nombreEmpresa);
 }
