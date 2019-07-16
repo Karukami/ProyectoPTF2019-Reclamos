@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  reclamo(){
+    this.router.navigate(["realizar_reclamo"]);
+  }
     
   
 }
