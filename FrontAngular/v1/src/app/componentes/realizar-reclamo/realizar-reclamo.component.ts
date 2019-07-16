@@ -24,6 +24,10 @@ export class RealizarReclamoComponent implements OnInit {
   ngOnInit() {
     this.rs.idReclamoSugerencia=0;
     this.rs.detalleReclamoSugerencia=" ";
+    let credencial=localStorage.getItem("Email")
+    if(credencial=="anonimo"|| credencial==null){
+      this.router.navigate(["home"]);
+    }
   }
   
   realizarReclamoSugerencia() {
