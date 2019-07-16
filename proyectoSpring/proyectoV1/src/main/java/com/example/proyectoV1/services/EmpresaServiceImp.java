@@ -19,5 +19,9 @@ public class EmpresaServiceImp implements EmpresaService{
 	public List<Empresa> listarEmpresa() {
 		return repositorio.findAll();
 	}
+	@Override
+	public Empresa idEmpresa(int idEmpresa) {
+		return repositorio.findOne(idEmpresa);
+	}
 
 }
