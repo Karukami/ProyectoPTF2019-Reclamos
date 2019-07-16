@@ -1,7 +1,10 @@
 package com.example.proyectoV1.services;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.proyectoV1.entities.ReclamoSugerencia;
 import com.example.proyectoV1.repositories.ReclamoSugerenciaRepositorio;
 
@@ -22,6 +25,5 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	public ReclamoSugerencia edit(ReclamoSugerencia x) {
 		return repositorio.save(x);
 	}
-
 	
 }

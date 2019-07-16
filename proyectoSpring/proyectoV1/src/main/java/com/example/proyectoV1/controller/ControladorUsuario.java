@@ -28,7 +28,7 @@ public class ControladorUsuario {
 @Autowired
 UsuarioService service;
 
-//Listar todos los usuarios de la DATABASE
+//Listar todos los usuarios de la DB
 @GetMapping
 public List<Usuario>Listar(){
 return service.listar(); 
@@ -47,20 +47,12 @@ public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 //Edita un rut de usuario 
 @PutMapping(path= {"/{rutUsuario}"})
 public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
-
 p.setRutUsuario(rutusuario);
 return service.edit(p);
 }
-
-/*
-@PostMapping(path= {"/login"})
-public boolean logIn(@RequestBody Usuario p){
-	
-	return service.logIn(p); */
 //Permite a un usuario hacer login
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
-	
 	return service.logIn(p);
 }
 

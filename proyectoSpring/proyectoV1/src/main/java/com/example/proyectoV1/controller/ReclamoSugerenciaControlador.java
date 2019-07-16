@@ -1,5 +1,7 @@
 
 package com.example.proyectoV1.controller;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -37,6 +39,6 @@ public class ReclamoSugerenciaControlador {
 		x.setRespuestaRS(respuesta);
 		return service.edit(x);
 	}
-	
+
 		
 }
