@@ -33,7 +33,12 @@ ngOnInit() {
 
 
 realizarReclamoSugerencia() {
-  
+  try {
+    this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{this.rs.idEmpresa=Number(data)})
+    
+  } catch (error) {
+   this.rs.idEmpresa=0; 
+  }
   this.rs.tipo="sugerencia";
   this.rs.idEmpresa=1;
   this.rs.idReclamoSugerencia=0;
