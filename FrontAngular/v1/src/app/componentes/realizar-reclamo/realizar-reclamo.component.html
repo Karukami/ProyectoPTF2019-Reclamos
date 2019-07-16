@@ -125,9 +125,10 @@
 						<input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="">
 					</div>
 
+					<label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
 					<div class="form-group">
-					    <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
-					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+					    <textarea[(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+						<p>maximo 265 caracteres </p>
 					</div>
 					
 					<br><hr style="border: 1px solid #dddddd">

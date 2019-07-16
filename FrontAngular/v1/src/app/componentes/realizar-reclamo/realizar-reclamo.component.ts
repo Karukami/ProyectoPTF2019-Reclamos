@@ -4,6 +4,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-realizar-reclamo',
   templateUrl: './realizar-reclamo.component.html',
@@ -15,11 +16,14 @@ export class RealizarReclamoComponent implements OnInit {
   idBusqueda:number;
   empresas:string[]=["aguas andinas","enel","gasco","vtr"];
   empresa:string;
+  cantidadMaxima:number=265;
+  cantidadCarcteres:number=0;
 
   constructor(private router:Router, private serviceRS:RsServiceService) { }
-
+  
   ngOnInit() {
     this.rs.idReclamoSugerencia=0;
+    this.rs.detalleReclamoSugerencia=" ";
   }
   
   realizarReclamoSugerencia() {
