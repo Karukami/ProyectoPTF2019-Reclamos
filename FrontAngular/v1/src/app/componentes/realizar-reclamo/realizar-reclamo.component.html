@@ -97,11 +97,11 @@
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
 						<button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
 						<br><br><br><br>
-						<button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+						<button class="btn btn-info btn-lg btn-block" (click)="realizarSugerencia()">Historial de Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
+						<button class="btn btn-success btn-lg btn-block"(click)="realizarReclamo()" >Realizar Sugerencia</button>
 						<br>
-						<button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
+						<button class="btn btn-danger btn-lg btn-block" >Realizar Reclamo</button>
 						<br>
 					</div>
 				</div>

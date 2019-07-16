@@ -52,5 +52,11 @@ export class RealizarReclamoComponent implements OnInit {
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
+  realizarSugerencia(){
+    this.router.navigate(["realizar_sugerencia"]);
+  }
+  realizarReclamo(){
+    this.router.navigate(["realizar_reclamo"]);
+  }
   
 }
