@@ -53,6 +53,7 @@ export class ReclamoEnviadoComponent implements OnInit {
     let id=localStorage.getItem("idRS");
     let fecha=localStorage.getItem("fecha");
     let detalle=localStorage.getItem("detalleRS");
+    let tipo=localStorage.getItem("tipo");
     //fecha.toDateString().replace(" ","_")// convertir objeto Date a string
 
     let doc = new jsPDF();
@@ -66,6 +67,7 @@ export class ReclamoEnviadoComponent implements OnInit {
     doc.setFontSize(22);
     doc.text(100,30,"ID: "+id);
     doc.setFontSize(12);
+    doc.text(100,40,"tipo: "+tipo);
     doc.text(10,60,"fecha: "+fecha);
     
     doc.setFontSize(16);

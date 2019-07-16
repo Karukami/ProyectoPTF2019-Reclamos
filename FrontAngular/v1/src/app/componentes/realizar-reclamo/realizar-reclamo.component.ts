@@ -36,7 +36,7 @@ export class RealizarReclamoComponent implements OnInit {
     localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
     localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
     localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
-
+    localStorage.setItem("tipo",this.rs.tipo);
 
     this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
     //alert("reclamo generado enviado con exito ");
