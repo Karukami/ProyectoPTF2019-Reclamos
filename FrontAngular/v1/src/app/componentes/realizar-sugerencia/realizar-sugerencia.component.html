@@ -97,11 +97,11 @@
                 <div style="background-color: darkgray; height:10px; width: 180px; transform: translate(150px, -80px);"></div>
                     <button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
                     <br><br><br><br>
-                    <button class="btn btn-info btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+                    <button class="btn btn-info btn-lg btn-block" >Historial de Reclamos</button>
                     <br>
-                    <button class="btn btn-success btn-lg btn-block" onclick="location.href='InterfazUR-Sugerencia.html'">Realizar Sugerencia</button>
+                    <button class="btn btn-success btn-lg btn-block" (click)="realizarSugerencia()">Realizar Sugerencia</button>
                     <br>
-                    <button class="btn btn-danger btn-lg btn-block" disabled>Realizar Reclamo</button>
+                    <button class="btn btn-danger btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
                     <br>
                 </div>
             </div>
@@ -121,8 +121,9 @@
 
                 </div>
                 <div class="form-group">
-						<input [(ngModel)]="rs.tituloRS"type="text" name="" id="">
-					</div>
+                    <label  style="color: #eeeeee" for="">Titulo</label>
+                    <input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="">
+				</div>
 
                 <div class="form-group">
                     <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
