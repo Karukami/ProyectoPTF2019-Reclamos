@@ -45,7 +45,7 @@ realizarReclamoSugerencia() {
   this.rs.idEmpleado=0;
   this.rs.estado="en proseso";
   this.rs.usuarioReclamoSugerencia=0;
-  this.rs.respuestaRS="aun no tiene respuesra";
+  this.rs.respuestaRS="aun no tiene respuesta";
   
   this.rs.fechaReclamoSugerencia=new Date();
 
