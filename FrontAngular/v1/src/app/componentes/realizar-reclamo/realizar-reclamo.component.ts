@@ -31,6 +31,12 @@ export class RealizarReclamoComponent implements OnInit {
     this.rs.usuarioReclamoSugerencia=Number(localStorage.getItem('idUsuario'));
     this.rs.respuestaRS="aun no hay respuesta";
     this.rs.fechaReclamoSugerencia=new Date();
+    localStorage.setItem("tituloRS",this.rs.tituloRS);
+    localStorage.setItem("empresa",""+this.rs.idEmpresa);
+    localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
+    localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
+    localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
+
 
     this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
     //alert("reclamo generado enviado con exito ");
