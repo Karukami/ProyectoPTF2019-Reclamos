@@ -116,16 +116,17 @@
 					<div class="form-group">
 					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Muy caro, y publicidad engañosa, me ofrecieron un 70% de descuento y no lo quisieron aplicar a mis cupones de 1915. Últimos de ordinarios como es posible por dios. Mi hija fué a hablar con el supervisor hace 2 días y la única respuesta que le dieron fué que era imposible usar los cupones de hace tantos años y que las políticas de la empresa han cambiado." disabled></textarea>
 					</div>
-					<hr>
+					<br>
+					<hr style="border: 1px solid #dddddd">
 					<label style="color: #eeeeee" for="exampleFormControlTextarea1">Respuesta</label>
 					<div class="form-group">
 					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí tu respuesta."></textarea>
 						<p style="color: #dddddd">Máximo 265 caracteres </p>
 					</div>
 					
-					<br><hr style="border: 1px solid #dddddd">
 					<br>
-					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Reclamo</button>
+					<br>
+					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Respuesta</button>
 					<br>
 					<br>
 					
