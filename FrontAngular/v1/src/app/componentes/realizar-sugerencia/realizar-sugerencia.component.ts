@@ -26,6 +26,8 @@ ngOnInit() {
   if(credencial=="anonimo"|| credencial==null){
     this.router.navigate(["home"]);
   }
+  this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
+  console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
     this.empresas=data;
   
@@ -37,14 +39,15 @@ realizarReclamoSugerencia() {
   try {
     this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
       let emp:Empresa=data;
-        this.rs.idEmpresa=emp.rutEmpresa;
+      
+      this.rs.idEmpresa=emp.rutEmpresa;
       console.log(this.rs.idEmpresa);
       this.rs.tipo="sugerencia";
- 
+      
       this.rs.idReclamoSugerencia=0;
       this.rs.idEmpleado=0;
-      this.rs.estado="en proseso";
-      this.rs.usuarioReclamoSugerencia=0;
+      this.rs.estado="en proceso";
+    
       this.rs.respuestaRS="aun no tiene respuesta";
       
       this.rs.fechaReclamoSugerencia=new Date();
@@ -52,14 +55,16 @@ realizarReclamoSugerencia() {
       localStorage.setItem("tituloRS",this.rs.tituloRS);
       localStorage.setItem("empresa",this.rs.idEmpresa+"");
       localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
-      localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
+      localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString());
       localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
       localStorage.setItem("tipo",this.rs.tipo);
+      this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
+
       this.serviceRS.getLastReclamo(this.rs.usuarioReclamoSugerencia).subscribe(data=>{
         let rs:ReclamoSugerencia=data;
-        this.rs.idReclamoSugerencia=rs.idReclamoSugerencia;
-      
-        this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
+        
+        localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
+        console.log(localStorage.getItem("idRS"));
         //alert("reclamo generado enviado con exito ");
         this.router.navigate(["rs_enviado"]);
       });
