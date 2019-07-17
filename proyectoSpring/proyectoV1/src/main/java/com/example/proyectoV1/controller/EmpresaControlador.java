@@ -34,8 +34,10 @@ public class EmpresaControlador {
 		return nombresE;
 	}
 	@RequestMapping(value="/nombre/{id}", method = RequestMethod.GET)
-	public String nombrePorId(@PathVariable("id")int idEmpresa) {
-		return service.idEmpresa(idEmpresa).getNombreEmpresa();
+	public Empresa nombrePorId(@PathVariable("id")int idEmpresa) {
+		Empresa x = new Empresa();
+		x.setNombreEmpresa(service.idEmpresa(idEmpresa).getNombreEmpresa());
+		return x;
 	}
 	@RequestMapping(value = "/nombre/id/{nombreEmpresa}", method = RequestMethod.GET)
 	public Empresa idByName(@PathVariable("nombreEmpresa") String nombreEmpresa) {
