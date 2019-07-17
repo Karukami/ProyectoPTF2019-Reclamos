@@ -37,7 +37,7 @@ export class EmpresaServiceService {
   
   }
   idEmpresa(nombre:string){
-    return this.http.get(this.url+"/nombre/id/"+nombre);
+    return this.http.get<Empresa>(this.url+"/nombre/id/"+nombre);
   }
 
 }

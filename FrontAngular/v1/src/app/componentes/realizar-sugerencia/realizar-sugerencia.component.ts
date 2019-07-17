@@ -3,6 +3,7 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 
 @Component({
@@ -35,7 +36,8 @@ ngOnInit() {
 realizarReclamoSugerencia() {
   try {
     this.servicioEmpresa.idEmpresa(this.empresa).subscribe(data=>{
-      this.rs.idEmpresa=Number(data)
+      let emp:Empresa=data;
+        this.rs.idEmpresa=emp.rutEmpresa;
       console.log(this.rs.idEmpresa);
       this.rs.tipo="sugerencia";
  
@@ -46,7 +48,7 @@ realizarReclamoSugerencia() {
       this.rs.respuestaRS="aun no tiene respuesta";
       
       this.rs.fechaReclamoSugerencia=new Date();
-    
+      
       localStorage.setItem("tituloRS",this.rs.tituloRS);
       localStorage.setItem("empresa",this.rs.idEmpresa+"");
       localStorage.setItem("idRS",""+this.rs.idReclamoSugerencia);
