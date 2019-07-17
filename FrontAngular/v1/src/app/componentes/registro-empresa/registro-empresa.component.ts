@@ -43,8 +43,8 @@ export class RegistroEmpresaComponent implements OnInit {
     return iguales; 
   }
   RegistrarEmpresa(){
-    this.empresaService.crearTrabajador(this.trabajador);
+    this.empresaService.crearTrabajador(this.trabajador).subscribe();
     this.empresaService.crearEmpresa(this.empresa);
-    
+
   }
 }

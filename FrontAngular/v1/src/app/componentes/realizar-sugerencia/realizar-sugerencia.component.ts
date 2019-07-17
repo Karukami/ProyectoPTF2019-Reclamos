@@ -55,9 +55,14 @@ realizarReclamoSugerencia() {
       localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString())
       localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
       localStorage.setItem("tipo",this.rs.tipo);
-      this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
-      //alert("reclamo generado enviado con exito ");
-      this.router.navigate(["rs_enviado"]);
+      this.serviceRS.getLastReclamo(this.rs.usuarioReclamoSugerencia).subscribe(data=>{
+        let rs:ReclamoSugerencia=data;
+        this.rs.idReclamoSugerencia=rs.idReclamoSugerencia;
+      
+        this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
+        //alert("reclamo generado enviado con exito ");
+        this.router.navigate(["rs_enviado"]);
+      });
     })
     
   } catch (error) {
