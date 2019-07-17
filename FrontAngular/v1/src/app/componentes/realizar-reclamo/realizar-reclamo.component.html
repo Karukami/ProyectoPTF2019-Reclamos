@@ -115,7 +115,7 @@
 						<label for="inputlg" style="color: #eeeeee">Empresa</label>
 						<br>
 					<select class="browser-default custom-select" [(ngModel)]="empresa"name="empresas">
-						<option *ngFor="let empresa of empresas"  value="empresa">{{empresa}}</option> 
+						<option *ngFor="let empresa of empresas" [ngValue]="empresa" >{{empresa}}</option> 
 						
 					</select>
 
