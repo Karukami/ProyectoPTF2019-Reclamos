@@ -15,6 +15,11 @@ import { LoginEmpresaComponent} from './componentes/login-empresa/login-empresa.
 import { ReclamoAnonimoComponent } from './componentes/anonimo/reclamo-anonimo/reclamo-anonimo.component';
 import { SugerenciaAnonimoComponent } from './componentes/anonimo/sugerencia-anonimo/sugerencia-anonimo.component';
 import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
+import { PerfilEmpresaComponent } from './componentes/perfil-empresa/perfil-empresa.component';
+import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lista-reclamos/empresa-lista-reclamos.component';
+import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
+import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-responder-reclamo/empresa-responder-reclamo.component';
+import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -34,7 +39,12 @@ const routes: Routes = [
   {path:"empresa",component:HomeEmpresaComponent},
   {path:"anonimo/realizar_reclamo",component:ReclamoAnonimoComponent},
   {path:"anonimo/realizar_sugerencia",component:SugerenciaAnonimoComponent},
-  {path:"anonimo/reclamo_sugerencia_anonimo_enviado",component:ReclamoSugerenciaEnviadoComponent}
+  {path:"anonimo/reclamo_sugerencia_anonimo_enviado",component:ReclamoSugerenciaEnviadoComponent},
+  {path:"empresa/perfil",component:PerfilEmpresaComponent},
+  {path:"empresa/listaReclamos",component:EmpresaListaReclamosComponent},
+  {path:"empresa/listaSugerencias",component:EmpresaListaSugerenciasComponent},
+  {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
+  {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent}
 ];
 
 @NgModule({
