@@ -3,6 +3,7 @@ import { Empresa } from 'src/app/Modelo/Empresa';
 import { Trabajador } from 'src/app/Modelo/trabajador';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { Router } from '@angular/router';
+import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 
 @Component({
   selector: 'app-registro-empresa',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class RegistroEmpresaComponent implements OnInit {
 
-  constructor(private router:Router, private empresaService:EmpresaServiceService) { }
+  constructor(private router:Router, private empresaService:EmpresaServiceService,private trabajadorServicio:TrabajadorServiceService) { }
   empresa:Empresa;
   trabajador:Trabajador;
   pass2:string;
@@ -40,5 +41,10 @@ export class RegistroEmpresaComponent implements OnInit {
       iguales=true;
     }
     return iguales; 
+  }
+  RegistrarEmpresa(){
+    this.empresaService.crearTrabajador(this.trabajador);
+    this.empresaService.crearEmpresa(this.empresa);
+    
   }
 }

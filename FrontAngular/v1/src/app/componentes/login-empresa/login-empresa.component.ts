@@ -35,7 +35,7 @@ export class LoginEmpresaComponent implements OnInit {
       let credenciales:Trabajador= data;
       if(credenciales.passTrabajador=="valido"){
         localStorage.setItem("Email",credenciales.nombreTrabajador);
-        this.router.navigate(["perfilTrabajador"])
+        this.router.navigate(["empresa/perfilEmpresa"]);
       }else{
         this.mensajeError="el correo o la contraseña no coinciden ";
       }
