@@ -1,1 +1,172 @@
-<p>empresa-lista-reclamos works!</p>
+<!--------------------------------------------------------------------->
+<!-- PERFIL COMPONENT : INTERFAZ DE BIENVENIDA TRAS INICIO DE SESIÓN -->
+<!--------------------------------------------------------------------->
+
+	<!------------------------------------------------------------------>
+    <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
+    <!------------------------------------------------------------------>
+
+    <div class="row" id="navbar">
+        <div id="navbarseccion1" class="col-7">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active" id="btn_home_navbar">
+                        <div class="col">
+                            <a class="nav-link" href="#">
+                                <img src="../../assets/homeiconmini.png" alt="">
+                                <br>
+                                INICIO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="#">
+                                <img src="../../assets/reclamoiconmini.png" alt="">
+                                <br>
+                                RECLAMO
+                            </a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <div class="col">
+                            <a class="nav-link" href="#">
+                                <img src="../../assets/historialiconmini.png" alt="">
+                                <br>
+                                HISTORIAL
+                            </a>
+                        </div>
+                      </li>
+                    </ul>
+                </div>            
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+        <div class="col-2 padding-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li>
+					    	 <button (click)="cerrarSesion()"type="button" class="btn btn-danger"  >Cerrar sesión</button>	
+					   	</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- SECCIÓN 3: BUSCAR POR ID -->
+
+            <div class="col padding-0">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+            </div>
+        <router-outlet></router-outlet>
+    </div>  
+
+
+<!-- CONTENIDO -->
+			<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
+				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
+					<div>
+						<br>
+						<img src="../../assets/photo-placeholder.jpeg">
+						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
+						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
+						<button class="btn btn-outline-light btn-lg btn-block">Mi perfil</button>
+						<br><br><br><br><br><br>
+						<button class="btn btn-danger btn-lg btn-block" (click)="realizarSugerencia()" disabled>Lista Reclamos</button>
+						<br>
+						<button class="btn btn-success btn-lg btn-block" (click)="realizarReclamo()">Lista Sugerencias</button>
+						<br>
+					</div>
+				</div>
+				<div class="col-9" style="height:730px; "><br>
+					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes [Reclamos]</h1>
+					<div style="text-align: right"><button class="btn btn-light">Ordenar por fecha</button>	</div>
+					<br><br>
+					<br>
+					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
+						<div class="container">
+							<div class="row">
+								<div class="col-3" style="padding-top: 3px">
+									<button class="btn btn-danger">Reclamo</button>
+									<button class="btn btn-info">Enviado</button>
+								</div>
+								<div class="col-7">
+									<h6 style="text-align:left">Reclamo: Compré un Mouse por internet y me llegó un ratón de v... </h6>
+									<small style="text-align: right;">Empresa: Tunak Tunak Express</small>
+								</div>
+								<div class="col-2" style="text-align: center">
+									07/04/2019 12:02 AM
+									<button class="btn btn-danger">Responder</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
+						<div class="container">
+							<div class="row">
+								<div class="col-3" style="padding-top: 3px">
+									<button class="btn btn-danger">Reclamo</button>
+									<button class="btn btn-warning">En proceso</button>
+								</div>
+								<div class="col-7">
+									<h6 style="text-align:left">Reclamo: Computador llegó con procesador cambiado </h6>
+									<small style="text-align: right;">Empresa: Orange</small>
+								</div>
+								<div class="col-2" style="text-align: center">
+									24/03/2019 23:56 AM
+									<button class="btn btn-danger">Responder</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
+						<div class="container">
+							<div class="row">
+								<div class="col-3" style="padding-top: 3px">
+									<button class="btn btn-danger">Reclamo</button>
+									<button class="btn btn-success">Resuelto</button>
+								</div>
+								<div class="col-7">
+									<h6 style="text-align:left">Reclamo: Papas fritas con gusanito </h6>
+									<small style="text-align: right;">Empresa: KurgerBing</small>
+								</div>
+								<div class="col-2" style="text-align: center">
+									02/01/2019 09:23 AM
+									<button class="btn btn-success" disabled>Resuelto</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
