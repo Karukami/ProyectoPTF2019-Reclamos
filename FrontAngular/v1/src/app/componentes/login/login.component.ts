@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     } catch (e) {
       this.errorMsg="Correo o Contraseña incorrectos";
     }finally{
-      this.errorMsg="Correo o Contraseña incorrectos";
+      this.errorMsg="";
     }
     
   }
