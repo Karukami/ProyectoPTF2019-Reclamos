@@ -24,6 +24,10 @@ import { ReclamoAnonimoComponent } from './componentes/anonimo/reclamo-anonimo/r
 import { SugerenciaAnonimoComponent } from './componentes/anonimo/sugerencia-anonimo/sugerencia-anonimo.component';
 import { BusquedaAnonimoComponent } from './componentes/anonimo/busqueda-anonimo/busqueda-anonimo.component';
 import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
+import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lista-reclamos/empresa-lista-reclamos.component';
+import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
+import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-responder-reclamo/empresa-responder-reclamo.component';
+import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
 
 
 @NgModule({
@@ -45,7 +49,11 @@ import { ReclamoSugerenciaEnviadoComponent } from './componentes/anonimo/reclamo
     ReclamoAnonimoComponent,
     SugerenciaAnonimoComponent,
     BusquedaAnonimoComponent,
-    ReclamoSugerenciaEnviadoComponent
+    ReclamoSugerenciaEnviadoComponent,
+    EmpresaListaReclamosComponent,
+    EmpresaListaSugerenciasComponent,
+    EmpresaResponderReclamoComponent,
+    EmpresaResponderSugerenciaComponent
 
   ],
   imports: [
