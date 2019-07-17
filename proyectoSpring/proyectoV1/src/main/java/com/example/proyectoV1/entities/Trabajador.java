@@ -15,9 +15,13 @@ public class Trabajador {
 	 private String tipoTrabajador;
 	 @Column  (name= "passTrabajador")
 	 private String passTrabajador;
+	 @Column (name= "empresa")
+	 private String empresa;
 	 
+
 //========================================================================
 //Getters & Setters
+	 
 	public int getIdTrabajador() {
 		return idTrabajador;
 	}
@@ -48,6 +52,11 @@ public class Trabajador {
 	public void setPassTrabajador(String passTrabajador) {
 		this.passTrabajador = passTrabajador;
 	}
-
+	public String getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(String empresa) {
+		this.empresa = empresa;
+	}
 
 }
