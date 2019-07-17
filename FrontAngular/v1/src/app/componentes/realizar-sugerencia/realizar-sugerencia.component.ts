@@ -66,7 +66,7 @@ realizarReclamoSugerencia() {
     })
     
   } catch (error) {
-   this.rs.idEmpresa=0; 
+  console.log("error");
   }
   
 }
