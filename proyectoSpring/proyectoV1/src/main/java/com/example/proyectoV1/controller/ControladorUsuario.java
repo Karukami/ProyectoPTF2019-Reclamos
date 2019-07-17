@@ -47,7 +47,9 @@ public Usuario agregar(@RequestBody Usuario p) {
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 	return service.listarId_RutUsuario(rutusuario);
 }
-
+public String listarRutUsuarioRS(int rutusuario) {
+	return "hola";
+}
 //Edita un rut de usuario 
 @PutMapping(path= {"/{rutUsuario}"})
 public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
@@ -58,7 +60,6 @@ return service.edit(p);
 //Permite a un usuario hacer login
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
-	
 	
 	 try {
 		Usuario us = service.logIn(p);
