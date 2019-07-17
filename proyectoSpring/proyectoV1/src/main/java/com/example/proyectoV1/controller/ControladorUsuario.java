@@ -47,8 +47,9 @@ public Usuario agregar(@RequestBody Usuario p) {
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 	return service.listarId_RutUsuario(rutusuario);
 }
-public String listarRutUsuarioRS(int rutusuario) {
-	return "hola";
+public Usuario listarRutUsuarioRS(int rutusuario) {
+
+	return service.listarId_RutUsuario(rutusuario);
 }
 //Edita un rut de usuario 
 @PutMapping(path= {"/{rutUsuario}"})
