@@ -3,6 +3,7 @@ import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { ServiceService } from 'src/app/Services/service.service';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { ValidarRut } from 'src/app/funcionesExternas/validarRUT';
 
 
 @Component({
@@ -55,6 +56,18 @@ generoVacio():boolean{
 
 
 }
+
+validateRut(){
+  debugger;
+  let validar:ValidarRut  = new ValidarRut();
+  let resultado = validar.esValido( this.rut);
+  if(resultado.result ){
+    this.errRut="";
+  }else{
+    this.errRut=resultado.message;
+  }
+}
+
 rutVacio(){
   if(!(this.genero==null)){
     this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);

@@ -37,11 +37,14 @@ public class ReclamoSugerenciaControlador {
 		return service.edit(x);
 	}
 	@RequestMapping(value = "/id/{usuarioReclamoSugerencia}",method = RequestMethod.GET)
-	public int rsByUser (@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia) {
+	public ReclamoSugerencia rsByUser (@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia) {
 		ArrayList<ReclamoSugerencia> rsUser = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
-		return rsUser.get(rsUser.size()-1).getIdReclamoSugerencia();
+		ReclamoSugerencia xd = new ReclamoSugerencia();
+		xd.setIdReclamoSugerencia(rsUser.get(rsUser.size()-1).getIdReclamoSugerencia());
+		return xd;
 		
 	}
+	
 		
 }
 

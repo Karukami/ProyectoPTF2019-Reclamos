@@ -121,7 +121,7 @@
                             <div class="form-group">
 
                                 <label for="" style="color: #dddddd">Rut</label>
-                                <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5">
+                                <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5" (keyup)="validateRut()">
                                 <p style="color: white; background-color: red">{{errRut}}</p>
                             </div>
                             <div class="form-group">
