@@ -36,4 +36,24 @@ export class HomeEmpresaComponent implements OnInit {
   	this.router.navigate(["empresa/login"]);
   }
 
+  perfilEmpresa(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+
+  empresaListaReclamos(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+
+  empresaListaSugerencias(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+
+  empresaResponderReclamo(){
+    this.router.navigate(["empresa/responderReclamo"]);
+  }
+
+  empresaResponderSugerencia(){
+    this.router.navigate(["empresa/responderSugerencia"]);
+  }
+
 }
