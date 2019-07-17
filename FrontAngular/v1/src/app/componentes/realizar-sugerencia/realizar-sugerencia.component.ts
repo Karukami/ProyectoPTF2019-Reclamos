@@ -42,7 +42,7 @@ realizarReclamoSugerencia() {
       
       this.rs.idEmpresa=emp.rutEmpresa;
       console.log(this.rs.idEmpresa);
-      this.rs.tipo="sugerencia";
+      this.rs.tipo="Sugerencia";
       
       this.rs.idReclamoSugerencia=0;
       this.rs.idEmpleado=0;
