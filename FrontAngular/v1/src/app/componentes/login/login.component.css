@@ -32,3 +32,29 @@
 	padding-top: 23px;
 	padding-bottom: 0px;
 }
+
+#idBotonIngresar {
+	background-color: #01b2aa;
+	color: white; 
+}
+#idBotonRegistrar {
+	background-color: #51bfe2;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #0184c8;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #00546c;
+	color: white;
+}
+#idBotonBuscar {
+	color: #00546c; 
+}
+
+#componente {
+  	background-size: 100%;
+  	background-repeat: no-repeat;  
+	background-image: url('/../assets/fondologin.png');
+}

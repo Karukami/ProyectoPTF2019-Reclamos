@@ -1,14 +1,9 @@
 package com.example.proyectoV1.services;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-
 import com.example.proyectoV1.entities.Usuario;
+import com.example.proyectoV1.exceptions.LoginException;
 import com.example.proyectoV1.repositories.UsuarioRepositorio;
 
 @Service
@@ -46,37 +41,20 @@ public class UsuarioServiceImp  implements UsuarioService{
 
 	@SuppressWarnings("null")
 	@Override
-	public ResponseEntity<Usuario> logIn(Usuario p){
+	public Usuario logIn(Usuario p) throws LoginException{
 		Usuario usuarioAVerificar=p;
 		
-		try { 
 			String emailusuario = p.getEmailUsuario();
 			String pass = p.getPassUsuario();
-			usuarioAVerificar = repositorio.findByEmailUsuario(emailusuario);
+			usuarioAVerificar = repositorio.findByEmailUsuarioAndPassUsuario(emailusuario, pass);
+			
+			
 			if(usuarioAVerificar==null) {
-				usuarioAVerificar.setPassUsuario("error");
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
-			}
-			if((pass.equals(usuarioAVerificar.getPassUsuario())) == true){
-			usuarioAVerificar.setPassUsuario("valido");
-			return ResponseEntity.status(HttpStatus.OK).body(usuarioAVerificar);
-			}else {
-				Usuario userInvalido = new Usuario();
-				userInvalido.setPassUsuario("no valido");
-				return ResponseEntity.status(HttpStatus.OK).body(userInvalido);
+				throw new LoginException();
 			}
 			
-			
-			
-			
-		}catch(NullPointerException ex) {
-			usuarioAVerificar=new Usuario();
-			usuarioAVerificar.setPassUsuario("error");
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(usuarioAVerificar);
-		
-		
-		}
-		
+			return usuarioAVerificar;
+	
 	}
 
 }

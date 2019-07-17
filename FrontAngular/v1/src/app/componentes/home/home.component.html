@@ -42,7 +42,7 @@
                                 <br>
                                 HISTORIAL
                             </a>
-                        </div>
+                        </div> 
                       </li>
                     </ul>
                 </div>            
@@ -56,24 +56,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px">¡Regístrate!</button>   
+                            <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regí­strate!</button>   
                         </li>
                         <li>
-                            <button type="button" class="btn btn-success" style="margin-left: 10px; margin-right: 10px" (click)="login()">Login</button>  
+                            <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" disabled>Login</button>  
                         </li>
                         <li>
-                            <button type="button" (click)="homeEmpresa()" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px">Empresas</button>
+                            <button type="button" id= "idBotonEmpresa" (click)="homeEmpresa()" class="btn" style="margin-left: 10px; margin-right: 0px">Empresas</button>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-        <!-- SECCIÓN 3: BUSCAR POR ID -->
+        <!-- SECCIÃ“N 3: BUSCAR POR ID -->
 
-            <div class="col padding-0">
+        <div class="col padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
-
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
                           <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         
                         <div class="col-8 padding-0" style="text-align: right">
@@ -81,7 +84,7 @@
                              
                         </div>
                         <div class="col padding-0">
-                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
                                 Buscar
                             </button>
                         </div>
@@ -94,9 +97,9 @@
 
   <!-- CONTENIDO -->
   <div class="row">
-        <div class="col-8" style="height:730px; background-color: #000000; background-image: url('../assets/fondousuario.png'); background-repeat: no-repeat; ">
+        <div class="col-8" id=contenido1>
         </div>
-        <div class="col" style="height:730px; background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+        <div class="col" id=contenido2>
             <form>
                 <h4 style="color: #eeeeee; text-align: center; margin-top: 150px; text-shadow: 2px 2px 5px black">
                     ¡Bienvenido/a a Grupo 3!
@@ -104,12 +107,12 @@
 
                 <p style="color: #eeeeee; text-align: center">
                     ¿Has tenido algún inconveniente con alguna empresa? <br>
-                    Si necesitas ayuda, nosotros somos a quien acudir, ya que hacemos
+                    Si necesitas ayuda nosotros somos a quien acudir. Hacemos
                     llegar tus sugerencias y reclamos a las empresas. <br><br>
                     Estás a un paso de recibir tu solución.
                 </p>
-                <button (click)="registrar()" class="btn btn-primary btn-lg btn-block">Registrarse</button>
-                <button class="btn btn-danger btn-block">Ingresa como anónimo</button>
+                <button (click)="registrar()" class="btn btn-lg btn-block" id=BotonRegistrarse>Registrarse</button>
+                <button class="btn btn-block" id=BotonAnon>Ingresar como anónimo</button>
                 <a href="" style="color: #eeeeee; text-align: center"><small id="emailHelp" class="form-text" style="color: #eeeeee">Ver beneficios de un Usuario Registrado</small></a>
             </form>
         </div>
