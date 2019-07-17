@@ -1,5 +1,4 @@
 package com.example.proyectoV1.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import com.example.proyectoV1.services.SendMailService;
 @Controller
 public class SendMailController {
 	@Autowired
-	private SendMailService sendMailService;
+	private SendMailService sendMailService;;
 	private ReclamoSugerenciaControlador controllRS;
 	private ControladorUsuario user;
 	
@@ -25,11 +24,15 @@ public class SendMailController {
 	 public String index() {
 		return "send_mail_view";
 	}
+	
 	@RequestMapping (value="/{usuarioReclamoSugerencia}", method=RequestMethod.GET)
-	public String sendMail(@PathVariable ("usuarioReclamoSugerencia")int userRut ) {
-		String message = "Estimad@ " + /*user.listarRutUsuario(userRut).getNombreUsuario() +*/ " : \n\n" + "Tu reclamo ha sido ingresado con exito! \n\n" 
-		+ "Estate atento a la respuesta de tu reclamo con el numero de ID " + /*controllRS.rsByUser(userRut).getIdReclamoSugerencia() + */"\n\n\nGracias por utilizar nuestra plataforma!";
-		sendMailService.sendMail(/*user.listarRutUsuario(userRut).getEmailUsuario()*/"Susana","Reclamo ID: "/* + controllRS.rsByUser(userRut).getIdReclamoSugerencia()*/,message);
+	public String sendMail(@PathVariable ("usuarioReclamoSugerencia")int usuarioReclamoSugerencia ) {
+		String nombreUsuario = user.listarRutUsuario(usuarioReclamoSugerencia).getNombreUsuario();
+		int iDRS = controllRS.rsByUser(usuarioReclamoSugerencia).getIdReclamoSugerencia();
+		String mailUser = user.listarRutUsuario(usuarioReclamoSugerencia).getEmailUsuario();
+		String message = "Estimad@ " + nombreUsuario + " : \n\n" + "Tu reclamo ha sido ingresado con exito! \n\n" 
+		+ "Estate atento a la respuesta de tu reclamo con el numero de ID " + iDRS + "\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com";
+		sendMailService.sendMail(mailUser,"Reclamo ID: " + iDRS , message);
 		return "send_mail_view";
 	}
 }
