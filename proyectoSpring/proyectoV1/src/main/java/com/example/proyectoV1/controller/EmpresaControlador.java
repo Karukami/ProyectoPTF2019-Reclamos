@@ -38,7 +38,9 @@ public class EmpresaControlador {
 		return service.idEmpresa(idEmpresa).getNombreEmpresa();
 	}
 	@RequestMapping(value = "/nombre/id/{nombreEmpresa}", method = RequestMethod.GET)
-	public int idByName(@PathVariable("nombreEmpresa") String nombreEmpresa) {
-		return service.nombreEmpresa(nombreEmpresa).getRutEmpresa();
+	public Empresa idByName(@PathVariable("nombreEmpresa") String nombreEmpresa) {
+		Empresa x = new Empresa();
+		x.setRutEmpresa(service.nombreEmpresa(nombreEmpresa).getRutEmpresa());
+		return x;
 	}
 }
