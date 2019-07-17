@@ -31,10 +31,12 @@ export class RealizarReclamoComponent implements OnInit {
     if(credencial=="anonimo"|| credencial==null){
       this.router.navigate(["home"]);
     }
-    this.servicioEmpresa.listaEmpresas().subscribe(data=>{
-      this.empresas=data;
-    
-    });
+    this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
+  console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
+  this.servicioEmpresa.listaEmpresas().subscribe(data=>{
+    this.empresas=data;
+  
+  });
 
   }
   

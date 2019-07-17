@@ -35,8 +35,8 @@ export class ReclamoEnviadoComponent implements OnInit {
   formatoParafo(cadena:string):string[]{
     let parafo:string[]=[];
     let cantfiilas=Number(cadena.length/42)+1;
-    let  CANRTCHARORFILA:number=70;
-    let indice:number=CANRTCHARORFILA;
+    let  LETRASPORFILA:number=70;
+    let indice:number=LETRASPORFILA;
     let inicio:number=0;
 
 
@@ -44,11 +44,11 @@ export class ReclamoEnviadoComponent implements OnInit {
       
       parafo.push(cadena.substring(inicio,indice));
       if(inicio<cadena.length){
-        inicio+=CANRTCHARORFILA;
-        indice+=CANRTCHARORFILA;
+        inicio+=LETRASPORFILA;
+        indice+=LETRASPORFILA;
       }
       else{
-        inicio+=CANRTCHARORFILA;
+        inicio+=LETRASPORFILA;
         indice=cadena.length;
       }
     }
