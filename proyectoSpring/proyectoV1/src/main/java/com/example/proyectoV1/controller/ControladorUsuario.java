@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.proyectoV1.entities.Usuario;
+import com.example.proyectoV1.exceptions.LoginException;
 import com.example.proyectoV1.services.UsuarioService;
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
@@ -39,21 +41,31 @@ return service.listar();
 public Usuario agregar(@RequestBody Usuario p) {
 	return service.add(p);
 }
+
 //Lista por rut de usuario
 @RequestMapping(value="/{rutUsuario}", method=RequestMethod.GET)
 public Usuario listarRutUsuario(@PathVariable("rutUsuario")int rutusuario) {
 	return service.listarId_RutUsuario(rutusuario);
 }
+
 //Edita un rut de usuario 
 @PutMapping(path= {"/{rutUsuario}"})
 public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
 p.setRutUsuario(rutusuario);
 return service.edit(p);
 }
+
 //Permite a un usuario hacer login
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
-	return service.logIn(p);
+	
+	
+	 try {
+		Usuario us = service.logIn(p);
+		return ResponseEntity.status(HttpStatus.OK).body(us);
+	} catch (LoginException e) {
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+	}
 }
 
 

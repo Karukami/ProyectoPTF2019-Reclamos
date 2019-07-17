@@ -13,5 +13,6 @@ public interface UsuarioRepositorio  extends Repository<Usuario,Integer>{
 	void delete(Usuario p);
 	Usuario findOne(int id_rutUsuario);
 	Usuario findByEmailUsuario(String emailUsuario);  
+	Usuario findByEmailUsuarioAndPassUsuario(String emailUsuario, String passUsuario);  
 }
   
