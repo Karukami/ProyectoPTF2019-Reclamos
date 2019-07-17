@@ -16,7 +16,7 @@ export class RsServiceService {
   crearReclamo(rs:ReclamoSugerencia){
   	return this.http.post<ReclamoSugerencia>(this.url,rs);
   }
-  //crearreclamo(): number-> <ReclamoSugerencia>
+  //getreclamo(): number-> <ReclamoSugerencia>
   //realiza una peticion html por medio del metodo post para enviar un id de reclamo o sugerencia
   //al servidor de Back-end, lo busca en la base de datos y debuelve el objeto ReclamoSugerencia
   getReclamo(id:number){
