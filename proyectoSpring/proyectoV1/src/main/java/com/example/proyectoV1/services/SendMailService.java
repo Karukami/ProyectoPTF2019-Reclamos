@@ -13,9 +13,9 @@ public class SendMailService {
 	@Autowired
 	private JavaMailSender javaMailSender;
 	
-	public void sendMail(String from, String to, String subjet, String body) {
+	public void sendMail(String to, String subjet, String body) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		mailMessage.setFrom(from);
+		mailMessage.setFrom("zerimar287@gmail.com");
 		mailMessage.setTo(to);
 		mailMessage.setSubject(subjet);
 		mailMessage.setText(body);
