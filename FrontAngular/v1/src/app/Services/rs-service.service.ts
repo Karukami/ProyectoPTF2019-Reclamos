@@ -22,7 +22,10 @@ export class RsServiceService {
   getReclamo(id:number){
     return this.http.get<ReclamoSugerencia>(this.url + "/" + id);
   }
-  getLastReclamo(idUsuario:number){
+  getLastReclamoUsuario(idUsuario:number){
     return this.http.get<ReclamoSugerencia>(this.url+"/id/"+idUsuario);
+  }
+  getLastReclamo(){
+    return this.http.get<ReclamoSugerencia>(this.url+"/id/last");
   }
 }

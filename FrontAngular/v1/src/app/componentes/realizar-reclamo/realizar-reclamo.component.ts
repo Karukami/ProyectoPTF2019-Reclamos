@@ -65,14 +65,26 @@ export class RealizarReclamoComponent implements OnInit {
         localStorage.setItem("tipo",this.rs.tipo);
         this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
   
-        this.serviceRS.getLastReclamo(this.rs.usuarioReclamoSugerencia).subscribe(data=>{
-          let rs:ReclamoSugerencia=data;
-          
-          localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-          console.log(localStorage.getItem("idRS"));
-          //alert("reclamo generado enviado con exito ");
-          this.router.navigate(["rs_enviado"]);
-        });
+        try {
+          this.serviceRS.getLastReclamoUsuario(this.rs.usuarioReclamoSugerencia).subscribe(data=>{
+            let rs:ReclamoSugerencia=data;
+            
+            localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
+            console.log(localStorage.getItem("idRS"));
+            //alert("reclamo generado enviado con exito ");
+            this.router.navigate(["rs_enviado"]);
+          });
+        } catch (error) {
+          this.serviceRS.getLastReclamo().subscribe(data=>{
+            let rs:ReclamoSugerencia=data;
+            
+            localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
+            console.log(localStorage.getItem("idRS"));
+            //alert("reclamo generado enviado con exito ");
+            this.router.navigate(["rs_enviado"]);
+          });
+        }
+       
       })
       
     } catch (error) {
