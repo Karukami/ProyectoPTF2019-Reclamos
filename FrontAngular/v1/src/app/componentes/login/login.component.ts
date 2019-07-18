@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
     try {
       this.service.logIn(this.credenciales).subscribe(data=>{
         let credenciales=data;
-        if(!(credenciales ==null)){
+        if(credenciales == null){
+          this.errorMsg="Correo o Contraseña incorrectos";
+        }else {
           this.credenciales=credenciales;
           localStorage.setItem("nombre",this.credenciales.nombreUsuario);
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
@@ -42,14 +44,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("idUsuario",""+this.credenciales.rutUsuario);
           console.log("id usuario "+this.credenciales.rutUsuario);
           this.router.navigate(["perfil"]);
-        }else {
-          this.errorMsg="Correo o Contraseña incorrectos";
+
         }
       })
     } catch (e) {
       this.errorMsg="Correo o Contraseña incorrectos";
     }finally{
-      this.errorMsg="";
+      this.errorMsg="Correo o Contraseña incorrectos";
     }
     
   }
