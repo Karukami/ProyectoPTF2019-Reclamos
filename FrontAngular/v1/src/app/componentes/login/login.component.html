@@ -6,6 +6,7 @@
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
 
+    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
     <div class="row" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,7 +18,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/home">
                                 <img src="../../assets/homeiconmini.png" alt="">
                                 <br>
                                 INICIO
@@ -26,7 +27,7 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" (click)="reclamo()">
                                 <img src="../../assets/reclamoiconmini.png" alt="">
                                 <br>
                                 RECLAMO
@@ -35,32 +36,29 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/historialiconmini.png" alt="">
+                            <a class="nav-link" href="/historial">
+                                <img src="../../assets/sugerenciaiconmini.png" alt="">
                                 <br>
-                                HISTORIAL
+                                SUGERENCIA
                             </a>
-                        </div>
+                        </div> 
                       </li>
                     </ul>
                 </div>            
             </nav>
         </div>
 
-        <!-- SECCIÃ“N 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+        <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
         <div class="col-4 padding-0">
             <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li>
-                            <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regístrate!</button>   
+                            <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regí­strate!</button>   
                         </li>
                         <li>
-                            <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" disabled>Login</button>  
+                            <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" >Login</button>  
                         </li>
                         <li>
                             <button type="button" id= "idBotonEmpresa" (click)="homeEmpresa()" class="btn" style="margin-left: 10px; margin-right: 0px">Empresas</button>
@@ -73,28 +71,28 @@
         <!-- SECCIÃ“N 3: BUSCAR POR ID -->
 
         <div class="col padding-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
-
-                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    
-                    <div class="col-8 padding-0" style="text-align: right">
-                      <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
-                         
-                    </div>
-                    <div class="col padding-0">
-                        <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
-                            Buscar
-                        </button>
-                    </div>
-                          
-                  </div>
-            </nav>
-        </div>
-    <router-outlet></router-outlet>
-</div>  
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
+                        <div class="col-8 padding-0" style="text-align: right">
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
+                        </div>
+                        <div class="col padding-0">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
+                                Buscar
+                            </button>
+                        </div>
+                              
+                      </div>
+                </nav>
+            </div>
+        <router-outlet></router-outlet>
+    </div>  
 
      <!-- CONTENIDO -->
 			<div class="row" id=componente>

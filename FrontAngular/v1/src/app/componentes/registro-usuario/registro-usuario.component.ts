@@ -189,4 +189,13 @@ infoUsuario(){
   this.usuarioARegistrar.fechaNacUsuario+" telefono: "+this.usuarioARegistrar.fonoUsuario+"pass2: "+this.pass2+" correo2: "+ this.correo2);
   
 }
+reclamo(){
+  if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+    this.router.navigate(["anonimo/realizar_reclamo"]);
+  }else{
+    this.router.navigate(["realizar_reclamo"]);
+
+  }
+}
+
 }

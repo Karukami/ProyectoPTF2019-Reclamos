@@ -107,66 +107,35 @@
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:730px; "><br>
+				<div class="col-9"  ><br>
 					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes [Reclamos]</h1>
 					<div style="text-align: right"><button class="btn btn-light">Ordenar por fecha</button>	</div>
 					<br><br>
 					<br>
-					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
-						<div class="container">
-							<div class="row">
-								<div class="col-3" style="padding-top: 3px">
-									<button class="btn btn-danger">Reclamo</button>
-									<button class="btn btn-info">Enviado</button>
-								</div>
-								<div class="col-7">
-									<h6 style="text-align:left">Reclamo: Compré un Mouse por internet y me llegó un ratón de v... </h6>
-									<small style="text-align: right;">Empresa: Tunak Tunak Express</small>
-								</div>
-								<div class="col-2" style="text-align: center">
-									07/04/2019 12:02 AM
-									<button class="btn btn-danger">Responder</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
-						<div class="container">
-							<div class="row">
-								<div class="col-3" style="padding-top: 3px">
-									<button class="btn btn-danger">Reclamo</button>
-									<button class="btn btn-warning">En proceso</button>
-								</div>
-								<div class="col-7">
-									<h6 style="text-align:left">Reclamo: Computador llegó con procesador cambiado </h6>
-									<small style="text-align: right;">Empresa: Orange</small>
-								</div>
-								<div class="col-2" style="text-align: center">
-									24/03/2019 23:56 AM
-									<button class="btn btn-danger">Responder</button>
+					<div *ngFor="let rs of reclamos;let i=index " >
+						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
+						<div [style.background-color]="colores[i]" style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
+							<br>
+							<div class="container">
+								<div class="row">
+									<div class="col-3" style="padding-top: 3px">
+										<button class="btn btn-danger">{{rs.tipo}}</button>
+										<button class="btn btn-info">Enviado</button>
+									</div>
+									<div class="col-7">
+										<h6 style="text-align:left">Reclamo: {{rs.detalle}} </h6>
+										<small style="text-align: right;">Empresa: {{rs.empresa}}</small>
+									</div>
+									<div class="col-2" style="text-align: center">
+										{{rs.fechaReclamoSugerencia}}
+										<button (click)="responderReclamo(rs)"class="btn btn-danger">Responder</button>
+									</div>
 								</div>
 							</div>
 						</div>
+						<br>
 					</div>
-					<br>
-					<div style="background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
-						<div class="container">
-							<div class="row">
-								<div class="col-3" style="padding-top: 3px">
-									<button class="btn btn-danger">Reclamo</button>
-									<button class="btn btn-success">Resuelto</button>
-								</div>
-								<div class="col-7">
-									<h6 style="text-align:left">Reclamo: Papas fritas con gusanito </h6>
-									<small style="text-align: right;">Empresa: KurgerBing</small>
-								</div>
-								<div class="col-2" style="text-align: center">
-									02/01/2019 09:23 AM
-									<button class="btn btn-success" disabled>Resuelto</button>
-								</div>
-							</div>
-						</div>
-					</div>
+					
+					
 				</div>
 			</div>

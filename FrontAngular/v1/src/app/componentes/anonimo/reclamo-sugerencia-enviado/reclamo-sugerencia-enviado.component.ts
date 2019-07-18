@@ -15,4 +15,4 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   registrarse(){
     this.router.navigate(["registrar"]);
   }
-}
+} 
