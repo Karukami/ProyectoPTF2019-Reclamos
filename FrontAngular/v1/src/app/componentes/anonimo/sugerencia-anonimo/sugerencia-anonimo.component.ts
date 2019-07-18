@@ -61,7 +61,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
             console.log(localStorage.getItem("idRS"));
             //alert("reclamo generado enviado con exito ");
-            this.router.navigate(["rs_enviado"]);
+            this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
           });
         } catch (error) {
           this.serviceRS.getLastReclamo().subscribe(data=>{
@@ -70,7 +70,7 @@ export class SugerenciaAnonimoComponent implements OnInit {
             localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
             console.log(localStorage.getItem("idRS"));
             //alert("reclamo generado enviado con exito ");
-            this.router.navigate(["rs_enviado"]);
+            this.router.navigate(["anonimo/reclamo_sugerencia_anonimo_enviado"]);
           });
         }
        
