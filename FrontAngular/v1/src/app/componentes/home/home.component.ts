@@ -9,14 +9,14 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+//hola vanne
   idBusqueda:number;
   rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }
-  nombre:string = localStorage.getItem('Email');
-
+  
   ngOnInit() {
-    if(this.nombre!="anonimo"){
+    let nombre:string = localStorage.getItem('Email');
+    if(nombre!="anonimo"&& nombre!=null){
       this.router.navigate(["perfil"]);
     }
   }

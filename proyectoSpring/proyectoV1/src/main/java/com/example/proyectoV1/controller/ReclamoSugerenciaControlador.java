@@ -44,9 +44,37 @@ public class ReclamoSugerenciaControlador {
 		return xd;
 		
 	}
-	
-	
-		
+	@RequestMapping(value = "/id/last", method = RequestMethod.GET)
+	public ReclamoSugerencia lastRS() {
+		ArrayList<ReclamoSugerencia> ReclamosS = (ArrayList<ReclamoSugerencia>) service.listarTodo();
+		ReclamoSugerencia lastidrs = new ReclamoSugerencia();
+		lastidrs.setIdReclamoSugerencia(ReclamosS.get(ReclamosS.size()-1).getIdReclamoSugerencia());
+		return lastidrs;
+	}
+	@RequestMapping(value="/listar/rs/{idEmpresa}" , method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> rsByIdEmpresas(@PathVariable("idEmpresa") int idEmpresa){
+		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
+		return listaRSByidEmpresa;
+	}
+	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> sugerenciaByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
+		String tipo = "sugerencia";
+		ArrayList<ReclamoSugerencia> sByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
+		return sByEmpresa;
+	}
+	@RequestMapping(value = "/listar/r/{idEmpresa}", method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> reclamoByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
+		String tipo = "reclamo";
+		ArrayList<ReclamoSugerencia> rByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
+		return rByEmpresa;
+	}
+	@RequestMapping(value = "/Estadistica/{idEmpresa}", method = RequestMethod.GET)
+	public int[] cantRSByIdEmpresa(@PathVariable ("idEmpresa")int idEmpresa) {
+		int [] estadisticas = new int[2];
+		estadisticas[0] =service.tipoByIdEmpresas(idEmpresa, "sugerencia").size();
+		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
+		return estadisticas;
+	}
 }
 
 

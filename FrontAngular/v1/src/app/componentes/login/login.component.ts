@@ -109,4 +109,12 @@ export class LoginComponent implements OnInit {
     // Si todo sale bien, eliminar errores (decretar que es v�lido)
     rut.setCustomValidity('');
 }
+reclamo(){
+  if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
+    this.router.navigate(["anonimo/realizar_reclamo"]);
+  }else{
+    this.router.navigate(["realizar_reclamo"]);
+
+  }
+}
 }
