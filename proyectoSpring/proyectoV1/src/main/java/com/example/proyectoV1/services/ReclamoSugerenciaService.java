@@ -8,4 +8,5 @@ public interface ReclamoSugerenciaService {
 	List<ReclamoSugerencia> rsByusuarioReclamoSugerencia(int usuarioReclamoSugerencia);
 	ReclamoSugerencia rsByIdUser(int idUser);
 	List<ReclamoSugerencia> listarTodo();
+	List<ReclamoSugerencia> listarByidEmpresa(int idEmpresa);
 }

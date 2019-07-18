@@ -7,4 +7,5 @@ public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerenc
 	ReclamoSugerencia findOne(int idReclamoSugerencia);
 	List<ReclamoSugerencia> findByusuarioReclamoSugerencia(int usuarioReclamoSugerencia);
 	List<ReclamoSugerencia> findAll();
+	List<ReclamoSugerencia> findByidEmpresa(int idEmpresa);
 }

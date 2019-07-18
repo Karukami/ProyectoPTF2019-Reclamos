@@ -51,8 +51,11 @@ public class ReclamoSugerenciaControlador {
 		lastidrs.setIdReclamoSugerencia(ReclamosS.get(ReclamosS.size()-1).getIdReclamoSugerencia());
 		return lastidrs;
 	}
-	
-		
+	@RequestMapping(value="/idEmpresa/{idEmpresa}" , method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> rsByIdEmpresas(@PathVariable("idEmpresa") int idEmpresa){
+		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
+		return listaRSByidEmpresa;
+	}
 }
 
 

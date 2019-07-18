@@ -37,6 +37,10 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	public List<ReclamoSugerencia> listarTodo() {
 		return repositorio.findAll();
 	}
+	@Override
+	public List<ReclamoSugerencia> listarByidEmpresa(int idEmpresa) {
+		return repositorio.findByidEmpresa(idEmpresa);
+	}
 	
 	
 }
