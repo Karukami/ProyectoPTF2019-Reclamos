@@ -39,7 +39,6 @@ public class UsuarioServiceImp  implements UsuarioService{
 		return null;  
 	}
 
-	@SuppressWarnings("null")
 	@Override
 	public Usuario logIn(Usuario p) throws LoginException{
 		Usuario usuarioAVerificar=p;
