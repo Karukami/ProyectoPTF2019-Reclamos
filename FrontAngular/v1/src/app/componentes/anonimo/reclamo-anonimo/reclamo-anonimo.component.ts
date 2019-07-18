@@ -94,5 +94,8 @@ export class ReclamoAnonimoComponent implements OnInit {
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
 
 }

@@ -94,4 +94,5 @@ export class SugerenciaAnonimoComponent implements OnInit {
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  
 }
