@@ -110,7 +110,7 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre..." required>
+                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre..." required >
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
@@ -134,7 +134,7 @@
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" pattern="[0-9]{10}" class="form-control" id="numeros" placeholder="X XXXX XXXX" (keyup)="validarTelefono()">
+                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" pattern="[0-9]{10}" class="form-control" id="numeros" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                             
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
