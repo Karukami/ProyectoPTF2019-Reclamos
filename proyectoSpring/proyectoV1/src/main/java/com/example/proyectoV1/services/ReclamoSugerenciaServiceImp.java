@@ -42,7 +42,7 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 		return repositorio.findByidEmpresa(idEmpresa);
 	}
 	@Override
-	public List<ReclamoSugerencia> sugerenciaByIdEmpresas(int idEmpresa, String tipo) {
+	public List<ReclamoSugerencia> tipoByIdEmpresas(int idEmpresa, String tipo) {
 		return repositorio.findByIdEmpresaAndTipo(idEmpresa, tipo);
 	}
 	
