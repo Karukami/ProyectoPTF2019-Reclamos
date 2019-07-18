@@ -46,7 +46,7 @@ const routes: Routes = [
   {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
   {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent}
 ];
-
+ 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
