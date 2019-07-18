@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.proyectoV1.services.ReclamoSugerenciaService;
 import com.example.proyectoV1.services.ReclamoSugerenciaServiceImp;
 import com.example.proyectoV1.services.SendMailService;
 import com.example.proyectoV1.services.UsuarioService;
@@ -26,6 +27,8 @@ public class SendMailController {
 	UsuarioService service;
 	@Autowired
 	ControladorUsuario user;
+	@Autowired
+	ReclamoSugerenciaService servicioRS;
 
 
 	@GetMapping("/sendMail/mail")
@@ -38,10 +41,15 @@ public class SendMailController {
 		user = new ControladorUsuario();
 		String nombreUsuario =  service.listarId_RutUsuario(usuarioReclamoSugerencia).getNombreUsuario();
 		String emailUsuario = service.listarId_RutUsuario(usuarioReclamoSugerencia).getEmailUsuario();
-		int iDRS = serviceRs.rsByIdUser(usuarioReclamoSugerencia).getIdReclamoSugerencia();
-		String message = "Estimad@ " + nombreUsuario + " : \n\n" + "Tu reclamo ha sido ingresado con exito! \n\n" 
-		+ "Estate atento a la respuesta de tu reclamo con el numero de ID " + iDRS + 
-		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com";
+		int iDRS = servicioRS.rsByIdUser(usuarioReclamoSugerencia).getIdReclamoSugerencia();
+		String message =
+		"Estimad@ " + nombreUsuario + " : \n\n" + 
+		
+		"Tu reclamo ha sido ingresado con exito en nuestra plataforma! \n\n" +
+		
+		"Estate atento a la respuesta de tu reclamo con el numero de ID: " + iDRS + 
+		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com + \n\n"
+		+ "Cordiales saludos del equipo G3";
 		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);
 		return message;
 	}
