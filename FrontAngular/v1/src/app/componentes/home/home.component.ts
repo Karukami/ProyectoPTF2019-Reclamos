@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   
   ngOnInit() {
     let nombre:string = localStorage.getItem('Email');
-    if(nombre!="anonimo"&& nombre==null){
+    if(nombre!="anonimo"&& nombre!=null){
       this.router.navigate(["perfil"]);
     }
   }
