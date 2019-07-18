@@ -6,4 +6,5 @@ public interface ReclamoSugerenciaService {
 	ReclamoSugerencia listarIdReclamoSugerencia(int idReclamoSugerencia);
 	ReclamoSugerencia edit(ReclamoSugerencia x);
 	List<ReclamoSugerencia> rsByusuarioReclamoSugerencia(int usuarioReclamoSugerencia);
+	ReclamoSugerencia rsByIdUser(int idUser);
 }

@@ -1,4 +1,5 @@
 package com.example.proyectoV1.services;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,13 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	@Override
 	public List<ReclamoSugerencia> rsByusuarioReclamoSugerencia(int usuarioReclamoSugerencia) {
 		return repositorio.findByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
+	}
+	@Override
+	public ReclamoSugerencia rsByIdUser(int idUser) {
+		ArrayList<ReclamoSugerencia> rsUser = (ArrayList<ReclamoSugerencia>) this.rsByusuarioReclamoSugerencia(idUser);
+		ReclamoSugerencia xd = new ReclamoSugerencia();
+		xd.setIdReclamoSugerencia(rsUser.get(rsUser.size()-1).getIdReclamoSugerencia());
+		return xd;
 	}
 	
 }

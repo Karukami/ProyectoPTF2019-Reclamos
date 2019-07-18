@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.proyectoV1.services.ReclamoSugerenciaServiceImp;
 import com.example.proyectoV1.services.SendMailService;
 import com.example.proyectoV1.services.UsuarioService;
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
@@ -17,13 +19,13 @@ import com.example.proyectoV1.services.UsuarioService;
 @Controller
 public class SendMailController {
 	@Autowired
-	private SendMailService sendMailService;
-	private ReclamoSugerenciaControlador controllRS;
-	private ControladorUsuario user;
-	
-
-@Autowired
-UsuarioService service;
+	SendMailService sendMailService;
+	@Autowired
+	ReclamoSugerenciaServiceImp serviceRs;	
+	@Autowired
+	UsuarioService service;
+	@Autowired
+	ControladorUsuario user;
 
 
 	@GetMapping("/sendMail/mail")
@@ -33,14 +35,14 @@ UsuarioService service;
 	
 	@RequestMapping (value="/{usuarioReclamoSugerencia}", method=RequestMethod.GET)
 	public String sendMail(@PathVariable ("usuarioReclamoSugerencia")int usuarioReclamoSugerencia ) {
-		System.out.println(usuarioReclamoSugerencia);
-		user=new ControladorUsuario();
+		user = new ControladorUsuario();
 		String nombreUsuario =  service.listarId_RutUsuario(usuarioReclamoSugerencia).getNombreUsuario();
-		/*int iDRS = controllRS.rsByUser(usuarioReclamoSugerencia).getIdReclamoSugerencia();
-		String mailUser = user.listarRutUsuarioRS(usuarioReclamoSugerencia).getEmailUsuario();
+		String emailUsuario = service.listarId_RutUsuario(usuarioReclamoSugerencia).getEmailUsuario();
+		int iDRS = serviceRs.rsByIdUser(usuarioReclamoSugerencia).getIdReclamoSugerencia();
 		String message = "Estimad@ " + nombreUsuario + " : \n\n" + "Tu reclamo ha sido ingresado con exito! \n\n" 
-		+ "Estate atento a la respuesta de tu reclamo con el numero de ID " + iDRS + "\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com";
-		sendMailService.sendMail(mailUser,"Reclamo ID: " + iDRS , message);*/
-		return nombreUsuario;
+		+ "Estate atento a la respuesta de tu reclamo con el numero de ID " + iDRS + 
+		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com";
+		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);
+		return message;
 	}
 }
