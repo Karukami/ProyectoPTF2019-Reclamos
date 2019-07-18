@@ -15,11 +15,11 @@ public class SendMailService {
 	
 	public void sendMail(String to, String subjet, String body) {
 		SimpleMailMessage mailMessage = new SimpleMailMessage();
-		mailMessage.setFrom("sramirez.sandrock@gmail.com");
+		mailMessage.setFrom("soporte@3chile.com");
 		mailMessage.setTo(to);
 		mailMessage.setSubject(subjet);
 		mailMessage.setText(body);
-		
+	
 		javaMailSender.send(mailMessage);
 	}
 }
