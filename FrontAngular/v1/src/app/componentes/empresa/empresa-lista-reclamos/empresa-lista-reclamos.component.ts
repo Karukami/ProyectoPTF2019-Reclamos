@@ -17,6 +17,8 @@ export class EmpresaListaReclamosComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    
     for(let a =0;a<10;a++){
 
       let color:string;
