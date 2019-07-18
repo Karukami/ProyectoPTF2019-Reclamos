@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   idBusqueda:number;
   rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }
-  nombre:string = localStorage.getItem('Email');
-
+  
   ngOnInit() {
-    if(this.nombre!="anonimo"){
+    let nombre:string = localStorage.getItem('Email');
+    if(nombre!="anonimo"&& nombre==null){
       this.router.navigate(["perfil"]);
     }
   }
