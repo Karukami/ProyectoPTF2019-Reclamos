@@ -25,4 +25,15 @@ export class TrabajadorServiceService {
   logInTrabajador(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url,trabajador);
   }
+
+  getRSEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia>(this.url+"lista/rs/"+id);
+  }
+  getReclamoEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia>(this.url+"lista/r/"+id)
+  }
+  getSugerenciaEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia>(this.url+"listar/s/"+id);
+  }
+
 }
