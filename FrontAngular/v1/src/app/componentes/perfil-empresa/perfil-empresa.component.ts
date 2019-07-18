@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil-empresa.component.css']
 })
 export class PerfilEmpresaComponent implements OnInit {
-
+  administrador:boolean=true;
   constructor() { }
 
   ngOnInit() {

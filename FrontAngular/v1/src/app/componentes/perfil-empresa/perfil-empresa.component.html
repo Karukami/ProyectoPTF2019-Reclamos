@@ -105,6 +105,13 @@
 						<br>
 						<button class="btn btn-success btn-lg btn-block" (click)="realizarReclamo()">Lista Sugerencias</button>
 						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="VerEstadisticas()">Ver Estadisticas</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="crearTrabajador()">Trabajadores</button>
+						<br>
+
 					</div>
 				</div>
 				<div class="col-9" style="height:730px; "><br>
