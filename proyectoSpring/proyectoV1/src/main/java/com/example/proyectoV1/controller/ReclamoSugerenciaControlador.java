@@ -68,6 +68,13 @@ public class ReclamoSugerenciaControlador {
 		ArrayList<ReclamoSugerencia> rByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
 		return rByEmpresa;
 	}
+	@RequestMapping(value = "/Estadistica/{idEmpresa}", method = RequestMethod.GET)
+	public int[] cantRSByIdEmpresa(@PathVariable ("idEmpresa")int idEmpresa) {
+		int [] estadisticas = new int[2];
+		estadisticas[0] =service.tipoByIdEmpresas(idEmpresa, "sugerencia").size();
+		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
+		return estadisticas;
+	}
 }
 
 
