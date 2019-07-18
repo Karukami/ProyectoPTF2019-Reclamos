@@ -57,20 +57,14 @@
                 </nav>
             </div>
     
-            <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+            <!--- Botón cerrar Sesión-->
             <div class="col-4 padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li>
-                                <button type="button" id= "idBotonRegistrar" (click)="registrar()" class="btn" style="margin-left: 0px; margin-right: 10px">¡Regí­strate!</button>   
-                            </li>
-                            <li>
-                                <button type="button" id= "idBotonLogin" class="btn" style="margin-left: 10px; margin-right: 10px" (click)="login()" >Login</button>  
-                            </li>
-                            <li>
-                                <button type="button" id= "idBotonEmpresa" (click)="homeEmpresa()" class="btn" style="margin-left: 10px; margin-right: 0px">Empresas</button>
+                                <button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn" style="margin-left: 100px; margin-right: 0px">Cerrar Sesión</button>   
                             </li>
                         </ul>
                     </div>
@@ -110,7 +104,7 @@
 					<div>
 						<br>
 						<img src="../../assets/photo-placeholder.jpeg">
-						<div id=NombreUsuario>{{nombreUsuario}}</div>
+                        <div id=NombreUsuario>{{nombreUsuario}}</div>
 						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
 						<button id= BotonMiPerfil class="btn btn-lg btn-block">Mi perfil</button>
 						<br><br><br><br>
