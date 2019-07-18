@@ -33,5 +33,18 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 		xd.setIdReclamoSugerencia(rsUser.get(rsUser.size()-1).getIdReclamoSugerencia());
 		return xd;
 	}
+	@Override
+	public List<ReclamoSugerencia> listarTodo() {
+		return repositorio.findAll();
+	}
+	@Override
+	public List<ReclamoSugerencia> listarByidEmpresa(int idEmpresa) {
+		return repositorio.findByidEmpresa(idEmpresa);
+	}
+	@Override
+	public List<ReclamoSugerencia> sugerenciaByIdEmpresas(int idEmpresa, String tipo) {
+		return repositorio.findByIdEmpresaAndTipo(idEmpresa, tipo);
+	}
+	
 	
 }
