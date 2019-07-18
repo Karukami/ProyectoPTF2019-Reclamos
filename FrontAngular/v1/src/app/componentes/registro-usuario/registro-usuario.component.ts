@@ -3,7 +3,8 @@ import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { ServiceService } from 'src/app/Services/service.service';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
-import { ValidarRut } from 'src/app/funcionesExternas/validarRUT';
+import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
+import { ValidarTelefono } from 'src/app/funcionesDeValidacion/validarTELEFONO';
 
 
 @Component({
@@ -21,9 +22,11 @@ export class RegistroUsuarioComponent implements OnInit {
   generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
-   
+
   errGenero:string;
   rut:string;
+  errorTel:String;
+
   constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService) { }
   ngOnInit() {
 
@@ -65,6 +68,16 @@ validateRut(){
     this.errRut="";
   }else{
     this.errRut=resultado.message;
+  }
+}
+
+validarTelefono(){
+  let validar:ValidarTelefono = new ValidarTelefono();
+  let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
+  if(resultado.result ){
+    this.errorTel="";
+  }else{
+    this.errorTel=resultado.message;
   }
 }
 

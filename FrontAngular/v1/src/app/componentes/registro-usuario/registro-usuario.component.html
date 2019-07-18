@@ -122,7 +122,7 @@
 
                                 <label for="" style="color: #dddddd">Rut</label>
                                 <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5" (keyup)="validateRut()">
-                                <p style="color: white; background-color: red">{{errRut}}</p>
+                                <p style="color: white;">{{errRut}}</p>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
@@ -136,7 +136,8 @@
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX">
+                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario"type="number" class="form-control" id="numeros" placeholder="X XXXX XXXX" (keyup)="validarTelefono()">
+                            <p style="color: white;">{{errorTel}}</p>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Género</label><br>

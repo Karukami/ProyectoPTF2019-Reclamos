@@ -19,7 +19,7 @@ export class ValidarRut{
     
     // Si no cumple con el m�nimo ej. (n.nnn.nnn)
     if(cuerpo.length < 7) { 
-        return {result: false, message:"RUT Incompleto"}; 
+        return {result: false, message:"* RUT Incompleto"}; 
     }
     
     // Calcular D�gito Verificador
@@ -49,7 +49,7 @@ export class ValidarRut{
     
     // Validar que el Cuerpo coincide con su D�gito Verificador
     if(dvEsperado != dv) { 
-        return {result: false, message:"RUT Invalido"}; 
+        return {result: false, message:"* RUT Invalido"}; 
     }
     
     // Si todo sale bien, eliminar errores (decretar que es v�lido)
