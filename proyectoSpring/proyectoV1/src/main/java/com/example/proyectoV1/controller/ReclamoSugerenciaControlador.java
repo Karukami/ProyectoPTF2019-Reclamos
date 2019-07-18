@@ -59,8 +59,14 @@ public class ReclamoSugerenciaControlador {
 	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> sugerenciaByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "sugerencia";
-		ArrayList<ReclamoSugerencia> sByEmpresa = (ArrayList<ReclamoSugerencia>) service.sugerenciaByIdEmpresas(idEmpresa, tipo);
+		ArrayList<ReclamoSugerencia> sByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
 		return sByEmpresa;
+	}
+	@RequestMapping(value = "/listar/r/{idEmpresa}", method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> reclamoByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
+		String tipo = "reclamo";
+		ArrayList<ReclamoSugerencia> rByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
+		return rByEmpresa;
 	}
 }
 
