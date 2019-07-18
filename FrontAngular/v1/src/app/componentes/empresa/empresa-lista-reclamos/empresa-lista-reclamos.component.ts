@@ -55,5 +55,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
     localStorage.setIteml("reclamo",reclamoAresolver);
     this.router.navigate(["empresa/responderReclamo"]);
   }
-
+  realizarSugerencia(){
+    this.router.navigate(["empresa/responderSugerencia"]);
+  }
 }
