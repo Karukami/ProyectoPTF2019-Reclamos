@@ -15,7 +15,7 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
 export class LoginEmpresaComponent implements OnInit {
 
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService) { }
-  trabajador:Trabajador;
+  trabajador:Trabajador; 
   mensajeError:string;
   ngOnInit() {
   }
@@ -30,6 +30,7 @@ export class LoginEmpresaComponent implements OnInit {
   registrar(){
     this.router.navigate(["empresa/registro"]);
   }
+  
   logInEmpresa(){
     this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
       let credenciales:Trabajador= data;
