@@ -8,4 +8,5 @@ public interface ReclamoSugerenciaRepositorio extends Repository<ReclamoSugerenc
 	List<ReclamoSugerencia> findByusuarioReclamoSugerencia(int usuarioReclamoSugerencia);
 	List<ReclamoSugerencia> findAll();
 	List<ReclamoSugerencia> findByidEmpresa(int idEmpresa);
+	List<ReclamoSugerencia> findByIdEmpresaAndTipo(int idEmpresa, String tipo);
 }
