@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
           localStorage.setItem("Email", email);
           localStorage.setItem("idUsuario",""+this.credenciales.rutUsuario);
-          console.log("id usuario "+this.credenciales.rutUsuario);
           this.router.navigate(["perfil"]);
 
         }

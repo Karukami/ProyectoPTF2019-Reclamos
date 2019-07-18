@@ -29,18 +29,28 @@ export class LoginEmpresaComponent implements OnInit {
   //que hace referencia al componente registro-empresa 
   registrar(){
     this.router.navigate(["empresa/registro"]);
-  }
-  
+  } 
+
   logInEmpresa(){
-    this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
-      let credenciales:Trabajador= data;
-      if(credenciales.passTrabajador=="valido"){
-        localStorage.setItem("Email",credenciales.nombreTrabajador);
-        this.router.navigate(["empresa/perfilEmpresa"]);
-      }else{
-        this.mensajeError="el correo o la contraseña no coinciden ";
-      }
-    })
+    try {
+      this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
+        let credenciales= data;
+        if(credenciales==null){
+          this.mensajeError="el correo o la contraseña no coinciden ";  
+        }else{
+          localStorage.setItem("Empresa",credenciales.empresa);
+          localStorage.setItem("Trabajador",credenciales.nombreTrabajador);
+          this.router.navigate(["empresa/perfilEmpresa"]);
+        }
+      })  
+    } catch (error) {
+      this.mensajeError="verifica que los campos sean correctos";
+    }finally{
+      this.mensajeError="verifica que los campos sean correctos";
+    }
+    
   }
 
+
+  
 }
