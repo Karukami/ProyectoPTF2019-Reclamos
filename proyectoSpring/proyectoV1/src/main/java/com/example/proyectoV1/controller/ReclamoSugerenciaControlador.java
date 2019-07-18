@@ -44,7 +44,13 @@ public class ReclamoSugerenciaControlador {
 		return xd;
 		
 	}
-	
+	@RequestMapping(value = "/id/last", method = RequestMethod.GET)
+	public ReclamoSugerencia lastRS() {
+		ArrayList<ReclamoSugerencia> ReclamosS = (ArrayList<ReclamoSugerencia>) service.listarTodo();
+		ReclamoSugerencia lastidrs = new ReclamoSugerencia();
+		lastidrs.setIdReclamoSugerencia(ReclamosS.get(ReclamosS.size()-1).getIdReclamoSugerencia());
+		return lastidrs;
+	}
 	
 		
 }
