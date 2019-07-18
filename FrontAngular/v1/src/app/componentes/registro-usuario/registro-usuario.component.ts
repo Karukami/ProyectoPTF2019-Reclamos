@@ -61,7 +61,6 @@ generoVacio():boolean{
 }
 
 validateRut(){
-  debugger;
   let validar:ValidarRut  = new ValidarRut();
   let resultado = validar.esValido( this.rut);
   if(resultado.result ){
@@ -74,12 +73,14 @@ validateRut(){
 validarTelefono(){
   let validar:ValidarTelefono = new ValidarTelefono();
   let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
+  console.log(this.usuarioARegistrar.fonoUsuario);
   if(resultado.result ){
     this.errorTel="";
   }else{
     this.errorTel=resultado.message;
   }
 }
+
 
 rutVacio(){
   if(!(this.genero==null)){
@@ -174,13 +175,7 @@ rutVacio(){
     // Casos Especiales (0 y K)
     dv = (dv == 'K')?10:dv;
     dv = (dv == 0)?11:dv;
-    
-    // Validar que el Cuerpo coincide con su D�gito Verificador
-    if(dvEsperado != dv) {
-      return false; 
-    }
-    else {return true}
-}
+  }
 infoUsuario(){
     
   console.log("rut: "+this.usuarioARegistrar.rutUsuario.toString()+" nombre: "+this.usuarioARegistrar.nombreUsuario+
