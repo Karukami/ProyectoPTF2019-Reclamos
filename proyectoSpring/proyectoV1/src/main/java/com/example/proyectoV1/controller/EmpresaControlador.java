@@ -23,6 +23,7 @@ public class EmpresaControlador {
 	//Guarda una empresa en la DB
 	@PostMapping
 	public Empresa agregar(@RequestBody Empresa e) {
+		//e.setEmailEmpresa("hola@chao.com");
 		return service.add(e);
 	}
 	@RequestMapping(value="/{nombre}", method=RequestMethod.GET)
