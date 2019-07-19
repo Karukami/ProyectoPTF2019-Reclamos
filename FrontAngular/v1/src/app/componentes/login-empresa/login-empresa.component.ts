@@ -17,6 +17,7 @@ export class LoginEmpresaComponent implements OnInit {
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService) { }
   trabajador:Trabajador; 
   mensajeError:string;
+  
   ngOnInit() {
   }
   //homeEmpresa():vacio->vacio

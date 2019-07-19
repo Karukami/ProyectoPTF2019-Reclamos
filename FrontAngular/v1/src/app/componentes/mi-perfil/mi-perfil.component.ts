@@ -3,24 +3,32 @@ import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  selector: 'app-mi-perfil',
+  templateUrl: './mi-perfil.component.html',
+  styleUrls: ['./mi-perfil.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class MiPerfilComponent implements OnInit {
 
   constructor(private router:Router, private serviceRS:RsServiceService) { }
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
-  idBusqueda:number;
+  rutUsuario: string;
+  idBusqueda: string;
+  emailUsuario: string;
+  fonoUsuario: string; 
+  generoUsuario: string;
+  fechaNacUsuario: string; 
+ 
 
   ngOnInit() {
-    if(this.nombre=="anonimo"){
-      this.router.navigate(["home"]);
-    }
     this.nombreUsuario=localStorage.getItem("nombre");
     this.apellidoUsuario=localStorage.getItem("apellido");
+    this.emailUsuario=localStorage.getItem("Email"); 
+    this.fonoUsuario=localStorage.getItem("fonoUsuario"); 
+    this.generoUsuario=localStorage.getItem("generoUsuario");
+    this.fechaNacUsuario=localStorage.getItem("fechaNacUsuario");
+    this.rutUsuario=localStorage.getItem("idUsuario");
 
   } 
   realizarReclamo() {
@@ -41,7 +49,4 @@ export class PerfilComponent implements OnInit {
     
   }
 
-  miPerfil() {
-    this.router.navigate(['miPerfil']);
-  }
 }
