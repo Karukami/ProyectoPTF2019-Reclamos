@@ -26,6 +26,8 @@ public class TrabajadorControlador {
 	//Agrga un Trabajador a la DB
 	@PostMapping
 	public Trabajador agregar(@RequestBody Trabajador t) {
+		System.out.println("nombre t: "+ t.getNombreTrabajador() );
+		System.out.println("tipo t: "+ t.getTipoTrabajador() );
 		return service.add(t);
 	}
 	//Lista los trabajadores
