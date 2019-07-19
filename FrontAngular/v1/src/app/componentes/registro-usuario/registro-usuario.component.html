@@ -96,12 +96,13 @@
 
 
 <!-- CONTENIDO -->
+<form name="formularioRegistro" novalidate>
             <div class="row" id=idFondoRegistro>
                 <div class="col-4"></div>
                 <div class="col-4" style="height:1530px; ">
                 
                         <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
-                            Registro de Nuevo Usuario
+                            Registro de Nuevo Usuario 22222
                         </h4><br>
 
                         <p style="color: #eeeeee; text-align: center">
@@ -110,7 +111,7 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" placeholder="Ingresa tu nombre..." minlength="3" maxlength="20" required>
+                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control test" name="name" id="Nombres" placeholder="Ingresa tu nombre..." minlength="7" maxlength="20" required>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
@@ -179,3 +180,4 @@
                 </div>
                 <div class="col-4"></div>
             </div>
+        </form>
