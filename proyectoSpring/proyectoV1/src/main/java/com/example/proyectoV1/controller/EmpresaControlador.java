@@ -1,6 +1,5 @@
 package com.example.proyectoV1.controller;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.proyectoV1.entities.Empresa;
 import com.example.proyectoV1.services.EmpresaService;
-
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
 @RestController
 @RequestMapping({"/Empresa"})
@@ -20,12 +18,23 @@ import com.example.proyectoV1.services.EmpresaService;
 public class EmpresaControlador {
 	@Autowired
 	EmpresaService service;
-	//Guarda una empresa en la DB
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar	
 	@PostMapping
 	public Empresa agregar(@RequestBody Empresa e) {
 		//e.setEmailEmpresa("hola@chao.com");
 		return service.add(e);
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Editar
+	
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
+	
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de nombres de Empresas
 	@RequestMapping(value="/{nombre}", method=RequestMethod.GET)
 	public ArrayList<String> nombreEmpresas(){
 		ArrayList<String> nombresE = new ArrayList<String>();
@@ -34,12 +43,16 @@ public class EmpresaControlador {
 		}
 		return nombresE;
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Busca una Empresa por su ID	
 	@RequestMapping(value="/nombre/{id}", method = RequestMethod.GET)
 	public Empresa nombrePorId(@PathVariable("id")int idEmpresa) {
 		Empresa x = new Empresa();
 		x.setNombreEmpresa(service.idEmpresa(idEmpresa).getNombreEmpresa());
 		return x;
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Busca una Empresa por su Nombre
 	@RequestMapping(value = "/nombre/id/{nombreEmpresa}", method = RequestMethod.GET)
 	public Empresa idByName(@PathVariable("nombreEmpresa") String nombreEmpresa) {
 		Empresa x = new Empresa();
