@@ -61,7 +61,6 @@ return service.edit(p);
 //Permite a un usuario hacer login
 @PostMapping (path= {"/login"})
 public ResponseEntity<Usuario> logIn(@RequestBody Usuario p){
-	
 	 try {
 		Usuario us = service.logIn(p);
 		return ResponseEntity.status(HttpStatus.OK).body(us);

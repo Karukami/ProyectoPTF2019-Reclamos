@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
 import { ValidarTelefono } from 'src/app/funcionesDeValidacion/validarTELEFONO';
+import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 
 
 @Component({
@@ -27,9 +28,13 @@ export class RegistroUsuarioComponent implements OnInit {
   rut:string;
   errorTel:String;
 
-  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService) { }
-  ngOnInit() {
+  formRegistro :FormGroup;
 
+  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
+  ngOnInit() {
+    this.formRegistro = this.formBuilder.group({
+      Nombres:[ '', Validators.required ]
+    });
   }
 
   homeEmpresa(){
@@ -61,6 +66,7 @@ generoVacio():boolean{
 }
 
 validateRut(){
+
   let validar:ValidarRut  = new ValidarRut();
   let resultado = validar.esValido( this.rut);
   if(resultado.result ){
@@ -75,7 +81,7 @@ validarTelefono(){
   let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
   console.log(this.usuarioARegistrar.fonoUsuario);
   if(resultado.result ){
-    this.errorTel="";
+    this.errorTel="" ;
   }else{
     this.errorTel=resultado.message;
   }
@@ -85,7 +91,7 @@ validarTelefono(){
 rutVacio(){
   if(!(this.genero==null)){
     this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-    return true;
+    return true ;
   }else{
     this.errRut="este campo no puede estar vacio";
     return false;

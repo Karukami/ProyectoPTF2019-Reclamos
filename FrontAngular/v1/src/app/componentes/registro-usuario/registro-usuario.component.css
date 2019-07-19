@@ -53,3 +53,11 @@
 	background-color: #00546c;
 	color: white;
 }
+
+input.ng-valid{
+	border:2px solid green;
+}
+
+input.ng-invalid{
+	border:2px solid red;
+}
