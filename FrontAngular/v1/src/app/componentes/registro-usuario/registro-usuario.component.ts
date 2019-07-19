@@ -33,7 +33,8 @@ export class RegistroUsuarioComponent implements OnInit {
   constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.formRegistro = this.formBuilder.group({
-      Nombres:[ '', Validators.required ]
+      Nombres:[ '', Validators.required ],
+      Apellidos:[ '', Validators.required ]
     });
   }
 
