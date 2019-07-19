@@ -50,6 +50,7 @@
 	height: 730px;
 	background-color: #000000; 
 	background-image: url('/../assets/fondousuario.png');
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
 #contenido2{
