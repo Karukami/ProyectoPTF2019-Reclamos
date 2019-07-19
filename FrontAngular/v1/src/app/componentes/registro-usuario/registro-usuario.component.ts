@@ -34,7 +34,17 @@ export class RegistroUsuarioComponent implements OnInit {
   ngOnInit() {
     this.formRegistro = this.formBuilder.group({
       Nombres:[ '', Validators.required ],
-      Apellidos:[ '', Validators.required ]
+      Apellidos:[ '', Validators.required ],
+      Rut:['',Validators.required],
+      fechaNacUsuario:['',Validators.required],
+      Telefono:['',Validators.required],
+      genero:['',Validators.required],
+      correo:['',Validators.required],
+      correo2:['',Validators.required],
+      passUsuario:['',Validators.required],
+      pass2:['',Validators.required]
+
+
     });
   }
 
@@ -67,7 +77,7 @@ generoVacio():boolean{
 }
 
 validateRut(){
-
+  
   let validar:ValidarRut  = new ValidarRut();
   let resultado = validar.esValido( this.rut);
   if(resultado.result ){
