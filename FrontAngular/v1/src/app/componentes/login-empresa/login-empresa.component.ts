@@ -15,9 +15,14 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
 export class LoginEmpresaComponent implements OnInit {
 
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService) { }
-  trabajador:Trabajador; 
+  trabajador:Trabajador=new Trabajador(); 
   mensajeError:string;
+  
   ngOnInit() {
+    
+    this.trabajador.idTrabajador=0;
+    this.trabajador.apellidoTrabajador=" ";
+    this.trabajador.tipoTrabajador=" ";
   }
   //homeEmpresa():vacio->vacio
   //redirige al compoenente Home_empresa
@@ -40,7 +45,8 @@ export class LoginEmpresaComponent implements OnInit {
         }else{
           localStorage.setItem("Empresa",credenciales.empresa);
           localStorage.setItem("Trabajador",credenciales.nombreTrabajador);
-          this.router.navigate(["empresa/perfilEmpresa"]);
+          this.router.navigate(["empresa/perfil"]);
+          this.mensajeError="";
         }
       })  
     } catch (error) {
