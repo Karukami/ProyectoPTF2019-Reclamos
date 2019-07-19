@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import {FormsModule}from '@angular/forms';
+import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './Services/service.service';
 
@@ -28,6 +28,8 @@ import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lis
 import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
 import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-responder-reclamo/empresa-responder-reclamo.component';
 import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
+import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
+import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 
 
 @NgModule({
@@ -53,13 +55,16 @@ import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empre
     EmpresaListaReclamosComponent,
     EmpresaListaSugerenciasComponent,
     EmpresaResponderReclamoComponent,
-    EmpresaResponderSugerenciaComponent
+    EmpresaResponderSugerenciaComponent,
+    MiPerfilComponent,
+    NuestroEquipoComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
 
    

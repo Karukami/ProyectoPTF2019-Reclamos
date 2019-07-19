@@ -116,28 +116,32 @@
                     </div>
                     <div class="form-grup">
                         <label for="">Email Empresa</label>
-                        <input [(ngModel)]="empresa.emailEmpresa"class="form-control" type="text"> 
+                        <input [(ngModel)]="empresa.emailEmpresa"class="form-control" type="email"> 
                     </div>    
                     <div class="form-grup">
                         <label for="">Tipo</label>
-                        <input [(ngModel)]="empresa.tipoEmpresa"class="form-control" type="text">     
+                        <input [(ngModel)]="empresa.tipoEmpresa"class="form-control" type="number">     
                     </div> 
                     <div class="form-grup">
                         <label for="">Tag Empresa</label>
-                        <input [(ngModel)]="emrpesa.tipoEmpresa"class="form-control" type="text">                 
+                        <input [(ngModel)]="empresa.tagEmpresa"class="form-control" type="number">                 
                     </div> 
                     <hr>
                     
                     <h2 style="color: white">informacion del usuario</h2>
-                    <!-- retustro trabajador empresa-->
+                    <!-- registro trabajador empresa-->
                     <div clas="form-grup">  
                         <label for="">Nombre Trabajador/Username</label>  
                         <input [(ngModel)]="trabajador.nombreTrabajador"class="form-control" type="text">              
                     </div>
+                    <div clas="form-grup">  
+                        <label for="">Apellido Trabajador</label>  
+                        <input [(ngModel)]="trabajador.apellidoTrabajador"class="form-control" type="text">              
+                    </div>
                     <div class="form-grup">  
                         <label for="">Tipo trabajador</label> 
-                        <select class="browser-default custom-select " [(ngModel)]="trabajador.tipo"name="" id="">
-                            <option value="administrador">Administrador</option>
+                        <select class="browser-default custom-select " [(ngModel)]="tipoTrabajador"name="" id="">
+                            <option value="Administrador">Administrador</option>
                         </select>          
                     </div>
                     <div class="form-grup"> 
@@ -149,7 +153,7 @@
                         <input [(ngModel)]="pass2" class="form-control" type="password">            
                     </div>
                     <hr>
-                    <button type="button" (click)="registro()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button>     
+                    <button type="button" (click)="registrar()" class="btn btn-primary btn-lg btn-block">Confirmar registro</button>     
                     <hr>
                 </div>
                 <div class="col-4"></div>

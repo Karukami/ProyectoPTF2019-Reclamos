@@ -1,6 +1,6 @@
 
 export class ValidarRut{
-    
+    //prueba
     constructor(){
       
     }

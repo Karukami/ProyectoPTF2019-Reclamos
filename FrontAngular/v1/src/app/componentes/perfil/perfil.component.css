@@ -45,13 +45,15 @@
 	color: #00546c;
 	height:20px; 
 	transform: translate(140px, -100px);
-	font-size: 20px; 
+	font-size: 25px; 
+	text-transform: capitalize;
 }
 #ApellidoUsuario {
 	color: #00546c;
-	height:10px; 
+	height:20px; 
 	transform: translate(140px, -100px);
-	font-size: 20px; 
+	font-size: 25px;
+	text-transform: capitalize;
 }
 #BotonMiPerfil {
 	background-color: #00546c;
@@ -68,4 +70,4 @@
 #BotonRealizarReclamo {
 	background-color: #00546c;
 	color: white;
-}
+} 
