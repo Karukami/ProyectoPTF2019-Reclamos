@@ -113,11 +113,11 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." required >
+                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." minlength="3" maxlength="45" required>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido...">
+                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido..." minlength="3" maxlength="45" required>
                             </div>
                             <div class="form-group">
 
