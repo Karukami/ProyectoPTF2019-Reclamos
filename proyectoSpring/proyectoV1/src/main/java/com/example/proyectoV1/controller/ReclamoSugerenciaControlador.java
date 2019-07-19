@@ -60,7 +60,7 @@ public class ReclamoSugerenciaControlador {
 	public ArrayList<ReclamoSugerencia> sugerenciaByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "sugerencia";
 		ArrayList<ReclamoSugerencia> sByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
-		return sByEmpresa;
+		return sByEmpresa;	
 	}
 	@RequestMapping(value = "/listar/r/{idEmpresa}", method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> reclamoByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
@@ -75,6 +75,7 @@ public class ReclamoSugerenciaControlador {
 		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
 		return estadisticas;
 	}
+	
 }
 
 
