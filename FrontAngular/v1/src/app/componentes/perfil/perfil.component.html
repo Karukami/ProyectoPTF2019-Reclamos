@@ -24,40 +24,13 @@
                                     INICIO
                                 </a>
                             </div>
-                          </li>
-                          <li class="nav-item">
-                            <div class="col">
-                                <a class="nav-link" (click)="reclamo()">
-                                    <img src="../../assets/reclamoiconmini.png" alt="">
-                                    <br>
-                                    RECLAMO
-                                </a>
-                            </div>
-                          </li>
-                          <li class="nav-item">
-                            <div class="col">
-                                <a class="nav-link" href="/anonimo/realizar_sugerencia">
-                                    <img src="../../assets/sugerenciaiconmini.png" alt="">
-                                    <br>
-                                    SUGERENCIA
-                                </a>
-                            </div> 
-                          </li>
-                          <li class="nav-item">
-                                <div class="col">
-                                    <a class="nav-link" href="#">
-                                        <img src="../../assets/historialiconmini.png" alt="">
-                                        <br>
-                                        HISTORIAL
-                                    </a>
-                                </div>
-                              </li>
+                        </li>
                         </ul>
                     </div>            
                 </nav>
             </div>
     
-            <!--- Botón cerrar Sesión-->
+            <!--- SECIÓN 2: Botón cerrar Sesión-->
             <div class="col-4 padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
     
@@ -71,7 +44,7 @@
                 </nav>
             </div>
     
-            <!-- SECCIÃ“N 3: BUSCAR POR ID -->
+            <!-- SECCIÓN 3: BUSCAR POR ID -->
     
             <div class="col padding-0">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
@@ -105,8 +78,9 @@
 						<br>
 						<img src="../../assets/photo-placeholder.jpeg">
                         <div id=NombreUsuario>{{nombreUsuario}}</div>
+                        <br>
 						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
-						<button id= BotonMiPerfil class="btn btn-lg btn-block">Mi perfil</button>
+						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)="miPerfil()">Mi perfil</button>
 						<br><br><br><br>
 						<button id= BotonHistorial class="btn btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
 						<br>
@@ -116,7 +90,7 @@
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:730px; ">
+				<div class="col-9">
 
 				</div>
 			</div>

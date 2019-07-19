@@ -28,6 +28,7 @@ import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lis
 import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
 import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-responder-reclamo/empresa-responder-reclamo.component';
 import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
+import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 
 
@@ -55,6 +56,7 @@ import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equ
     EmpresaListaSugerenciasComponent,
     EmpresaResponderReclamoComponent,
     EmpresaResponderSugerenciaComponent,
+    MiPerfilComponent,
     NuestroEquipoComponent
 
   ],
