@@ -20,6 +20,7 @@ import { EmpresaListaReclamosComponent } from './componentes/empresa/empresa-lis
 import { EmpresaListaSugerenciasComponent } from './componentes/empresa/empresa-lista-sugerencias/empresa-lista-sugerencias.component';
 import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-responder-reclamo/empresa-responder-reclamo.component';
 import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
+import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -44,7 +45,8 @@ const routes: Routes = [
   {path:"empresa/listaReclamos",component:EmpresaListaReclamosComponent},
   {path:"empresa/listaSugerencias",component:EmpresaListaSugerenciasComponent},
   {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
-  {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent}
+  {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent},
+  {path:"nuestro_equipo",component:NuestroEquipoComponent}
 ];
  
 @NgModule({
