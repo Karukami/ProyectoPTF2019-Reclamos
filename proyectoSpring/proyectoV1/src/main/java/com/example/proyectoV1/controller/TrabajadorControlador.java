@@ -37,8 +37,6 @@ public class TrabajadorControlador {
 	//Permite que un trabajador pueda ingresar a la pagina 
 	@PostMapping (path= {"/login"})
 	public ResponseEntity<Trabajador> logIn(@RequestBody Trabajador t){
-		
-		
 		 try {
 			Trabajador trabajador = service.logIn(t);
 			return ResponseEntity.status(HttpStatus.OK).body(trabajador);
