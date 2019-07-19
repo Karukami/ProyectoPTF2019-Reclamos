@@ -54,13 +54,10 @@
 	color: white;
 }
 
-input.ng-invalid, textarea.ng-invalid {
-	background:red;
+input.ng-valid{
+	border:2px solid green;
 }
 
-input.ng-valid, textarea.ng-valid {
-	background:green;
+input.ng-invalid{
+	border:2px solid red;
 }
-
-
-.test{ font-size: 100px; }

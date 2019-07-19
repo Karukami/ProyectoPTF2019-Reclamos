@@ -94,12 +94,14 @@
         <router-outlet></router-outlet>
     </div>  
 
-
+<form name="formRegistro" [formGroup]="formRegistro" >
 <!-- CONTENIDO -->
 <form name="formularioRegistro" novalidate>
             <div class="row" id=idFondoRegistro>
                 <div class="col-4"></div>
                 <div class="col-4" style="height:1530px; ">
+
+                            
                 
                         <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
                             Registro de Nuevo Usuario 22222
@@ -111,7 +113,7 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control test" name="name" id="Nombres" placeholder="Ingresa tu nombre..." minlength="7" maxlength="20" required>
+                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." required >
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
@@ -165,8 +167,8 @@
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
                                  </div>
-                            </div>
-                            <br><br><button type="button" (click)="registro()" id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
+                            </div>                            
+                            <br><br><button type="button" (click)="registro()" [disabled]="!formRegistro.valid" id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
                         </div>
                     <br>
@@ -180,4 +182,8 @@
                 </div>
                 <div class="col-4"></div>
             </div>
+<<<<<<< HEAD
         </form>
+=======
+        </form>
+>>>>>>> b76aabd199e8abeb1e3d87f193f5ce8eb07a624c
