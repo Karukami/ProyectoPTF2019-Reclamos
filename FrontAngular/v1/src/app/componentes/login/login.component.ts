@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
           localStorage.setItem("Email", email);
           localStorage.setItem("idUsuario",""+this.credenciales.rutUsuario);
+          localStorage.setItem("fonoUsuario",""+this.credenciales.fonoUsuario);
+          localStorage.setItem("generoUsuario", this.credenciales.generoUsuario);
+          localStorage.setItem("fechaNacUsuario",""+this.credenciales.fechaNacUsuario); 
+
           this.router.navigate(["perfil"]);
 
         }

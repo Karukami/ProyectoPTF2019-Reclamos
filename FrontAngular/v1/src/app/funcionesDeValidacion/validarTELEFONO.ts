@@ -14,4 +14,6 @@ export class ValidarTelefono{
 	
 	  return {result: true, message:"Telefono OK"};
 	}
+	
+	// funciona tiranosaurio
 }
