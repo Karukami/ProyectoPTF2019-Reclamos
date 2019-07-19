@@ -6,6 +6,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 import { Trabajador } from 'src/app/Modelo/trabajador';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 @Component({
   selector: 'app-login-empresa',
@@ -14,7 +15,10 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
 })
 export class LoginEmpresaComponent implements OnInit {
 
-  constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService) { }
+  constructor(private router:Router,private service:ServiceService,
+     private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService,
+     private servicioEmpresa:EmpresaServiceService) { }
+
   trabajador:Trabajador=new Trabajador(); 
   mensajeError:string;
   
@@ -45,6 +49,15 @@ export class LoginEmpresaComponent implements OnInit {
         }else{
           localStorage.setItem("Empresa",credenciales.empresa);
           localStorage.setItem("Trabajador",credenciales.nombreTrabajador);
+          localStorage.setItem("trabajador",JSON.stringify(credenciales));
+          let empresa:Empresa=new Empresa();
+          this.servicioEmpresa.idEmpresa(credenciales.empresa).subscribe(data=>{
+            empresa=data;
+            console.log("el ruttt"+empresa.rutEmpresa);
+            empresa.nombreEmpresa=credenciales.empresa;
+            localStorage.setItem("empresa",JSON.stringify(empresa));
+            localStorage.setItem("id empresa",""+empresa.rutEmpresa);
+          })
           this.router.navigate(["empresa/perfil"]);
           this.mensajeError="";
         }
