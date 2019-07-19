@@ -22,6 +22,7 @@ public class EmpresaControlador {
 	//Agregar	
 	@PostMapping
 	public Empresa agregar(@RequestBody Empresa e) {
+		//e.setEmailEmpresa("hola@chao.com");
 		return service.add(e);
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -47,7 +47,7 @@ const routes: Routes = [
   {path:"empresa/listaSugerencias",component:EmpresaListaSugerenciasComponent},
   {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
   {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent},
-  {path: "miPerfil", component:MiPerfilComponent}
+  {path: "miPerfil", component:MiPerfilComponent},
   {path:"nuestro_equipo",component:NuestroEquipoComponent}
 ];
  
