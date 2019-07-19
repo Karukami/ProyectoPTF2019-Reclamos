@@ -13,20 +13,28 @@ import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.se
 export class RegistroEmpresaComponent implements OnInit {
 
   constructor(private router:Router, private empresaService:EmpresaServiceService,private trabajadorServicio:TrabajadorServiceService) { }
-  empresa:Empresa;
-  trabajador:Trabajador;
+  empresa:Empresa=new Empresa();
+  trabajador:Trabajador=new Trabajador();
   pass2:string;
+  tipoTrabajador:string;
   ngOnInit() {
   }
 
   registrar(){
+    console.log("tipo usuario:"+ this.tipoTrabajador);
+    this.trabajador.tipoTrabajador=this.tipoTrabajador;
+    console.log("tipo usuario "+this.trabajador.tipoTrabajador);
     if(this.validarPass){
       this.trabajador.empresa=this.empresa.nombreEmpresa;
-      this.empresaService.crearEmpresa(this.empresa);
-      this.empresaService.crearTrabajador(this.trabajador);
-      this.router.navigate(['perfilEmpresa']);
+      this.empresaService.crearEmpresa(this.empresa).subscribe(params=>{
+        this.empresa=params;
+      });
+      this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe(data=>{
+        this.trabajador=data;
+      });
+      this.router.navigate(['empresa/login']);
     }
-  }
+  } 
 
   loginEmpresa(){
   	this.router.navigate(['empresa/login']);
@@ -43,7 +51,8 @@ export class RegistroEmpresaComponent implements OnInit {
     return iguales; 
   }
   RegistrarEmpresa(){
-    this.empresaService.crearTrabajador(this.trabajador).subscribe();
+    
+    this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe();
     this.empresaService.crearEmpresa(this.empresa);
 
   }
