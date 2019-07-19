@@ -43,5 +43,28 @@ export class PerfilEmpresaComponent implements OnInit {
     });
 
   }
+  ordenarPorFecha(){
+    this.reclamosSugerencias.sort(function(o1,o2){
+      if(o1.fechaReclamoSugerencia.toLocaleString()>o2.fechaReclamoSugerencia.toLocaleString()){
+        return 1;
+      }else if(o1.fechaReclamoSugerencia.toLocaleString()<o2.fechaReclamoSugerencia.toLocaleString()){
+        return -1;
+      }
+      return 0;
+    });
+  }
+  reclamosPrimero(){
+    console.log("reclamosPrimero");
+    this.reclamosSugerencias.sort(function(o1,o2){
+      if(o1.tipo<o2.tipo){
+        return 1;
+      }else if (o1.tipo>o2.tipo){
+        return -1;
+      }
+      return 0;
+    });
+    this.reclamosSugerencias.reverse();
+    console.log("reclamo");
+  }
 
 }
