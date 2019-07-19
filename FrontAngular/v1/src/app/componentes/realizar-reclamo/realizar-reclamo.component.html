@@ -95,18 +95,18 @@
 						<img src="../../assets/photo-placeholder.jpeg">
 						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
-						<button class="btn btn-primary btn-lg btn-block">Mi perfil</button>
+						<button id="BotonMiPerfil" class="btn btn-lg btn-block">Mi perfil</button>
 						<br><br><br><br>
-						<button class="btn btn-info btn-lg btn-block" >Historial de Reclamos</button>
+						<button id="BotonHistorial" class="btn btn-lg btn-block" >Historial de Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block"(click)="realizarSugerencia()" >Realizar Sugerencia</button>
+						<button id="BotonRealizarSugerencia" class="btn btn-lg btn-block"(click)="realizarSugerencia()" >Realizar Sugerencia</button>
 						<br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
+						<button id="BotonRealizarReclamo" class="btn btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:1100px; "><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar reclamo</h1>
+				<div class="col-9" style="height:700px; "><br>
+					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar Reclamo</h1>
 					<br>
 					<br> 
 					<div class="form-group">
@@ -128,7 +128,7 @@
 					<label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
 					<div class="form-group">
 					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
-						<p>maximo 265 caracteres </p>
+						<p style="color: #eeeeee">Máximo 265 caracteres </p>
 					</div>
 					
 					<br><hr style="border: 1px solid #dddddd">
