@@ -56,7 +56,7 @@ import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equ
     EmpresaListaSugerenciasComponent,
     EmpresaResponderReclamoComponent,
     EmpresaResponderSugerenciaComponent,
-    MiPerfilComponent
+    MiPerfilComponent,
     NuestroEquipoComponent
 
   ],
