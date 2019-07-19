@@ -19,31 +19,37 @@ import com.example.proyectoV1.services.ReclamoSugerenciaService;
 public class ReclamoSugerenciaControlador { 
 	@Autowired
 	ReclamoSugerenciaService service;
-	//Agrega un RS en la DB
+	////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
 	@PostMapping
 	public ReclamoSugerencia agregar(@RequestBody ReclamoSugerencia r) {
 		return service.add(r);
 	}
-	//Lista los RS por id
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+	// 
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
 		return service.listarIdReclamoSugerencia(rutusuario);
 	}
-	//Permite agregar una respuesta al RS
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agrega una Respuesta al RS
 	@PutMapping(path = {"/id"})
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);
 		return service.edit(x);
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Busca la ID del ultimo RS de un usuario por su Rut
 	@RequestMapping(value = "/id/{usuarioReclamoSugerencia}",method = RequestMethod.GET)
 	public ReclamoSugerencia rsByUser (@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia) {
 		ArrayList<ReclamoSugerencia> rsUser = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
 		ReclamoSugerencia xd = new ReclamoSugerencia();
 		xd.setIdReclamoSugerencia(rsUser.get(rsUser.size()-1).getIdReclamoSugerencia());
 		return xd;
-		
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+	//Busca la ID del ultimo reclamo de todos
 	@RequestMapping(value = "/id/last", method = RequestMethod.GET)
 	public ReclamoSugerencia lastRS() {
 		ArrayList<ReclamoSugerencia> ReclamosS = (ArrayList<ReclamoSugerencia>) service.listarTodo();
@@ -51,23 +57,31 @@ public class ReclamoSugerenciaControlador {
 		lastidrs.setIdReclamoSugerencia(ReclamosS.get(ReclamosS.size()-1).getIdReclamoSugerencia());
 		return lastidrs;
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de Rs por Id Empresa
 	@RequestMapping(value="/listar/rs/{idEmpresa}" , method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> rsByIdEmpresas(@PathVariable("idEmpresa") int idEmpresa){
 		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
 		return listaRSByidEmpresa;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de sugerencias por id Empresa
 	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> sugerenciaByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "sugerencia";
 		ArrayList<ReclamoSugerencia> sByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
 		return sByEmpresa;	
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de reclamos por id Empresa
 	@RequestMapping(value = "/listar/r/{idEmpresa}", method = RequestMethod.GET)
 	public ArrayList<ReclamoSugerencia> reclamoByIdEmpresa(@PathVariable ("idEmpresa") int idEmpresa){
 		String tipo = "reclamo";
 		ArrayList<ReclamoSugerencia> rByEmpresa = (ArrayList<ReclamoSugerencia>) service.tipoByIdEmpresas(idEmpresa, tipo);
 		return rByEmpresa;
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Cantidad de Rreclamos y de Sugerencias por id empresa
 	@RequestMapping(value = "/Estadistica/{idEmpresa}", method = RequestMethod.GET)
 	public int[] cantRSByIdEmpresa(@PathVariable ("idEmpresa")int idEmpresa) {
 		int [] estadisticas = new int[2];
