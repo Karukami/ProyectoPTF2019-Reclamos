@@ -53,3 +53,7 @@
 	background-color: #00546c;
 	color: white;
 }
+
+input:valid, textarea:invalid {
+	background:red;
+}
