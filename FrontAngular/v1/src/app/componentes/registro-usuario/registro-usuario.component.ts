@@ -36,15 +36,13 @@ export class RegistroUsuarioComponent implements OnInit {
       Nombres:[ '', Validators.required ],
       Apellidos:[ '', Validators.required ],
       Rut:['',Validators.required],
-      fechaNacUsuario:['',Validators.required],
-      Telefono:['',Validators.required],
-      genero:['',Validators.required],
-      correo:['',Validators.required],
-      correo2:['',Validators.required],
-      passUsuario:['',Validators.required],
-      pass2:['',Validators.required]
-
-
+      Fecha:['',Validators.required],
+       Telefono:['',Validators.required],
+       Genero:['',Validators.required],
+       Correo:['',Validators.required],
+       confirmCorreo:['',Validators.required],
+       pass:['',Validators.required],
+       pass2:['',Validators.required]
     });
   }
 
