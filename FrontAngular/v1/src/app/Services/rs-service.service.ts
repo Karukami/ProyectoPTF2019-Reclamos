@@ -28,4 +28,13 @@ export class RsServiceService {
   getLastReclamo(){
     return this.http.get<ReclamoSugerencia>(this.url+"/id/last");
   }
+  getRSEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/rs/"+id);
+  }
+  getReclamoEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/r/"+id)
+  }
+  getSugerenciaEmpresa(id:number){
+    return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/s/"+id);
+  }
 }
