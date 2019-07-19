@@ -116,17 +116,17 @@
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" placeholder="Ingresa tu apellido...">
+                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido...">
                             </div>
                             <div class="form-group">
 
                                 <label for="" style="color: #dddddd">Rut</label>
-                                <input [(ngModel)]="rut" type="text" class="form-control" name="" id="" placeholder="Ejemplo: 19.315.750-5" (keyup)="validateRut()">
+                                <input [(ngModel)]="rut" type="text" class="form-control"  id="" name="Rut" formControlName="Rut" placeholder="Ejemplo: 19.315.750-5" (keyup)="validateRut()">
                                 <p style="color: white;">{{errRut}}</p>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Apellidos" placeholder="MM/DD/YYYY">
+                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY">
 
                             
                             </div>
@@ -136,7 +136,7 @@
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" pattern="[0-9]{10}" class="form-control" id="numeros" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" pattern="[0-9]{10}" class="form-control" id="Telefono" name="Telefono" formControlName="Apellidos" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                             
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
