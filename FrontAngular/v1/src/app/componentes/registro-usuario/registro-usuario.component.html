@@ -96,7 +96,6 @@
 
 <form name="formRegistro" [formGroup]="formRegistro" >
 <!-- CONTENIDO -->
-<form name="formularioRegistro" novalidate>
             <div class="row" id=idFondoRegistro>
                 <div class="col-4"></div>
                 <div class="col-4" style="height:1530px; ">
@@ -113,7 +112,7 @@
                         <div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." minlength="3" maxlength="45" required>
+                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
@@ -122,12 +121,12 @@
                             <div class="form-group">
 
                                 <label for="" style="color: #dddddd">Rut</label>
-                                <input [(ngModel)]="rut" type="text" class="form-control"  id="" name="Rut" formControlName="Rut" placeholder="Ejemplo: 19.315.750-5" (keyup)="validateRut()">
+                                <input [(ngModel)]="rut" type="text" (keyup)="validateRut()" class="form-control"  id="" name="Rut" formControlName="Rut" placeholder="Ejemplo: 19.315.750-5" minlength="8" maxlength="10" required >
                                 <p style="color: white;">{{errRut}}</p>
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY">
+                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" required >
 
                             
                             </div>
@@ -137,7 +136,7 @@
                               <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" pattern="[0-9]{10}" class="form-control" id="Telefono" name="Telefono" formControlName="Telefono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" class="form-control" id="Telefono" name="Telefono" formControlName="Telefono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required >
                             
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
@@ -154,15 +153,15 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirm-Correo" name="confirm-Correo" formControlName="confirm-Correo" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="contraseña" name="contraseña" formControlName="contraseña" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="pass" name="pass" formControlName="pass" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="confirm-contraseña" name="confirm-contraseña" formControlName="confirm-contraseña" placeholder="********************">
+                                <input [(ngModel)]="pass2"type="password" class="form-control" id="pass2" name="pass2" formControlName="pass2" placeholder="********************">
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
