@@ -3,6 +3,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 
 import { Router } from '@angular/router';
+import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 
 @Component({
   selector: 'app-busqueda-id',
@@ -11,12 +12,12 @@ import { Router } from '@angular/router';
 })
 export class BusquedaIdComponent implements OnInit {
 
-  constructor(private rsService:RsServiceService,private router:Router) { }
+  constructor(private rsService:RsServiceService,private router:Router,private servicioEmpresa:EmpresaServiceService) { }
   rs:ReclamoSugerencia;
   idBusqueda:number;
   mostrarPerfil:boolean=false;
   noMostrarPerfil:boolean;
-
+  nombreEmpresa:string;
   ngOnInit() {
     this.noMostrarPerfil=!this.mostrarPerfil;
     console.log(localStorage.getItem("Email"))
@@ -25,6 +26,12 @@ export class BusquedaIdComponent implements OnInit {
     }
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
+      console.log(this.rs.idEmpresa);
+      this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
+        this.nombreEmpresa=params.nombreEmpresa;
+        console.log(this.nombreEmpresa);
+      })
+
     });
   }
 
