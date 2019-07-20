@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
-
 import { Router } from '@angular/router';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
-
 @Component({
   selector: 'app-busqueda-id',
   templateUrl: './busqueda-id.component.html',
@@ -23,7 +21,7 @@ export class BusquedaIdComponent implements OnInit {
     console.log(localStorage.getItem("Email"))
     if(!(localStorage.getItem("Email")=="anonimo")){
       this.mostrarPerfil=true;
-    }
+    }else
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
       
@@ -36,9 +34,8 @@ export class BusquedaIdComponent implements OnInit {
   }
 
   //cerrarSesion():vacio ->vacio
-  //cierra la secion de usuario 
-  //cambia el valor de la variable Email
-  //guardada en localStorage a anonimo
+  //cierra la sesion de usuario 
+  //cambia el valor de la variable Email guardada en localStorage a anonimo
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
