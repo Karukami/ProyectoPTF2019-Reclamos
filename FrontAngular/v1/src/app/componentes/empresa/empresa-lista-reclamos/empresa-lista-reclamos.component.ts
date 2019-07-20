@@ -5,6 +5,7 @@ import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.se
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Empresa } from 'src/app/Modelo/Empresa';
+import { Trabajador } from 'src/app/Modelo/trabajador';
 
 
 
@@ -17,7 +18,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
   reclamos:ReclamoSugerencia[]=[];
   colores:string[]=[];
-  
+  administrador:boolean=false;
   constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
   formatoDate(date:string):string{
     let nuevaFecha:string;
@@ -29,10 +30,13 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
   }
   ngOnInit() {
+    let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
     let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
-    console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);
-    let idEmpresa:number=Number(infoEmpresa.rutEmpresa);
-    this.servicioRS.getReclamoEmpresa(idEmpresa).subscribe(data=>{
+
+    if (infoTrabajador.tipoTrabajador=="Administrador"){
+      this.administrador=true;
+    }
+    this.servicioRS.getReclamoEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamos=data;
  
       let hoy=new Date();

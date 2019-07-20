@@ -100,11 +100,20 @@
 						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
 						<button class="btn btn-outline-light btn-lg btn-block">Mi perfil</button>
-						<br><br><br><br><br><br>
-						<button class="btn btn-danger btn-lg btn-block"  disabled>Lista Reclamos</button>
+                        <br><br><br><br>
+                        <button class="btn btn-danger btn-lg btn-block" (click)="empresa/perfil">Todo</button>
+                        <br>
+						<button class="btn btn-danger btn-lg btn-block" (click)="reclamo()">Lista Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" (click)="realizarSugerencia()">Lista Sugerencias</button>
+						<button class="btn btn-success btn-lg btn-block" (click)="sugerencia()">Lista Sugerencias</button>
 						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="VerEstadisticas()">Ver Estadisticas</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="crearTrabajador()">Trabajadores</button>
+						<br>
+
 					</div>
 				</div>
 				<div class="col-9"  ><br>
