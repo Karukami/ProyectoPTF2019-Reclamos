@@ -17,11 +17,11 @@ public class EmpresaServiceImp implements EmpresaService{
 		return repositorio.save(e);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	//Editar
-	
-	///////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
-	
+	@Override
+	public void delete(int rutEmpresa) {
+		repositorio.delete(rutEmpresa);
+	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de Todas las Empresas
 	@Override
@@ -40,4 +40,6 @@ public class EmpresaServiceImp implements EmpresaService{
 	public Empresa nombreEmpresa(String nombreEmpresa) {
 		return repositorio.findBynombreEmpresa(nombreEmpresa);
 	}
+
+
 }
