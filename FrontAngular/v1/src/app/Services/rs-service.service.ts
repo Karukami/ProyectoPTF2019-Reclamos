@@ -37,4 +37,7 @@ export class RsServiceService {
   getSugerenciaEmpresa(id:number){
     return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/s/"+id);
   }
+  setTrabajador(id:number,rs:ReclamoSugerencia){
+    return this.http.post<ReclamoSugerencia>(this.url+"/setTrabajador/"+id,rs);
+  }
 }

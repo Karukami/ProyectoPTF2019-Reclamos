@@ -18,6 +18,7 @@ export class PerfilEmpresaComponent implements OnInit {
   mensaje:string="";
   idEmpresa:number;
   idBusqueda:number;
+  infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioRS:RsServiceService,private router:Router) { }
   formatoDate(date:string):string{
     let nuevaFecha:string;
@@ -29,11 +30,11 @@ export class PerfilEmpresaComponent implements OnInit {
 
   }
   ngOnInit() {
-    let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
+    
     let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
 
-    console.log("asdka "+ infoTrabajador.tipoTrabajador);
-    if (infoTrabajador.tipoTrabajador=="Administrador"){
+    console.log("asdka "+ this.infoTrabajador.tipoTrabajador);
+    if (this.infoTrabajador.tipoTrabajador=="Administrador"){
       this.administrador=true;
     }
 
@@ -54,6 +55,7 @@ export class PerfilEmpresaComponent implements OnInit {
       this.mostrarMensaje=true;
     }
   }
+
   ordenarPorFecha(){
     this.reclamosSugerencias.sort(function(o1,o2){
       if(o1.fechaReclamoSugerencia.toLocaleString()>o2.fechaReclamoSugerencia.toLocaleString()){
@@ -77,15 +79,20 @@ export class PerfilEmpresaComponent implements OnInit {
   
   }
   responderRS(RSAresolver:ReclamoSugerencia){
-    if(RSAresolver.tipo=="Reclamo"){
+    this.servicioRS.setTrabajador(this.infoTrabajador.idTrabajador,RSAresolver).subscribe(data=>{
+      RSAresolver=data;
+      if(RSAresolver.tipo=="Reclamo"){
 
-      localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
-      this.router.navigate(["empresa/responderReclamo"]);
-    }
-    else{
-      localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
-      this.router.navigate(["empresa/responderReclamo"]);
-    }
+        localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
+        this.router.navigate(["empresa/responderReclamo"]);
+      }
+      else{
+  
+        localStorage.setItem("Sugerencia",JSON.stringify(RSAresolver));
+        this.router.navigate(["empresa/responderSugerencia"]);
+      }
+    });
+    
     
   }
 
