@@ -9,4 +9,5 @@ public interface TrabajadorService {
 	 Trabajador edit(Trabajador p);
 	 Trabajador delete(Trabajador p);
 	 public Trabajador logIn(Trabajador t) throws LoginException;
+	 Trabajador buscarUno(int idTrabajador);
 }

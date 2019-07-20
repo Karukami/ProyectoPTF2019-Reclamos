@@ -46,7 +46,10 @@ public class TrabajadorServiceImp implements TrabajadorService{
 			}
 			
 			return trabajadorAVerificar;
-	
+	}
+	@Override
+	public Trabajador buscarUno(int idTrabajador) {
+		return repositorio.findOne(idTrabajador);
 	}
 
 }
