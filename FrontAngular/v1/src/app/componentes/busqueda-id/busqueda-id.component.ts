@@ -26,7 +26,7 @@ export class BusquedaIdComponent implements OnInit {
     }
     this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
-      console.log(this.rs.idEmpresa);
+      
       this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
         this.nombreEmpresa=params.nombreEmpresa;
         console.log(this.nombreEmpresa);

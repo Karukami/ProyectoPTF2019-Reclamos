@@ -12,6 +12,8 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 export class LoginComponent implements OnInit {
   correo:string;
   pass:string;
+
+  idBusqueda:number;
   
   credenciales=new UsuarioRegistrado();
   errorMsg="";
@@ -37,6 +39,7 @@ export class LoginComponent implements OnInit {
         if(credenciales == null){
           this.errorMsg="Correo o Contraseña incorrectos";
         }else {
+          this.errorMsg = "";
           this.credenciales=credenciales;
           localStorage.setItem("nombre",this.credenciales.nombreUsuario);
           localStorage.setItem("apellido",this.credenciales.apellidoUsuario);
@@ -61,11 +64,6 @@ export class LoginComponent implements OnInit {
   registrar(){
     this.router.navigate(["registrar"]);
   }
-
-   buscarPorId(){
-    this.serviceRS.getReclamo(this.idbusqueda);
-  }
-
    checkRut(rut) {
     // Despejar Puntos
     var valor = rut.value.replace('.','');
@@ -121,4 +119,12 @@ reclamo(){
 
   }
 }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
 }

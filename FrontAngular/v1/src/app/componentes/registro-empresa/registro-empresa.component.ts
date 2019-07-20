@@ -17,6 +17,7 @@ export class RegistroEmpresaComponent implements OnInit {
   trabajador:Trabajador=new Trabajador();
   pass2:string;
   tipoTrabajador:string;
+  idBusqueda:number;
   ngOnInit() {
   }
 
@@ -55,5 +56,13 @@ export class RegistroEmpresaComponent implements OnInit {
     this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe();
     this.empresaService.crearEmpresa(this.empresa);
 
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
 }
