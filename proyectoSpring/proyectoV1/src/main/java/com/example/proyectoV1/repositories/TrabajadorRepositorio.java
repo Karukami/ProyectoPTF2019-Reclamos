@@ -10,5 +10,5 @@ public interface TrabajadorRepositorio extends Repository<Trabajador,Integer>{
 	Trabajador findOne(int idTrabajador);
 	List<Trabajador> findAll();
 	Trabajador delete(Trabajador t);
-	Trabajador findByEmpresaAndIdTrabajadorAndPassTrabajador(String empresa, int idTrabajador, String passTrabajador);	
+	Trabajador findByEmpresaAndNombreTrabajadorAndPassTrabajador(String empresa, String nombreTrabajador, String passTrabajador);	
 }

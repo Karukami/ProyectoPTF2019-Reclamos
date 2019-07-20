@@ -32,19 +32,14 @@ public class TrabajadorServiceImp implements TrabajadorService{
 	
 	@Override
 	public Trabajador logIn(Trabajador t) throws LoginException{
-		
 		Trabajador trabajadorAVerificar = t;
-		
-			int idTrabajador = t.getIdTrabajador();
+			String nombreTrabajador = t.getNombreTrabajador();
 			String passTrabajador = t.getPassTrabajador();
 			String empresa= t.getEmpresa();
-			trabajadorAVerificar = repositorio.findByEmpresaAndIdTrabajadorAndPassTrabajador(empresa,idTrabajador,passTrabajador);
-			
-			
+			trabajadorAVerificar = repositorio.findByEmpresaAndNombreTrabajadorAndPassTrabajador(empresa,nombreTrabajador,passTrabajador);
 			if(trabajadorAVerificar==null) {
 				throw new LoginException();
 			}
-			
 			return trabajadorAVerificar;
 	}
 	@Override
