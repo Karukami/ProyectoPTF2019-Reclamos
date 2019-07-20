@@ -3,6 +3,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { Empresa } from 'src/app/Modelo/Empresa';
 import { Router } from '@angular/router';
+import { Trabajador } from 'src/app/Modelo/trabajador';
 
 @Component({
   selector: 'app-perfil-empresa',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PerfilEmpresaComponent implements OnInit {
   reclamosSugerencias:ReclamoSugerencia[]=[];
-  administrador:boolean=true;
+  administrador:boolean=false;
   colores:string[]=[];
   mostrarMensaje:boolean=false;
   mensaje:string="";
@@ -26,7 +27,14 @@ export class PerfilEmpresaComponent implements OnInit {
 
   }
   ngOnInit() {
+    let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
     let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
+
+    console.log("asdka "+ infoTrabajador.tipoTrabajador);
+    if (infoTrabajador.tipoTrabajador=="Administrador"){
+      this.administrador=true;
+    }
+
     this.servicioRS.getRSEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamosSugerencias=data;
       let hoy=new Date();
@@ -40,7 +48,7 @@ export class PerfilEmpresaComponent implements OnInit {
       }
     });
     if (this.reclamosSugerencias.length==0){
-      this.mensaje="no tienes quejas ni sugerencas que revisar";
+      this.mensaje="no tienes mas reclamos ni sugerencas que revisar";
       this.mostrarMensaje=true;
     }
   }
@@ -66,8 +74,17 @@ export class PerfilEmpresaComponent implements OnInit {
     this.reclamosSugerencias.reverse();
   
   }
-  responderSugerencias(){
+  responderRS(RSAresolver:ReclamoSugerencia){
+    if(RSAresolver.tipo=="Reclamo"){
 
+      localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
+      this.router.navigate(["empresa/responderReclamo"]);
+    }
+    else{
+      localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
+      this.router.navigate(["empresa/responderReclamo"]);
+    }
+    
   }
 
   sugerencia(){

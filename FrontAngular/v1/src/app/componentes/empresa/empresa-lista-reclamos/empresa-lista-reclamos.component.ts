@@ -4,6 +4,7 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
 import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 
 
@@ -28,17 +29,17 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
   }
   ngOnInit() {
-    let idEmpresa:number=123//Number(localStorage.getItem("idEmpresa"));
+    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
+    console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);
+    let idEmpresa:number=Number(infoEmpresa.rutEmpresa);
     this.servicioRS.getReclamoEmpresa(idEmpresa).subscribe(data=>{
       this.reclamos=data;
-      console.log(this.reclamos.length);
-      console.log(this.reclamos);
+ 
       let hoy=new Date();
       for(let i=0;i<this.reclamos.length;i++){
-        console.log("fecha rs"+this.reclamos[i].fechaReclamoSugerencia.toLocaleString())
-        console.log("hola "+this.reclamos[i].fechaReclamoSugerencia+" hoy es "+"");
+     
         if(this.reclamos[i].fechaReclamoSugerencia.toLocaleString()<this.formatoDate(hoy.toLocaleDateString())){
-          console.log(i);
+         
           this.colores[i]="white";
         }else{
           this.colores[i]="green";
@@ -47,12 +48,14 @@ export class EmpresaListaReclamosComponent implements OnInit {
     })
     
   }
-  responderReclamo(reclamoAresolver:ReclamoSugerencia){
-    
-    localStorage.setItem("reclamo",JSON.stringify(reclamoAresolver));
+  
+  responderReclamo(RSAresolver:ReclamoSugerencia){
+    console.log(RSAresolver)
+    localStorage.setItem("reclamo",JSON.stringify(RSAresolver));
     this.router.navigate(["empresa/responderReclamo"]);
   }
   realizarSugerencia(){
-    this.router.navigate(["empresa/responderSugerencia"]);
+    
+    this.router.navigate(["empresa/listaSugerencias"]);
   }
 }

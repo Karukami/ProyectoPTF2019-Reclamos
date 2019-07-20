@@ -42,21 +42,20 @@ export class LoginEmpresaComponent implements OnInit {
 
   logInEmpresa(){
     try {
+      console.log(this.trabajador);
       this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
-        let credenciales= data;
-        if(credenciales==null){
+        let credencialesTrabajador= data;
+        console.log("tipo de trabajador: "+credencialesTrabajador.tipoTrabajador);
+        if(credencialesTrabajador==null){
           this.mensajeError="el correo o la contraseña no coinciden ";  
         }else{
-          localStorage.setItem("Empresa",credenciales.empresa);
-          localStorage.setItem("Trabajador",credenciales.nombreTrabajador);
-          localStorage.setItem("trabajador",JSON.stringify(credenciales));
-          let empresa:Empresa=new Empresa();
-          this.servicioEmpresa.idEmpresa(credenciales.empresa).subscribe(data=>{
-            empresa=data;
-            console.log("el ruttt"+empresa.rutEmpresa);
-            empresa.nombreEmpresa=credenciales.empresa;
-            localStorage.setItem("empresa",JSON.stringify(empresa));
-            localStorage.setItem("id empresa",""+empresa.rutEmpresa);
+          localStorage.setItem("trabajador",JSON.stringify(credencialesTrabajador));
+          let credencialesEmpresa:Empresa=new Empresa();
+          this.servicioEmpresa.idEmpresa(credencialesTrabajador.empresa).subscribe(data=>{
+            credencialesEmpresa=data;
+            credencialesEmpresa.nombreEmpresa=credencialesTrabajador.empresa;
+            localStorage.setItem("empresa",JSON.stringify(credencialesEmpresa));
+            localStorage.setItem("id empresa",""+credencialesEmpresa.rutEmpresa);
           })
           this.router.navigate(["empresa/perfil"]);
           this.mensajeError="";
