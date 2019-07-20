@@ -101,9 +101,9 @@
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
 						<button class="btn btn-outline-light btn-lg btn-block">Mi perfil</button>
 						<br><br><br><br><br><br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="realizarSugerencia()">Lista Reclamos</button>
+						<button class="btn btn-danger btn-lg btn-block" (click)="reclamo()">Lista Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" (click)="realizarReclamo()">Lista Sugerencias</button>
+						<button class="btn btn-success btn-lg btn-block" (click)="sugerencia()">Lista Sugerencias</button>
 						<br>
 						<br>
 						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="VerEstadisticas()">Ver Estadisticas</button>
@@ -116,7 +116,11 @@
 				</div>
 				<div class="col-9" ><br>
 					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes</h1>
-					<div style="text-align: right"><button (click)="reclamosPrimero()"class="btn btn-light">reclamos primero</button>	</div>
+					<div style="text-align: right">
+						<button (click)="reclamosPrimero()"class="btn btn-light">reclamos primero</button>	
+						<button (click)="ordenarPorFecha()"class="btn btn-light">fecha</button>
+					</div>
+					
 					<br><br>
 					<br>
 					<div *ngFor="let rs of reclamosSugerencias;let i=index " >
@@ -126,11 +130,13 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-3" style="padding-top: 3px">
-										<button class="btn btn-warning">{{rs.tipo}}</button>
+										<button class="btn btn-warning" >{{rs.tipo}}</button>
 										<button class="btn btn-info">Enviado</button>
 									</div>
 									<div class="col-7">
-										<h6 style="text-align:left">Reclamo: {{rs.detalle}} </h6>
+										<h6 style="text-align:left">tipo: {{rs.tipo}}</h6>
+										<br>
+										<p>{{rs.detalleReclamoSugerencia}}</p>
 										<small style="text-align: right;">Empresa: {{rs.empresa}}</small>
 									</div>
 									<div class="col-2" style="text-align: center">
@@ -142,5 +148,6 @@
 						</div>
 						<br>
 					</div>
+					<h1 style="color: white">{{mensaje}}</h1>
 				</div>
 			</div>

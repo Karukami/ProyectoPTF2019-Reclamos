@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { Empresa } from 'src/app/Modelo/Empresa';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-empresa',
@@ -12,7 +13,9 @@ export class PerfilEmpresaComponent implements OnInit {
   reclamosSugerencias:ReclamoSugerencia[]=[];
   administrador:boolean=true;
   colores:string[]=[];
-  constructor(private servicioRS:RsServiceService) { }
+  mostrarMensaje:boolean=false;
+  mensaje:string="";
+  constructor(private servicioRS:RsServiceService,private router:Router) { }
   formatoDate(date:string):string{
     let nuevaFecha:string;
     
@@ -23,25 +26,23 @@ export class PerfilEmpresaComponent implements OnInit {
 
   }
   ngOnInit() {
-   let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
-   console.log(infoEmpresa);
-   console.log("rut "+infoEmpresa.rutEmpresa);
+    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
     this.servicioRS.getRSEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamosSugerencias=data;
-      console.log(this.reclamosSugerencias);
       let hoy=new Date();
       for(let i=0;i<this.reclamosSugerencias.length;i++){
-        console.log("fecha rs"+this.reclamosSugerencias[i].fechaReclamoSugerencia.toLocaleString())
-        console.log("hola "+this.reclamosSugerencias[i].fechaReclamoSugerencia+" hoy es "+"");
-        console.log(i);
+        
         if(this.reclamosSugerencias[i].fechaReclamoSugerencia.toLocaleString()<this.formatoDate(hoy.toLocaleDateString())){
           this.colores[i]="white";
         }else{
           this.colores[i]="green";
-        }
+        } 
       }
     });
-
+    if (this.reclamosSugerencias.length==0){
+      this.mensaje="no tienes quejas ni sugerencas que revisar";
+      this.mostrarMensaje=true;
+    }
   }
   ordenarPorFecha(){
     this.reclamosSugerencias.sort(function(o1,o2){
@@ -54,7 +55,6 @@ export class PerfilEmpresaComponent implements OnInit {
     });
   }
   reclamosPrimero(){
-    console.log("reclamosPrimero");
     this.reclamosSugerencias.sort(function(o1,o2){
       if(o1.tipo<o2.tipo){
         return 1;
@@ -64,7 +64,16 @@ export class PerfilEmpresaComponent implements OnInit {
       return 0;
     });
     this.reclamosSugerencias.reverse();
-    console.log("reclamo");
+  
+  }
+  responderSugerencias(){
+
   }
 
+  sugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  reclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
 }

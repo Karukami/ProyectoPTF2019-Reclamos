@@ -45,7 +45,7 @@ const routes: Routes = [
   {path:"empresa/perfil",component:PerfilEmpresaComponent},
   {path:"empresa/listaReclamos",component:EmpresaListaReclamosComponent},
   {path:"empresa/listaSugerencias",component:EmpresaListaSugerenciasComponent},
-  {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
+  {path:"empresa/responderReclamo",component:EmpresaListaReclamosComponent},
   {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent},
   {path: "miPerfil", component:MiPerfilComponent},
   {path:"nuestro_equipo",component:NuestroEquipoComponent}
