@@ -35,13 +35,16 @@ export class PerfilComponent implements OnInit {
     this.router.navigate(["home"])
   }
 
+
+  miPerfil() {
+    this.router.navigate(['miPerfil']);
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
-  }
-
-  miPerfil() {
-    this.router.navigate(['miPerfil']);
   }
 }

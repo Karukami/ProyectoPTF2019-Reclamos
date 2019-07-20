@@ -16,6 +16,8 @@ export class PerfilEmpresaComponent implements OnInit {
   colores:string[]=[];
   mostrarMensaje:boolean=false;
   mensaje:string="";
+  idEmpresa:number;
+  idBusqueda:number;
   constructor(private servicioRS:RsServiceService,private router:Router) { }
   formatoDate(date:string):string{
     let nuevaFecha:string;
@@ -92,5 +94,13 @@ export class PerfilEmpresaComponent implements OnInit {
   }
   reclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
 }

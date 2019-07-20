@@ -21,6 +21,7 @@ export class LoginEmpresaComponent implements OnInit {
 
   trabajador:Trabajador=new Trabajador(); 
   mensajeError:string;
+  idBusqueda:number;
   
   ngOnInit() {
     
@@ -66,6 +67,14 @@ export class LoginEmpresaComponent implements OnInit {
     }finally{
       this.mensajeError="verifica que los campos sean correctos";
     }
+    
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
     
   }
 

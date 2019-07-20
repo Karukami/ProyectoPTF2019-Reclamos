@@ -13,7 +13,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 export class HomeEmpresaComponent implements OnInit {
 
   constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService) { }
-
+  idBusqueda:number;
   ngOnInit() {
   }
   //HomeEmpresa():vacio->vacio
@@ -54,6 +54,14 @@ export class HomeEmpresaComponent implements OnInit {
 
   empresaResponderSugerencia(){
     this.router.navigate(["empresa/responderSugerencia"]);
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
 
 }
