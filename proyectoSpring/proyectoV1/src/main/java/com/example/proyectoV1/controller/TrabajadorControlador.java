@@ -8,9 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.proyectoV1.entities.Trabajador;
 import com.example.proyectoV1.exceptions.LoginException;
@@ -23,13 +25,26 @@ import com.example.proyectoV1.services.TrabajadorService;
 public class TrabajadorControlador {
 	@Autowired
 	TrabajadorService service;
-	//Agrga un Trabajador a la DB
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
 	@PostMapping
 	public Trabajador agregar(@RequestBody Trabajador t) {
 		System.out.println("nombre t: "+ t.getNombreTrabajador() );
 		System.out.println("tipo t: "+ t.getTipoTrabajador() );
 		return service.add(t);
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Editar
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
+	@RequestMapping(value = "/delete/{idTrabajador}", method = RequestMethod.GET)
+	public String deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
+		service.delete(service.buscarUno(idTrabajador));
+		return "Trabajador Eliminado";
+	}
+	
+	
 	//Lista los trabajadores
 	@GetMapping
 	public List<Trabajador> listar(){

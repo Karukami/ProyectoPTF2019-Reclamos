@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,9 +37,10 @@ public class ControladorUsuario {
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
-	@DeleteMapping
-	public void eliminar(Usuario x) {
-		service.delete(x);
+	@RequestMapping(value = "/delete/{rutUsuario}", method=RequestMethod.GET)
+	public String deleteUser(@PathVariable ("rutUsuario") int rutUsuario) {
+		service.delete(service.listarId_RutUsuario(rutUsuario));
+		return "Usuario Eliminado";
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de Todos los Usuarios
