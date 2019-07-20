@@ -19,15 +19,15 @@ export class BusquedaIdComponent implements OnInit {
   ngOnInit() {
     this.noMostrarPerfil=!this.mostrarPerfil;
     console.log(localStorage.getItem("Email"))
-    if(!(localStorage.getItem("Email")=="anonimo")){
+    if((localStorage.getItem("Email")=="anonimo")){
       this.mostrarPerfil=true;
     }else
-    this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
+      this.rsService.getReclamo(+(localStorage.getItem("idBusqueda"))).subscribe(params =>{
       this.rs=params;
       
       this.servicioEmpresa.nombreEmpresa(this.rs.idEmpresa).subscribe(params =>{
-        this.nombreEmpresa=params.nombreEmpresa;
-        console.log(this.nombreEmpresa);
+      this.nombreEmpresa=params.nombreEmpresa;
+      console.log(this.nombreEmpresa);
       })
 
     });
