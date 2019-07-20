@@ -1,7 +1,5 @@
 package com.example.proyectoV1.controller;
-
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
@@ -35,7 +33,16 @@ public class TrabajadorControlador {
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar
-	
+	@RequestMapping(value = "/editar/{idTrabajador}", method = RequestMethod.GET)
+	public String editarTrabajador(@RequestBody Trabajador x, @PathVariable("idTrabajador")int idTrabajador) {
+		service.buscarUno(idTrabajador).setIdTrabajador(x.getIdTrabajador());
+		service.buscarUno(idTrabajador).setNombreTrabajador(x.getNombreTrabajador());
+		service.buscarUno(idTrabajador).setApellidoTrabajador(x.getApellidoTrabajador());
+		service.buscarUno(idTrabajador).setTipoTrabajador(x.getTipoTrabajador());
+		service.buscarUno(idTrabajador).setPassTrabajador(x.getPassTrabajador());
+		service.buscarUno(idTrabajador).setEmpresa(x.getEmpresa());
+		return "Trabajador Editado";
+	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
 	@RequestMapping(value = "/delete/{idTrabajador}", method = RequestMethod.GET)
@@ -43,15 +50,14 @@ public class TrabajadorControlador {
 		service.delete(service.buscarUno(idTrabajador));
 		return "Trabajador Eliminado";
 	}
-	
-	
-	//Lista los trabajadores
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de todos los trabajadores
 	@GetMapping
 	public List<Trabajador> listar(){
 		return service.listar();
 	} 
-	
-	//Permite que un trabajador pueda ingresar a la pagina 
+	//////////////////////////////////////////////////////////////////////////////////////////////////
+	//LogIn de Trabajador
 	@PostMapping (path= {"/login"})
 	public ResponseEntity<Trabajador> logIn(@RequestBody Trabajador t){
 		 try {
