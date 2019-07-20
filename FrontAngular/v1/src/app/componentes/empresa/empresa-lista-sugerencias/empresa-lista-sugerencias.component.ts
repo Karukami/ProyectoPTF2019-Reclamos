@@ -3,6 +3,7 @@ import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.se
 import { Router } from '@angular/router';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 @Component({
   selector: 'app-empresa-lista-sugerencias',
@@ -14,10 +15,13 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
   
   sugerencias:ReclamoSugerencia[]=[];
   colores:string[]=[];
-  constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
+  constructor(private router:Router,private servicioRS:RsServiceService) { }
 
   ngOnInit() {
-    let idEmpresa:number=124//Number(localStorage.getItem("idEmpresa"));
+    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
+    console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);
+    let idEmpresa:number=Number(infoEmpresa.rutEmpresa);
+    
     this.servicioRS.getSugerenciaEmpresa(idEmpresa).subscribe(data=>{
       this.sugerencias=data;
       console.log(this.sugerencias.length);

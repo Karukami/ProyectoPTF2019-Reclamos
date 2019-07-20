@@ -107,13 +107,13 @@
 						<br>
 					</div>
 				</div>
-				<div class="col-9" style="height:730px; "><br>
+				<div class="col-9" ><br>
 					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes [Sugerencias]</h1>
 					<div style="text-align: right"><button class="btn btn-light">Ordenar por fecha</button>	</div>
 					<br><br>
                     <br>
                     
-					<div *ngFor="let rs of reclamos;let i=index " >
+					<div *ngFor="let rs of sugerencias;let i=index " >
 						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
 						<div [style.background-color]="colores[i]" style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
 							<br>
