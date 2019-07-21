@@ -23,21 +23,12 @@
                           </li>
                           <li class="nav-item">
                             <div class="col">
-                                <a class="nav-link" (click)="Reclamo()">
+                                <a class="nav-link" (click)="realizarReclamo()">
                                     <img src="../../assets/reclamoiconmini.png" alt="">
                                     <br>
                                     RECLAMO
                                 </a>
                             </div>
-                          </li>
-                          <li class="nav-item">
-                            <div class="col">
-                                <a class="nav-link" href="/anonimo/realizar_sugerencia">
-                                    <img src="../../assets/sugerenciaiconmini.png" alt="">
-                                    <br>
-                                    SUGERENCIA
-                                </a>
-                            </div> 
                           </li>
                         </ul>
                     </div>            
@@ -117,7 +108,7 @@
                             <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
                             <div class="form-group">
                                 <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
-                                <p>maximo 265 caracteres </p>
+                                <p style= "color: white">maximo 265 caracteres </p>
                             </div>
                             
                             <button class="btn btn-lg btn-block" id=idBotonRealizarReclamo (click)="realizarReclamoSugerencia()">Enviar Sugerencia</button>

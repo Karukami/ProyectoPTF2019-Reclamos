@@ -21,6 +21,9 @@ export class RealizarReclamoComponent implements OnInit {
   empresa:string;
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
+  nombre:string = localStorage.getItem('Email');
+  nombreUsuario:string;
+  apellidoUsuario:string;
 
   constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
@@ -31,6 +34,8 @@ export class RealizarReclamoComponent implements OnInit {
     if(credencial=="anonimo"|| credencial==null){
       this.router.navigate(["home"]);
     }
+    this.nombreUsuario=localStorage.getItem("nombre");
+    this.apellidoUsuario=localStorage.getItem("apellido");
     this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
   console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
@@ -106,6 +111,9 @@ export class RealizarReclamoComponent implements OnInit {
   }
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
+  }
+  miPerfil() {
+    this.router.navigate(['miPerfil']);
   }
   
 }

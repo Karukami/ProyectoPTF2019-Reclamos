@@ -31,13 +31,16 @@
             </div>
     
             <!--- SECIÓN 2: Botón cerrar Sesión-->
-            <div class="col-4 padding-0">
+            <div class="col-2 padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li>
-                                <button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn" style="margin-left: 100px; margin-right: 0px;">Cerrar Sesión</button>   
+                                <button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn" style="margin-left: 100px; margin-right: 0px;">Cerrar Sesión</button> 	
                             </li>
                         </ul>
                     </div>
@@ -80,7 +83,7 @@
                         <div id=NombreUsuario>{{nombreUsuario}}</div>
                         <br>
 						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
-						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)="miPerfil()">Mi perfil</button>
+						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
 						<br><br><br><br>
 						<button id= BotonHistorial class="btn btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
 						<br>
@@ -91,6 +94,5 @@
 					</div>
 				</div>
 				<div class="col-9">
-
 				</div>
 			</div>

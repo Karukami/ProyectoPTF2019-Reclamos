@@ -34,8 +34,6 @@ export class PerfilComponent implements OnInit {
     localStorage.setItem("Email", "anonimo");
     this.router.navigate(["home"])
   }
-
-
   miPerfil() {
     this.router.navigate(['miPerfil']);
   }

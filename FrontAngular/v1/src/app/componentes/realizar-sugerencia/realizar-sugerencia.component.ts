@@ -17,6 +17,9 @@ rs:ReclamoSugerencia=new ReclamoSugerencia();
 idBusqueda:number;
 empresas:string[]=[];
 empresa:string;
+nombre:string = localStorage.getItem('Email');
+nombreUsuario:string;
+apellidoUsuario:string;
 
 constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
 
@@ -26,6 +29,8 @@ ngOnInit() {
   if(credencial=="anonimo"|| credencial==null){
     this.router.navigate(["home"]);
   }
+  this.nombreUsuario=localStorage.getItem("nombre");
+  this.apellidoUsuario=localStorage.getItem("apellido");
   this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
   console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
@@ -101,5 +106,8 @@ realizarSugerencia(){
 }
 realizarReclamo(){
   this.router.navigate(["realizar_reclamo"]);
+}
+miPerfil() {
+  this.router.navigate(['miPerfil']);
 }
 }
