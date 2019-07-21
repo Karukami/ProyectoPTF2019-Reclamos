@@ -26,12 +26,9 @@ public class EmpresaControlador {
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar
-	@RequestMapping(value = "/editar/{rutEmpresa}", method = RequestMethod.GET)
-	public String editarEmpresa(@RequestBody Empresa x , @PathVariable("rutEmpresa") int rutEmpresa) {
-		service.idEmpresa(rutEmpresa).setRutEmpresa(x.getRutEmpresa());
-		service.idEmpresa(rutEmpresa).setNombreEmpresa(x.getNombreEmpresa());
-		service.idEmpresa(rutEmpresa).setEmailEmpresa(x.getEmailEmpresa());
-		service.idEmpresa(rutEmpresa).setTipoEmpresa(x.getTipoEmpresa());
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editarEmpresa(@RequestBody Empresa x) {
+		service.add(x);
 		return "Empresa Editada";
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////
