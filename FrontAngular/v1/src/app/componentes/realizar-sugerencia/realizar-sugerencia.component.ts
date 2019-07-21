@@ -17,6 +17,8 @@ rs:ReclamoSugerencia=new ReclamoSugerencia();
 idBusqueda:number;
 empresas:string[]=[];
 empresa:string;
+nombreUsuario:String;
+apellidoUsuario:String;
 
 constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
 
@@ -29,8 +31,9 @@ ngOnInit() {
   this.rs.usuarioReclamoSugerencia=+localStorage.getItem("idUsuario");
   console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
-    this.empresas=data;
-  
+  this.empresas=data;
+  this.nombreUsuario=localStorage.getItem("nombre");
+  this.apellidoUsuario=localStorage.getItem("apellido");
   });
 }
 
