@@ -81,6 +81,7 @@ export class PerfilEmpresaComponent implements OnInit {
   responderRS(RSAresolver:ReclamoSugerencia){
     this.servicioRS.setTrabajador(this.infoTrabajador.idTrabajador,RSAresolver).subscribe(data=>{
       RSAresolver=data;
+      console.log(data);
       if(RSAresolver.tipo=="Reclamo"){
 
         localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
