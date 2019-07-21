@@ -96,11 +96,17 @@ export class PerfilEmpresaComponent implements OnInit {
     
   }
 
-  sugerencia(){
+  irSugerencia(){
     this.router.navigate(["empresa/listaSugerencias"]);
   }
-  reclamo(){
+  irReclamo(){
     this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+
+  }
+  trabajadores(){
+
   }
   //buscarPorId(): vacio -> vacio
   //guarda el id de busqueda idbusqueda y 
