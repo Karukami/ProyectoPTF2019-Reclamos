@@ -95,7 +95,7 @@
 			<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
 				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
 					<div>
-						<br>
+						<br> 
 						<img src="../../assets/photo-placeholder.jpeg">
 						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
@@ -103,15 +103,15 @@
                         <br><br><br><br>
                         <button class="btn btn-danger btn-lg btn-block" (click)="empresa/perfil">Todo</button>
                         <br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="reclamo()">Lista Reclamos</button>
+						<button class="btn btn-danger btn-lg btn-block" (click)="irRreclamo()">Lista Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" (click)="sugerencia()">Lista Sugerencias</button>
-						<br>
-						<br>
-						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="VerEstadisticas()">Ver Estadisticas</button>
+						<button class="btn btn-success btn-lg btn-block" (click)="irSugerencia()">Lista Sugerencias</button>
 						<br>
 						<br>
-						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="crearTrabajador()">Trabajadores</button>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="verEstadisticas()">Ver Estadisticas</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="trabajadores()">Trabajadores</button>
 						<br>
 
 					</div>

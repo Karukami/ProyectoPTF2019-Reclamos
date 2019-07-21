@@ -62,4 +62,16 @@ export class EmpresaListaReclamosComponent implements OnInit {
     
     this.router.navigate(["empresa/listaSugerencias"]);
   }
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+
+  }
+  trabajadores(){
+
+  }
 }

@@ -103,15 +103,15 @@
                         <br><br><br><br>
                         <button class="btn btn-danger btn-lg btn-block" (click)="empresa/perfil">Todo</button>
                         <br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="reclamo()">Lista Reclamos</button>
+						<button class="btn btn-danger btn-lg btn-block" (click)="irRreclamo()">Lista Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" (click)="sugerencia()">Lista Sugerencias</button>
-						<br>
-						<br>
-						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="VerEstadisticas()">Ver Estadisticas</button>
+						<button class="btn btn-success btn-lg btn-block" (click)="irSugerencia()">Lista Sugerencias</button>
 						<br>
 						<br>
-						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="crearTrabajador()">Trabajadores</button>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="verEstadisticas()">Ver Estadisticas</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="trabajadores()">Trabajadores</button>
 						<br>
 
 					</div>
