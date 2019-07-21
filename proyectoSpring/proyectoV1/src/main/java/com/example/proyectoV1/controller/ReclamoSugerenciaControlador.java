@@ -64,6 +64,13 @@ public class ReclamoSugerenciaControlador {
 		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
 		return listaRSByidEmpresa;
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de rs por id usuario
+	@RequestMapping(value = "/listar/rs/{usuarioReclamoSugerencia", method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> rsByUsuario(@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia){
+		ArrayList<ReclamoSugerencia> listaRSUsuario = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
+		return listaRSUsuario;
+	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de sugerencias por id Empresa
 	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
