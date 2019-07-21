@@ -24,12 +24,20 @@ public class EmpresaControlador {
 	public Empresa agregar(@RequestBody Empresa e) {
 		return service.add(e);
 	}
-	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Editar
-	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Editar
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editarEmpresa(@RequestBody Empresa x) {
+		service.add(x);
+		return "Empresa Editada";
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
-	
+	@RequestMapping(value = "/delete/{rutEmpresa}", method = RequestMethod.GET)
+	public String deleteEmpresa(@PathVariable("rutEmpresa") int rutEmpresa) {
+		service.delete(rutEmpresa);
+		return "Empresa Eliminada";
+	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de nombres de Empresas
 	@RequestMapping(value="/{nombre}", method=RequestMethod.GET)

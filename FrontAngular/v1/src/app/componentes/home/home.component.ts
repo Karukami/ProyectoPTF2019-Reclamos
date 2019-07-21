@@ -9,8 +9,6 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-//hola vanne
-//hola vanne 19-07-2019
   idBusqueda:number;
   rs:ReclamoSugerencia;
   constructor(private router:Router, private service:RsServiceService) { }

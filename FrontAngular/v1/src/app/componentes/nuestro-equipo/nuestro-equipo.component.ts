@@ -11,5 +11,5 @@ export class NuestroEquipoComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

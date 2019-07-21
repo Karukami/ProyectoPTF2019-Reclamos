@@ -23,7 +23,7 @@ export class TrabajadorServiceService {
     return this.http.post<Trabajador>(this.url,trabajador);
   }
   logInTrabajador(trabajador:Trabajador){
-    return this.http.post<Trabajador>(this.url,trabajador);
+    return this.http.post<Trabajador>(this.url+"/login",trabajador);
   }
   
 

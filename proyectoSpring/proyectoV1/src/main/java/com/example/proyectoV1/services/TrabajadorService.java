@@ -3,10 +3,21 @@ import java.util.List;
 import com.example.proyectoV1.entities.Trabajador;
 import com.example.proyectoV1.exceptions.LoginException;
 
-public interface TrabajadorService {	
-	 Trabajador add(Trabajador t);
-	 List<Trabajador>listar();
-	 Trabajador edit(Trabajador p);
-	 Trabajador delete(Trabajador p);
-	 public Trabajador logIn(Trabajador t) throws LoginException;
+public interface TrabajadorService {
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Agregar
+	Trabajador add(Trabajador t);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Eliminar
+	Trabajador delete(Trabajador p);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Listar todos los Trabajadores
+	List<Trabajador>listar();
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Encontrar un trabajador por id
+	Trabajador buscarUno(int idTrabajador);
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//LogIn Trabajador
+	public Trabajador logIn(Trabajador t) throws LoginException;
+
 }

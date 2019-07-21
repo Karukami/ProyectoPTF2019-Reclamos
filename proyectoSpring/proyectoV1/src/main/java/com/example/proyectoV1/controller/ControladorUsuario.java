@@ -5,10 +5,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,16 +29,17 @@ public class ControladorUsuario {
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar 
-	@PutMapping(path= {"/{rutUsuario}"})
-	public Usuario editar(@RequestBody Usuario p,@PathVariable("rutUsuario") int rutusuario){
-	p.setRutUsuario(rutusuario);
-	return service.edit(p);
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editarUsuario (@RequestBody Usuario x) {
+		service.add(x);  
+		return "Usuario Editado";
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
-	@DeleteMapping
-	public void eliminar(Usuario x) {
-		service.delete(x);
+	@RequestMapping(value = "/delete/{rutUsuario}", method=RequestMethod.GET)
+	public String deleteUser(@PathVariable ("rutUsuario") int rutUsuario) {
+		service.delete(service.listarId_RutUsuario(rutUsuario));
+		return "Usuario Eliminado";
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de Todos los Usuarios

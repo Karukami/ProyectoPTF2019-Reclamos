@@ -19,7 +19,7 @@ export class RegistroUsuarioComponent implements OnInit {
   pass2:string;
   correo2:string;
   mensaje:string="";
-  idbusqueda:number;
+  idBusqueda:number;
   generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
@@ -36,15 +36,13 @@ export class RegistroUsuarioComponent implements OnInit {
       Nombres:[ '', Validators.required ],
       Apellidos:[ '', Validators.required ],
       Rut:['',Validators.required],
-      fechaNacUsuario:['',Validators.required],
-      Telefono:['',Validators.required],
-      genero:['',Validators.required],
-      correo:['',Validators.required],
-      correo2:['',Validators.required],
-      passUsuario:['',Validators.required],
-      pass2:['',Validators.required]
-
-
+      Fecha:['',Validators.required],
+       Telefono:['',Validators.required],
+       Genero:['',Validators.required],
+       Correo:['',Validators.required],
+       confirmCorreo:['',Validators.required],
+       pass:['',Validators.required],
+       pass2:['',Validators.required]
     });
   }
 
@@ -139,8 +137,13 @@ rutVacio(){
   //ejemplo: indoUsuario() devuelve -> rut: 12345678 nombre: juan apellido: ramirez correo: juan.ramirez.sk@gmail.com genero: masculino pass: contraseña fecha n: 2019-07-03 telefono: 123456789
 
 
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
   buscarPorId(){
-    this.serviceRS.getReclamo(this.idbusqueda);
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
   
   formatRut(rut:string):number{

@@ -6,6 +6,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 import { Trabajador } from 'src/app/Modelo/trabajador';
+import { Empresa } from 'src/app/Modelo/Empresa';
 
 @Component({
   selector: 'app-login-empresa',
@@ -14,9 +15,13 @@ import { Trabajador } from 'src/app/Modelo/trabajador';
 })
 export class LoginEmpresaComponent implements OnInit {
 
-  constructor(private router:Router,private service:ServiceService, private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService) { }
+  constructor(private router:Router,private service:ServiceService,
+     private serviceRS:RsServiceService,private trabajadorService:TrabajadorServiceService,
+     private servicioEmpresa:EmpresaServiceService) { }
+
   trabajador:Trabajador=new Trabajador(); 
   mensajeError:string;
+  idBusqueda:number;
   
   ngOnInit() {
     
@@ -38,13 +43,21 @@ export class LoginEmpresaComponent implements OnInit {
 
   logInEmpresa(){
     try {
+      console.log(this.trabajador);
       this.trabajadorService.logInTrabajador(this.trabajador).subscribe(data=>{
-        let credenciales= data;
-        if(credenciales==null){
+        let credencialesTrabajador= data;
+        console.log("tipo de trabajador: "+credencialesTrabajador.tipoTrabajador);
+        if(credencialesTrabajador==null){
           this.mensajeError="el correo o la contraseña no coinciden ";  
         }else{
-          localStorage.setItem("Empresa",credenciales.empresa);
-          localStorage.setItem("Trabajador",credenciales.nombreTrabajador);
+          localStorage.setItem("trabajador",JSON.stringify(credencialesTrabajador));
+          let credencialesEmpresa:Empresa=new Empresa();
+          this.servicioEmpresa.idEmpresa(credencialesTrabajador.empresa).subscribe(data=>{
+            credencialesEmpresa=data;
+            credencialesEmpresa.nombreEmpresa=credencialesTrabajador.empresa;
+            localStorage.setItem("empresa",JSON.stringify(credencialesEmpresa));
+            localStorage.setItem("id empresa",""+credencialesEmpresa.rutEmpresa);
+          })
           this.router.navigate(["empresa/perfil"]);
           this.mensajeError="";
         }
@@ -54,6 +67,14 @@ export class LoginEmpresaComponent implements OnInit {
     }finally{
       this.mensajeError="verifica que los campos sean correctos";
     }
+    
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
     
   }
 

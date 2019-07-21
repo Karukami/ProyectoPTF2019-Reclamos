@@ -4,6 +4,8 @@ import { EmpresaServiceService } from 'src/app/Services/empresa-service.service'
 import { TrabajadorServiceService } from 'src/app/Services/trabajador-service.service';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { Empresa } from 'src/app/Modelo/Empresa';
+import { Trabajador } from 'src/app/Modelo/trabajador';
 
 
 
@@ -16,7 +18,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
   reclamos:ReclamoSugerencia[]=[];
   colores:string[]=[];
-  
+  administrador:boolean=false;
   constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
   formatoDate(date:string):string{
     let nuevaFecha:string;
@@ -28,17 +30,20 @@ export class EmpresaListaReclamosComponent implements OnInit {
 
   }
   ngOnInit() {
-    let idEmpresa:number=123//Number(localStorage.getItem("idEmpresa"));
-    this.servicioRS.getReclamoEmpresa(idEmpresa).subscribe(data=>{
+    let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
+    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
+
+    if (infoTrabajador.tipoTrabajador=="Administrador"){
+      this.administrador=true;
+    }
+    this.servicioRS.getReclamoEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
       this.reclamos=data;
-      console.log(this.reclamos.length);
-      console.log(this.reclamos);
+ 
       let hoy=new Date();
       for(let i=0;i<this.reclamos.length;i++){
-        console.log("fecha rs"+this.reclamos[i].fechaReclamoSugerencia.toLocaleString())
-        console.log("hola "+this.reclamos[i].fechaReclamoSugerencia+" hoy es "+"");
+     
         if(this.reclamos[i].fechaReclamoSugerencia.toLocaleString()<this.formatoDate(hoy.toLocaleDateString())){
-          console.log(i);
+         
           this.colores[i]="white";
         }else{
           this.colores[i]="green";
@@ -47,12 +52,28 @@ export class EmpresaListaReclamosComponent implements OnInit {
     })
     
   }
-  responderReclamo(reclamoAresolver:ReclamoSugerencia){
-    
-    localStorage.setItem("reclamo",JSON.stringify(reclamoAresolver));
+  
+  responderReclamo(RSAresolver:ReclamoSugerencia){
+    console.log(RSAresolver)
+    localStorage.setItem("reclamo",JSON.stringify(RSAresolver));
     this.router.navigate(["empresa/responderReclamo"]);
   }
   realizarSugerencia(){
-    this.router.navigate(["empresa/responderSugerencia"]);
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+
+  }
+  trabajadores(){
+
   }
 }
