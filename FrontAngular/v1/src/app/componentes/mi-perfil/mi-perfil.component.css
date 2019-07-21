@@ -173,3 +173,11 @@ body{
     color: white;
     
 }
+#EditarPerfil  {
+   background: #00546c;
+   color: white;
+   border-radius: 5px; 
+   border-color: #00546c;
+   height: 45px;
+   width: 120px;   
+}
