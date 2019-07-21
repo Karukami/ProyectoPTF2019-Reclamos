@@ -26,7 +26,7 @@ public class ReclamoSugerenciaControlador {
 		return service.add(r);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	// 
+	//Lista RS de un Usuario
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
@@ -37,7 +37,7 @@ public class ReclamoSugerenciaControlador {
 	@PutMapping(path = {"/id"})
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);
-		return service.edit(x);
+		return service.add(x);
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Busca la ID del ultimo RS de un usuario por su Rut
@@ -96,6 +96,8 @@ public class ReclamoSugerenciaControlador {
 		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
 		return estadisticas;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Setea un Trabajador a un RS
 	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.POST)
 	public ReclamoSugerencia setearTrabajador(@RequestBody ReclamoSugerencia x, @PathVariable("idTrabajador") int idTrabajador) {
 		x.setIdEmpleado(idTrabajador);
