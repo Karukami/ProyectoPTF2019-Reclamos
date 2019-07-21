@@ -40,4 +40,7 @@ export class RsServiceService {
   setTrabajador(id:number,rs:ReclamoSugerencia){
     return this.http.post<ReclamoSugerencia>(this.url+"/setTrabajador/"+id,rs);
   }
+  getRSUsuario(id:number){
+    return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/"+id);
+  }
 }
