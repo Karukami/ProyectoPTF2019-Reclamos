@@ -32,6 +32,7 @@ import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,7 @@ import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equ
     EmpresaResponderReclamoComponent,
     EmpresaResponderSugerenciaComponent,
     MiPerfilComponent,
-    NuestroEquipoComponent
+    NuestroEquipoComponent,
 
   ],
   imports: [
