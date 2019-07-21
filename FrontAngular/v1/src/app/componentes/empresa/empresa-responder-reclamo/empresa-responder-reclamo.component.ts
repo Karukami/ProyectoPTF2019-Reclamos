@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamoSugerenciaEnviadoComponent } from '../../anonimo/reclamo-sugerencia-enviado/reclamo-sugerencia-enviado.component';
 import { Router } from '@angular/router';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
 
 @Component({
   selector: 'app-empresa-responder-reclamo',
@@ -10,10 +10,11 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 })
 export class EmpresaResponderReclamoComponent implements OnInit {
   rs:ReclamoSugerencia;
-  constructor(private servivioRS:ReclamoSugerenciaEnviadoComponent,private router:Router) { }
+  constructor(private servivioRS:RsServiceService,private router:Router) { }
 
   ngOnInit() {
-    this.rs= JSON.parse(localStorage.getItem("reclamo"));
+    this.rs= JSON.parse(localStorage.getItem("Reclamo"));
+    
   }
   irPerfil(){
     this.router.navigate(["empresa/perfil"]);
