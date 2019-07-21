@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-empresa-responder-sugerencia',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpresaResponderSugerenciaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
 
+  }
+  trabajadores(){
+
+  }
 }
