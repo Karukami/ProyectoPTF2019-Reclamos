@@ -33,14 +33,9 @@ public class TrabajadorControlador {
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar
-	@RequestMapping(value = "/editar/{idTrabajador}", method = RequestMethod.GET)
-	public String editarTrabajador(@RequestBody Trabajador x, @PathVariable("idTrabajador")int idTrabajador) {
-		service.buscarUno(idTrabajador).setIdTrabajador(x.getIdTrabajador());
-		service.buscarUno(idTrabajador).setNombreTrabajador(x.getNombreTrabajador());
-		service.buscarUno(idTrabajador).setApellidoTrabajador(x.getApellidoTrabajador());
-		service.buscarUno(idTrabajador).setTipoTrabajador(x.getTipoTrabajador());
-		service.buscarUno(idTrabajador).setPassTrabajador(x.getPassTrabajador());
-		service.buscarUno(idTrabajador).setEmpresa(x.getEmpresa());
+	@RequestMapping(value = "/editar", method = RequestMethod.GET)
+	public String editarTrabajador(@RequestBody Trabajador x) {
+		service.add(x);
 		return "Trabajador Editado";
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////

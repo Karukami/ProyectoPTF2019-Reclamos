@@ -24,7 +24,7 @@ public  class ReclamoSugerenciaServiceImp implements ReclamoSugerenciaService{
 	}
 	@Override
 	public List<ReclamoSugerencia> rsByusuarioReclamoSugerencia(int usuarioReclamoSugerencia) {
-		return repositorio.findByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
+		return repositorio.findByUsuarioReclamoSugerencia(usuarioReclamoSugerencia);
 	}
 	@Override
 	public ReclamoSugerencia rsByIdUser(int idUser) {

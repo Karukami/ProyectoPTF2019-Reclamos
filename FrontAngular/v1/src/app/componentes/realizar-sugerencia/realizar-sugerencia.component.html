@@ -10,6 +10,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
+<<<<<<< HEAD
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto">
 					  <li class="nav-item active" id="btn_home_navbar">
@@ -67,6 +68,40 @@
 	</div>
 	<router-outlet></router-outlet>
 </div>  
+=======
+<!-- CONTENIDO -->
+<div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+    <div class="col-3" style="background-color: #dddddd">
+        <div>
+            <br>
+            <img src="../../assets/photo-placeholder.jpeg">
+            <div id=NombreUsuario>{{nombreUsuario}}</div>
+            <br>
+            <div id=ApellidoUsuario>{{apellidoUsuario}}</div>
+                    <button id="BotonMiPerfil" class="btn btn-lg btn-block">Mi perfil</button>
+                    <br><br><br><br>
+                    <button id="BotonHistorial" class="btn btn-lg btn-block" >Historial de Reclamos</button>
+                    <br>
+                    <button id="BotonRealizarSugerencia" class="btn btn-lg btn-block" (click)="realizarSugerencia()">Realizar Sugerencia</button>
+                    <br>
+                    <button id="BotonRealizarReclamo" class="btn btn-lg btn-block" (click)="realizarReclamo()">Realizar Reclamo</button>
+                    <br>
+                </div>
+            </div>
+            <div class="col-9" style="height:700px; "><br>
+                <h1 style="color: white; text-shadow: 2px 2px 5px #222222">Realizar Sugerencia</h1>
+                <br>
+                <br>
+                <div class="form-group">
+            </div>
+                <div class="form-group">
+                    <label for="inputlg" style="color: #eeeeee">Empresa</label>
+                    <br>
+                <select class="browser-default custom-select" [(ngModel)]="empresa" >
+                    <option *ngFor="let empresa of empresas" [ngValue]="empresa" >{{empresa}}</option> 
+                    
+                </select>
+>>>>>>> 3b0cbff71dc0efe1a43d2e532555d8182364a07e
 
 <!-- CONTENIDO -->
 			<div class="row" id=FondoReclamo>

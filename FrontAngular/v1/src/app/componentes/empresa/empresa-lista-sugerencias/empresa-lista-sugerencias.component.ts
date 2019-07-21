@@ -35,11 +35,26 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
       console.log(this.sugerencias);
     })
   }
-  responderSugerencia(sugerenciaAresolver:ReclamoSugerencia){
-    localStorage.setIteml("reclamo",sugerenciaAresolver);
+  responderSugerencias(sugerenciaAresolver:ReclamoSugerencia){
+    localStorage.setItem("Sugerencia",JSON.stringify(sugerenciaAresolver));
     this.router.navigate(["empresa/responderSugerencia"]);
   }
   realizarReclamo(){
     this.router.navigate(["empresa/responderReclamo"]);
+  } 
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+
+  }
+  trabajadores(){
+
   }
 }

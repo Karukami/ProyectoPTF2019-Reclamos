@@ -26,7 +26,7 @@ public class ReclamoSugerenciaControlador {
 		return service.add(r);
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////
-	// 
+	//Lista RS de un Usuario
 	@RequestMapping(value="/{idReclamo}", method=RequestMethod.GET)
 	public ReclamoSugerencia listarId(@PathVariable("idReclamo")int rutusuario) {
 		System.out.println("dentro de editar");
@@ -37,7 +37,7 @@ public class ReclamoSugerenciaControlador {
 	@PutMapping(path = {"/id"})
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x,@PathVariable("id")String respuesta) {
 		x.setRespuestaRS(respuesta);
-		return service.edit(x);
+		return service.add(x);
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Busca la ID del ultimo RS de un usuario por su Rut
@@ -64,6 +64,13 @@ public class ReclamoSugerenciaControlador {
 		ArrayList<ReclamoSugerencia> listaRSByidEmpresa = (ArrayList<ReclamoSugerencia>) service.listarByidEmpresa(idEmpresa);
 		return listaRSByidEmpresa;
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de rs por id usuario
+	@RequestMapping(value = "/listar/{usuarioReclamoSugerencia}", method = RequestMethod.GET)
+	public ArrayList<ReclamoSugerencia> rsByUsuario(@PathVariable("usuarioReclamoSugerencia")int usuarioReclamoSugerencia){
+		ArrayList<ReclamoSugerencia> listaRSUsuario = (ArrayList<ReclamoSugerencia>) service.rsByusuarioReclamoSugerencia(usuarioReclamoSugerencia);
+		return listaRSUsuario;
+	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de sugerencias por id Empresa
 	@RequestMapping(value = "/listar/s/{idEmpresa}",method = RequestMethod.GET)
@@ -88,6 +95,13 @@ public class ReclamoSugerenciaControlador {
 		estadisticas[0] =service.tipoByIdEmpresas(idEmpresa, "sugerencia").size();
 		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
 		return estadisticas;
+	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	//Setea un Trabajador a un RS
+	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.POST)
+	public ReclamoSugerencia setearTrabajador(@RequestBody ReclamoSugerencia x, @PathVariable("idTrabajador") int idTrabajador) {
+		x.setIdEmpleado(idTrabajador);
+		return service.add(x); 
 	}
 	
 }

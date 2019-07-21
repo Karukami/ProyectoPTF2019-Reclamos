@@ -95,26 +95,35 @@
 			<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
 				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
 					<div>
-						<br>
+						<br> 
 						<img src="../../assets/photo-placeholder.jpeg">
 						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
 						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
 						<button class="btn btn-outline-light btn-lg btn-block">Mi perfil</button>
-						<br><br><br><br><br><br>
-						<button class="btn btn-danger btn-lg btn-block" (click)="realizarSugerencia()">Lista Reclamos</button>
+                        <br><br><br><br>
+                        <button class="btn btn-danger btn-lg btn-block" (click)="irPerfil()">Todo</button>
+                        <br>
+						<button class="btn btn-danger btn-lg btn-block" (click)="irReclamo()">Lista Reclamos</button>
 						<br>
-						<button class="btn btn-success btn-lg btn-block" (click)="realizarReclamo()">Lista Sugerencias</button>
+						<button class="btn btn-success btn-lg btn-block" (click)="irSugerencia()">Lista Sugerencias</button>
 						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="verEstadisticas()">Ver Estadisticas</button>
+						<br>
+						<br>
+						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="trabajadores()">Trabajadores</button>
+						<br>
+
 					</div>
 				</div>
 
-				<div class="col">
+				<div class="col-9">
 					<br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px black;">Responder reclamo ID#131369</h1>
+					<h1 style="color: white; text-shadow: 2px 2px 5px black;">Responder reclamo ID#{{rs.idReclamoSugerencia}}</h1>
 					<br><br><br>
-					<label style="color: #eeeeee" for="exampleFormControlTextarea1">Usuario escribió: {{rs.detalleReclamoSugerencia}}</label>
+					<label style="color: #eeeeee" for="exampleFormControlTextarea1">Usuario escribió:</label>
 					<div class="form-group">
-					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder=disabled></textarea>
+					    <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder= "asd"disabled></textarea>
 					</div>
 					<br>
 					<hr style="border: 1px solid #dddddd">
@@ -126,7 +135,7 @@
 					
 					<br>
 					<br>
-					<button class="btn btn-primary btn-lg btn-block" (click)="realizarReclamoSugerencia()">Enviar Respuesta</button>
+					<button class="btn btn-primary btn-lg btn-block" (click)="enviarRespuesta()">Enviar Respuesta</button>
 					<br>
 					<br>
 					

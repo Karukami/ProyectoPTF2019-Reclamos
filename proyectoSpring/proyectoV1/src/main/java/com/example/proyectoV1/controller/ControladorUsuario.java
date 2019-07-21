@@ -29,16 +29,9 @@ public class ControladorUsuario {
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar 
-	@RequestMapping(value = "/editar/{rutUsuario}", method = RequestMethod.GET)
-	public String editarUsuario (@RequestBody Usuario x, @PathVariable("rutUsuario") int rutUsuario) {
-		service.listarId_RutUsuario(rutUsuario).setRutUsuario(x.getRutUsuario());
-		service.listarId_RutUsuario(rutUsuario).setNombreUsuario(x.getNombreUsuario());
-		service.listarId_RutUsuario(rutUsuario).setApellidoUsuario(x.getApellidoUsuario());
-		service.listarId_RutUsuario(rutUsuario).setEmailUsuario(x.getEmailUsuario());
-		service.listarId_RutUsuario(rutUsuario).setPassUsuario(x.getPassUsuario());
-		service.listarId_RutUsuario(rutUsuario).setFechaNacUsuario(x.getFechaNacUsuario());
-		service.listarId_RutUsuario(rutUsuario).setFonousuario(x.getFonousuario());
-		service.listarId_RutUsuario(rutUsuario).setGeneroUsuario(x.getGeneroUsuario());  
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editarUsuario (@RequestBody Usuario x) {
+		service.add(x);  
 		return "Usuario Editado";
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////

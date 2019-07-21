@@ -15,9 +15,14 @@ export class ReclamoEnviadoComponent implements OnInit {
   idBusqueda:number;
   nombreEmpresa:string;
   empresa:Empresa=new Empresa();
+  nombreUsuario:String;
+  apellidoUsuario:String;
+  
   constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
 
   ngOnInit() {
+    this.nombreUsuario=localStorage.getItem("nombre");
+    this.apellidoUsuario=localStorage.getItem("apellido");
   }
   cerrarSesion(){
     localStorage.setItem("Email", "anonimo");

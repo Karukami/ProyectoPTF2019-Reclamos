@@ -55,11 +55,25 @@ export class EmpresaListaReclamosComponent implements OnInit {
   
   responderReclamo(RSAresolver:ReclamoSugerencia){
     console.log(RSAresolver)
-    localStorage.setItem("reclamo",JSON.stringify(RSAresolver));
+    localStorage.setItem("Reclamo",JSON.stringify(RSAresolver));
     this.router.navigate(["empresa/responderReclamo"]);
   }
   realizarSugerencia(){
-    
     this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+
+  }
+  trabajadores(){
+
   }
 }

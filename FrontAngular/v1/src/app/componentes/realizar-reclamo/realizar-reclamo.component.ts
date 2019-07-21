@@ -21,10 +21,15 @@ export class RealizarReclamoComponent implements OnInit {
   empresa:string;
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
+<<<<<<< HEAD
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
 
+=======
+  nombreUsuario:String;
+  apellidoUsuario:String;
+>>>>>>> 3b0cbff71dc0efe1a43d2e532555d8182364a07e
   constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
   ngOnInit() {
@@ -40,7 +45,8 @@ export class RealizarReclamoComponent implements OnInit {
   console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
     this.empresas=data;
-  
+    this.nombreUsuario=localStorage.getItem("nombre");
+    this.apellidoUsuario=localStorage.getItem("apellido");
   });
 
   }
