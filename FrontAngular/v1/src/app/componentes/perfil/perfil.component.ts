@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
+import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 
 @Component({
   selector: 'app-perfil',
@@ -9,11 +11,14 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private router:Router, private serviceRS:RsServiceService) { }
+  constructor(private router:Router, private serviceRS:RsServiceService,private servicioRS:RsServiceService) { }
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
   idBusqueda:number;
+  reclamosSugerencias:ReclamoSugerencia[]=[];
+  mensaje:string="";
+  mostrarMensaje:boolean=false;
 
   ngOnInit() {
     if(this.nombre=="anonimo"){
@@ -21,7 +26,15 @@ export class PerfilComponent implements OnInit {
     }
     this.nombreUsuario=localStorage.getItem("nombre");
     this.apellidoUsuario=localStorage.getItem("apellido");
-
+    this.servicioRS.getRSUsuario(+localStorage.getItem("idUsuario")).subscribe(data=>{
+      this.reclamosSugerencias=data;
+      
+    });
+    
+    if (this.reclamosSugerencias.length==0){
+      this.mensaje="Aun no tienes Reclamos ni Sugerencias";
+      this.mostrarMensaje=true;
+    }
   } 
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);
