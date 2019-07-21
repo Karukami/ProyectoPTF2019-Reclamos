@@ -24,9 +24,6 @@ export class RealizarReclamoComponent implements OnInit {
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
-
-  nombreUsuario:String;
-  apellidoUsuario:String;
   constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
   ngOnInit() {

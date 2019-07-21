@@ -6,86 +6,69 @@
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
 
-    <!-- SECCIÓN 1: BOTONES HOME, RECLAMO Y SUGERENCIA -->
-    <div class="row" id="navbar" style="background-color:ghostwhite">
-        <div id="navbarseccion1" class="col-7">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active" id="btn_home_navbar">
-                        <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/homeiconmini.png" alt="">
-                                <br>
-                                INICIO
-                            </a>
-                        </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="col">
-                                <a class="nav-link" href="#">
-                                    <img src="../../assets/reclamoiconmini.png" alt="">
-                                    <br>
-                                    RECLAMO
-                                </a>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="col">
-                                <a class="nav-link" href="#">
-                                    <img src="../../assets/historialiconmini.png" alt="">
-                                    <br>
-                                    HISTORIAL
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>            
-            </nav>
-        </div>
+ <!-- SECCIÓN 1: BOTON HOME-->
+ <div class="row" id="navbar">
+    <div id="navbarseccion1" class="col-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active" id="btn_home_navbar">
+                    <div class="col">
+                        <a class="nav-link" href="/home">
+                            <img src="../../assets/homeiconmini.png" alt="">
+                            <br>
+                            INICIO
+                        </a>
+                    </div>
+                </li>
+                </ul>
+            </div>            
+        </nav>
+    </div>
     
             <!--- SECIÓN 2: Botón cerrar Sesión-->
-            <div class="col-2 padding-0">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-            
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li>
-                                <button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn" style="margin-left: 100px; margin-right: 0px;">Cerrar Sesión</button> 	
-                                <button (click)="cerrarSesion()"type="button" class="btn btn-danger"  >Cerrar sesión</button>	
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
+		<div class="col-2 padding-0">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+		
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li>
+							<button type="button" id= "idBotonCerrarSesion" (click)="cerrarSesion()" class="btn">Cerrar Sesión</button> 	
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
     
             <!-- SECCIÓN 3: BUSCAR POR ID -->
     
             <div class="col padding-0">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                    
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                          </button>
+    
+                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        
                         <div class="col-8 padding-0" style="text-align: right">
-                            <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
-                                         
+                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
+                             
                         </div>
                         <div class="col padding-0">
-                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                            <button (click)="buscarPorId()" class="btn btn-outline-info my-2 my-sm-0" id= "idBotonBuscar"type="submit">
                                 Buscar
                             </button>
                         </div>
-                                          
-                    </div>
-                    </nav>
+                              
+                      </div>
+                </nav>
             </div>
             <router-outlet></router-outlet>
         </div>  
@@ -101,9 +84,6 @@
                         <br>
 						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
 						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
-                        <div id=ApellidoUsuario>{{apellidoUsuario}}</div>
-                        <br><br><br><br>
-						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)="miPerfil()">Mi perfil</button>
 						<br><br><br><br>
 						<button id= BotonHistorial class="btn btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
 						<br>

@@ -35,7 +35,7 @@
 	color: #00546c; 
 }
 #idFondo{
-	background-image: linear-gradient(rgb(53, 72, 125), rgb(91, 104, 123), rgb(108, 144, 192));
+	background-image: linear-gradient(#34627a, #043947);
 }
 #PerfilUsuario {
 	background-color: #dddddd; 
