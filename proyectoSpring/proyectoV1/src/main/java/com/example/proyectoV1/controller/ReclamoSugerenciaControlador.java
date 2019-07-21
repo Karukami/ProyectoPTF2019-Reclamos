@@ -96,7 +96,7 @@ public class ReclamoSugerenciaControlador {
 		estadisticas[1] = service.tipoByIdEmpresas(idEmpresa, "reclamo").size();
 		return estadisticas;
 	}
-	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.GET)
+	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.POST)
 	public ReclamoSugerencia setearTrabajador(@RequestBody ReclamoSugerencia x, @PathVariable("idTrabajador") int idTrabajador) {
 		service.listarIdReclamoSugerencia(x.getIdReclamoSugerencia()).setIdEmpleado(idTrabajador);
 		return service.listarIdReclamoSugerencia(x.getIdReclamoSugerencia()); 
