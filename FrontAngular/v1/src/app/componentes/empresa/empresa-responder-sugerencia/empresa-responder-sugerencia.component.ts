@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 
 @Component({
   selector: 'app-empresa-responder-sugerencia',
@@ -9,8 +10,9 @@ import { Router } from '@angular/router';
 export class EmpresaResponderSugerenciaComponent implements OnInit {
 
   constructor(private router:Router) { }
-
+  rs:ReclamoSugerencia;
   ngOnInit() {
+    this.rs= JSON.parse(localStorage.getItem("Sugerencia"));
   }
   irPerfil(){
     this.router.navigate(["empresa/perfil"]);
