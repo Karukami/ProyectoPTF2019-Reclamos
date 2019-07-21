@@ -21,7 +21,8 @@ export class RealizarReclamoComponent implements OnInit {
   empresa:string;
   cantidadMaxima:number=265;
   cantidadCarcteres:number=0;
-
+  nombreUsuario:String;
+  apellidoUsuario:String;
   constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   
   ngOnInit() {
@@ -35,7 +36,8 @@ export class RealizarReclamoComponent implements OnInit {
   console.log("oid usuariasdlknads "+this.rs.usuarioReclamoSugerencia)
   this.servicioEmpresa.listaEmpresas().subscribe(data=>{
     this.empresas=data;
-  
+    this.nombreUsuario=localStorage.getItem("nombre");
+    this.apellidoUsuario=localStorage.getItem("apellido");
   });
 
   }
