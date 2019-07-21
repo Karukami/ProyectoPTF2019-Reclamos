@@ -12,6 +12,9 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
 
   ngOnInit() {
   }
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
   irSugerencia(){
     this.router.navigate(["empresa/listaSugerencias"]);
   }

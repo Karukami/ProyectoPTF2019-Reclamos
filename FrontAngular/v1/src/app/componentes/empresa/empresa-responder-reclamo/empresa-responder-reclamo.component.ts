@@ -15,6 +15,9 @@ export class EmpresaResponderReclamoComponent implements OnInit {
   ngOnInit() {
     this.rs= JSON.parse(localStorage.getItem("reclamo"));
   }
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
   irSugerencia(){
     this.router.navigate(["empresa/listaSugerencias"]);
   }
