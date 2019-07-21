@@ -116,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido..." minlength="3" maxlength="45" required>
+                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="5" maxlength="45" required>
                             </div>
                             <div class="form-group">
 
@@ -149,19 +149,19 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="text" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="text" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirm-Correo" name="confirm-Correo" formControlName="confirm-Correo" placeholder="JuanPerez@ejemplo.com">
+                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirm-Correo" name="confirm-Correo" formControlName="confirm-Correo" placeholder="JuanPerez@ejemplo.com" required>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="contraseña" name="contraseña" formControlName="contraseña" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="contraseña" name="contraseña" formControlName="contraseña" placeholder="Recuerda usar números, símbolos y letras" required>
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="confirm-contraseña" name="confirm-contraseña" formControlName="confirm-contraseña" placeholder="********************">
+                                <input [(ngModel)]="pass2"type="password" class="form-control" id="confirm-contraseña" name="confirm-contraseña" formControlName="confirm-contraseña" placeholder="********************" required>
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
