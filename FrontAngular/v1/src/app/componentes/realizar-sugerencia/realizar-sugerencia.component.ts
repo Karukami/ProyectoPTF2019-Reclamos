@@ -17,14 +17,9 @@ rs:ReclamoSugerencia=new ReclamoSugerencia();
 idBusqueda:number;
 empresas:string[]=[];
 empresa:string;
-<<<<<<< HEAD
 nombre:string = localStorage.getItem('Email');
 nombreUsuario:string;
 apellidoUsuario:string;
-=======
-nombreUsuario:String;
-apellidoUsuario:String;
->>>>>>> 3b0cbff71dc0efe1a43d2e532555d8182364a07e
 
 constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
 
