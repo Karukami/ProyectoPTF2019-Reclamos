@@ -126,7 +126,7 @@
                             </div>
                             <div class="form-group">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" required >
+                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >
 
                             
                             </div>
@@ -153,17 +153,6 @@
                             </div>
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-<<<<<<< HEAD
-                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirm-Correo" name="confirm-Correo" formControlName="confirm-Correo" placeholder="JuanPerez@ejemplo.com" required>
-                            </div>
-                            <div>
-                                <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="contraseña" name="contraseña" formControlName="contraseña" placeholder="Recuerda usar números, símbolos y letras" required>
-                            </div>
-                            <div>
-                                <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="confirm-contraseña" name="confirm-contraseña" formControlName="confirm-contraseña" placeholder="********************" required>
-=======
                                 <input [(ngModel)]="correo2" type="text" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com">
                             </div>
                             <div>
@@ -173,7 +162,6 @@
                             <div>
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
                                 <input [(ngModel)]="pass2"type="password" class="form-control" id="pass2" name="pass2" formControlName="pass2" placeholder="********************">
->>>>>>> dcf7769d6ea6c6d1e4872ad6a291d061706ae3e4
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
