@@ -98,8 +98,8 @@ public class ReclamoSugerenciaControlador {
 	}
 	@RequestMapping(value = "/setTrabajador/{idTrabajador}", method = RequestMethod.POST)
 	public ReclamoSugerencia setearTrabajador(@RequestBody ReclamoSugerencia x, @PathVariable("idTrabajador") int idTrabajador) {
-		service.listarIdReclamoSugerencia(x.getIdReclamoSugerencia()).setIdEmpleado(idTrabajador);
-		return service.listarIdReclamoSugerencia(x.getIdReclamoSugerencia()); 
+		x.setIdEmpleado(idTrabajador);
+		return service.add(x); 
 	}
 	
 }
