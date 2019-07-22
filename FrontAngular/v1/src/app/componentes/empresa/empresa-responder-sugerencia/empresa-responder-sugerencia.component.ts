@@ -36,8 +36,10 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
-  realizarReclamoSugerencia(){
+  responderSugerencia(){
     this.rs.estado="resuelto";
+    console.log(" se esta respondiendo");
     this.servicioRS.responderRS(this.rs).subscribe(data=>{});
+    this.router.navigate(["empresa/perfil"]);
   }
 }

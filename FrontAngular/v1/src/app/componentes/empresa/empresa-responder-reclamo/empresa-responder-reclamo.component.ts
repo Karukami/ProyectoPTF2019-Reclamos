@@ -18,9 +18,7 @@ export class EmpresaResponderReclamoComponent implements OnInit {
     this.rs= JSON.parse(localStorage.getItem("Reclamo"));
     
   }
-  enviarRespuesta(){
-    
-  }
+
   irPerfil(){
     this.router.navigate(["empresa/perfil"]);
   }
@@ -40,8 +38,10 @@ export class EmpresaResponderReclamoComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
-  realizarReclamoSugerencia(){
+  enviarRespuesta(){
     this.rs.estado="resuelto";
+    console.log(" se esta respondiendo");
     this.servicioRS.responderRS(this.rs).subscribe(data=>{});
+    this.router.navigate(["empresa/perfil"]);
   }
 }
