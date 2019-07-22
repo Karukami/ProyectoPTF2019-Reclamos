@@ -4,6 +4,7 @@ import { ServiceService } from 'src/app/Services/service.service';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ValidarRut } from 'src/app/funcionesDeValidacion/validarRUT';
+import { ValidarEmail } from 'src/app/funcionesDeValidacion/validarCORREO';
 import { ValidarTelefono } from 'src/app/funcionesDeValidacion/validarTELEFONO';
 import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 
@@ -16,7 +17,7 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
 export class RegistroUsuarioComponent implements OnInit {
 
   usuarioARegistrar:UsuarioRegistrado= new UsuarioRegistrado();
-  pass2:string;
+  pass2:string; 
   correo2:string;
   mensaje:string="";
   idBusqueda:number;
@@ -27,8 +28,10 @@ export class RegistroUsuarioComponent implements OnInit {
   errGenero:string;
   rut:string;
   errorTel:String;
+  errorEmail:String;
 
   formRegistro :FormGroup;
+  regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
   constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
   ngOnInit() {
@@ -39,8 +42,8 @@ export class RegistroUsuarioComponent implements OnInit {
       //Fecha:['',Validators.required],
        Telefono:['',Validators.required],
        //Genero:['',Validators.required],
-       Correo:['',Validators.required],
-       confirmCorreo:['',Validators.required],
+       Correo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
+       confirmCorreo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
        pass:['',Validators.required],
        pass2:['',Validators.required]
     });
@@ -96,6 +99,17 @@ validarTelefono(){
   }
 }
 
+validarEmail(){
+  let validar:ValidarEmail = new ValidarEmail();
+  let resultado = validar.checkEmail(this.usuarioARegistrar.emailUsuario);
+  console.log(this.usuarioARegistrar.emailUsuario);
+  if(resultado.result){
+    this.errorEmail="";
+  }else{
+    this.errorEmail=resultado.message;
+  }
+}
+
 
 rutVacio(){
   if(!(this.genero==null)){
@@ -107,9 +121,7 @@ rutVacio(){
   }
 }
   registro(){
-    if(!(this.rutVacio())){
-
-    }else  if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
+     if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
       this.errRut="este campo no puede estar vacio";
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.emailUsuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.passUsuario))){
