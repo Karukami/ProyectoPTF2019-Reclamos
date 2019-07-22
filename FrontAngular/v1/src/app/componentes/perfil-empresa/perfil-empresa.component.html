@@ -97,13 +97,16 @@
 					<div>
 						<br> 
                         <!-- TENGO QUE ARREGLAR ESTOOOOOOOO -->
-                        <p style="color: #ffffff">Nombre Trabajador: \en construcción/</p>
-                        <p id="nombreTrabajador" style="color: #ffffff">{{infoTrabajador.nombreTrabajador}}</p>
-                        <p style="color: #ffffff">Tipo Trabajador: {{infoTrabajador.tipoTrabajador}}</p>
-						<img src="../../assets/photo-placeholder.jpeg">
-						<div style="background-color: darkgray; height:10px; width: 40%; transform: translate(140px, -100px);"></div>
-						<div style="background-color: darkgray; height:10px; width: 30%; transform: translate(140px, -80px);"></div>
-						<button class="btn btn-outline-light btn-lg btn-block">Mi perfil</button>
+                        <div class="container"></div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="../../assets/photo-placeholder.jpeg">
+                                </div>
+                                <div class="col">
+                                    <h4 style="color: #ffffff">{{infoTrabajador.nombreTrabajador}}</h4>
+                                    <h6 style="color: #ffffff"><i>{{infoTrabajador.tipoTrabajador}}</i></h6>
+                                </div>
+                            </div>
                         <br><br><br><br>
                         <button class="btn btn-danger btn-lg btn-block" (click)="irPerfil()">Todo</button>
                         <br>
