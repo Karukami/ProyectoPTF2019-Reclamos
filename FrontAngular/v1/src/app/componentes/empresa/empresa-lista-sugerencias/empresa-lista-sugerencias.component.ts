@@ -100,9 +100,13 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
     this.router.navigate(["empresa/listaReclamos"]);
   }
   verEstadisticas(){
-
+    this.router.navigate(["empresa/estadisticas"]);
   }
   trabajadores(){
 
+  }
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
   }
 }
