@@ -54,7 +54,7 @@ export class PerfilEmpresaComponent implements OnInit {
       }
     });
     if (this.reclamosSugerencias.length==0){
-      this.mensaje="no tienes mas reclamos ni sugerencas que revisar";
+      this.mensaje="* No tienes más reclamos ni sugerencias por revisar.";
       this.mostrarMensaje=true;
     }
   }
