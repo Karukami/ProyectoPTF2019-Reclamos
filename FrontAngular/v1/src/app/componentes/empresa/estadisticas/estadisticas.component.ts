@@ -261,4 +261,8 @@ descargarInforme(){
   trabajadores(){
 
   }
+  
+  itTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
 }
