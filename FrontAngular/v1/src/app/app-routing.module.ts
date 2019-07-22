@@ -22,6 +22,7 @@ import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-
 import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
 import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
+import { EstadisticasComponent } from './componentes/empresa/estadisticas/estadisticas.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path:"empresa/responderReclamo",component:EmpresaResponderReclamoComponent},
   {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent},
   {path: "miPerfil", component:MiPerfilComponent},
-  {path:"nuestro_equipo",component:NuestroEquipoComponent}
+  {path:"nuestro_equipo",component:NuestroEquipoComponent},
+  {path:"empresa/estadisticas",component:EstadisticasComponent}
 ];
  
 @NgModule({

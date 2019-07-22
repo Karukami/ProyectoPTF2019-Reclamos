@@ -107,7 +107,7 @@ export class PerfilEmpresaComponent implements OnInit {
     this.router.navigate(["empresa/listaReclamos"]);
   }
   verEstadisticas(){
-
+    this.router.navigate(["empresa/estadisticas"]);
   }
   trabajadores(){
 
@@ -119,5 +119,10 @@ export class PerfilEmpresaComponent implements OnInit {
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
   }
 }
