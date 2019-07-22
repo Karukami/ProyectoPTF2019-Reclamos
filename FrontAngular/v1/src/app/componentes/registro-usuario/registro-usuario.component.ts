@@ -65,6 +65,7 @@ export class RegistroUsuarioComponent implements OnInit {
     let noNulo:boolean=(this.correo2==null||this.usuarioARegistrar.emailUsuario==null||this.correo2==null||this.usuarioARegistrar.emailUsuario==null);
     return noNulo;
   }
+
 generoVacio():boolean{
   if(!(this.genero==null)){
     this.usuarioARegistrar.generoUsuario=this.genero
@@ -73,8 +74,6 @@ generoVacio():boolean{
     this.errGenero="este campo no puede estar vacio";
     return false;
   }
-
-
 }
 
 validateRut(){
@@ -99,7 +98,7 @@ validarTelefono(){
   }
 }
 
-validarEmail(){
+/** validarEmail(){
   let validar:ValidarEmail = new ValidarEmail();
   let resultado = validar.checkEmail(this.usuarioARegistrar.emailUsuario);
   console.log(this.usuarioARegistrar.emailUsuario);
@@ -108,7 +107,7 @@ validarEmail(){
   }else{
     this.errorEmail=resultado.message;
   }
-}
+} */
 
 
   registro(){
