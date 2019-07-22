@@ -112,11 +112,7 @@ validarEmail(){
 
 
   registro(){
-<<<<<<< HEAD
-     if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
-=======
     if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
->>>>>>> 7f54bc35de29fb759cf499342f0c9369ad3fcc99
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
       this.errRut="este campo no puede estar vacio";
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.emailUsuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.passUsuario))){
