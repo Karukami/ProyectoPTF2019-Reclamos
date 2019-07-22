@@ -16,7 +16,7 @@ export class EmpresaServiceService {
   crearEmpresa(empresa:Empresa){
   	return this.http.post<Empresa>(this.url,empresa);
   }
-  
+   
   listaEmpresas(){
     return this.http.get<string[]>(this.url+"/nombre");
   }

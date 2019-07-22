@@ -103,7 +103,7 @@
 					</div>
 				</div>
 				<div class="col-9">
-                        <div *ngFor="let rs of reclamosSugerencias" >
+                        <div *ngFor="let rs of reclamosSugerencias;let i = index" >
                                 <!---color angtiguo rgba(255, 255, 255, 0.9)  -->
                                 <br>
                                 <div style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color:rgb(154, 115, 177);">
@@ -119,7 +119,7 @@
                                                 <h6 style="text-align:left">Titulo: {{rs.tituloRS}}</h6>
                                                 
                                                 <p>Detalle: {{rs.detalleReclamoSugerencia}}</p>
-                                                <small style="text-align: right;">Empresa: {{rs.empresa}}</small>
+                                                <small style="text-align: right;">Empresa: {{nombresEmpresas[i]}}</small>
                                             </div>
                                             <div class="col-2" style="text-align: center">
                                                 {{rs.fechaReclamoSugerencia}}

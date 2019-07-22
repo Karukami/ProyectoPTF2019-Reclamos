@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
+import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 
 @Component({
   selector: 'app-perfil',
@@ -11,7 +12,7 @@ import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private router:Router, private serviceRS:RsServiceService,private servicioRS:RsServiceService) { }
+  constructor(private router:Router,private servicioRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
   nombre:string = localStorage.getItem('Email');
   nombreUsuario:string;
   apellidoUsuario:string;
@@ -19,7 +20,7 @@ export class PerfilComponent implements OnInit {
   reclamosSugerencias:ReclamoSugerencia[]=[];
   mensaje:string="";
   mostrarMensaje:boolean=false;
-
+  nombresEmpresas:string[]=[];
   ngOnInit() {
     if(this.nombre=="anonimo"){
       this.router.navigate(["home"]);
@@ -29,12 +30,19 @@ export class PerfilComponent implements OnInit {
     this.servicioRS.getRSUsuario(+localStorage.getItem("idUsuario")).subscribe(data=>{
       this.reclamosSugerencias=data;
       
+      for(let i=0;i<this.reclamosSugerencias.length;i++){
+        this.servicioEmpresa.nombreEmpresa(this.reclamosSugerencias[i].idEmpresa).subscribe(data=>{
+         this.nombresEmpresas.push(data.nombreEmpresa);
+        })
+        
+      }
     });
     
     if (this.reclamosSugerencias.length==0){
       this.mensaje="Aun no tienes Reclamos ni Sugerencias";
       this.mostrarMensaje=true;
     }
+    
   } 
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);
@@ -58,4 +66,5 @@ export class PerfilComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+ 
 }
