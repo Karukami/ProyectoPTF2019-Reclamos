@@ -24,6 +24,9 @@ export class EstadisticasComponent implements OnInit {
    responsive: true,
    legend: {
      position: 'left',
+     labels: {
+        fontColor: 'black',
+     }
    },
    plugins: {
      datalabels: {
@@ -41,7 +44,7 @@ export class EstadisticasComponent implements OnInit {
  public rVSsPlugins = 0;//[pluginDataLabels];
  public rVSsColors = [
    {
-     backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)'],//rgba(red,green,blue,opacidad)
+     backgroundColor: ['rgba(255,0,0,0.6)', 'rgba(0,255,0,0.6)'],//rgba(red,green,blue,opacidad)
    },
  ];
  //#########################################################################################
@@ -50,8 +53,11 @@ export class EstadisticasComponent implements OnInit {
   public rRVSrNrOptions: ChartOptions = {
     responsive: true,
     legend: {
-      position: 'left',
-    },
+     position: 'left',
+     labels: {
+        fontColor: 'black',
+     }
+   },
     plugins: {
       datalabels: {
         formatter: (value, ctx) => {
@@ -68,7 +74,7 @@ export class EstadisticasComponent implements OnInit {
   public  rRVSrNrPlugins = 0;//[pluginDataLabels];
   public  rRVSrNrColors = [
     {
-      backgroundColor: ['rgba(255,199,0,0.3)', 'rgba(150,25,70,0.3)'],//rgba(red,green,blue,opacidad)
+      backgroundColor: ['rgba(255,199,200,0.6)', 'rgba(150,25,70,0.6)'],//rgba(red,green,blue,opacidad)
     },
   ];
   //#########################################################################################
@@ -76,8 +82,11 @@ export class EstadisticasComponent implements OnInit {
   public sRVSsNrOptions: ChartOptions = {
     responsive: true,
     legend: {
-      position: 'left',
-    },
+     position: 'left',
+     labels: {
+        fontColor: 'black',
+     }
+   },
     plugins: {
       datalabels: {
         formatter: (value, ctx) => {
@@ -94,7 +103,7 @@ export class EstadisticasComponent implements OnInit {
   public  sRVSsNrPlugins = 0;//[pluginDataLabels];
   public  sRVSsNrColors = [
     {
-      backgroundColor: ['rgba(255,99,34,0.3)', 'rgba(150,255,0,0.3)'],//rgba(red,green,blue,opacidad)
+      backgroundColor: ['rgba(255,99,34,1)', 'rgba(150,255,0,1)'],//rgba(red,green,blue,opacidad)
     },
   ];
   //#########################################################################################
@@ -264,5 +273,10 @@ descargarInforme(){
   
   itTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
+  }
+  
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
   }
 }

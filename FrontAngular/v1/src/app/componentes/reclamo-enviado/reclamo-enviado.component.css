@@ -68,3 +68,9 @@
 	background-color: #00546c;
 	color: #F8F9FB; 
 }
+
+#FondoEnviadoConExito {
+  	background-size: 100%;
+  	background-repeat: no-repeat;  
+	background-image: url('/../assets/fondologin.png');
+}
