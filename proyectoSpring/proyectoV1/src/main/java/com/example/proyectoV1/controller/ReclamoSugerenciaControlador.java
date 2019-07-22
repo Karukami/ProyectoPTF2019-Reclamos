@@ -34,7 +34,7 @@ public class ReclamoSugerenciaControlador {
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Agrega una Respuesta al RS
-	@PutMapping(path = {"/responder"})
+	@RequestMapping(value = "/responder", method = RequestMethod.GET)
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x) {
 		return service.add(x);
 	}
