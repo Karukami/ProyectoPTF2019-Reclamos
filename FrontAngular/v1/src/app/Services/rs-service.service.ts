@@ -43,10 +43,14 @@ export class RsServiceService {
   getRSUsuario(id:number){
     return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/"+id);
   }
+<<<<<<< HEAD
+
+=======
   getEstadistica(id:number){
     return this.http.get<number[]>(this.url+"/Estadistica/"+id);
   }
   responderRS(rs:ReclamoSugerencia){
     return this.http.post<ReclamoSugerencia>(this.url+"/responder",rs);
   }
+>>>>>>> ba3e91f1d247e18bdfa551442ef71c36f28f805e
 }
