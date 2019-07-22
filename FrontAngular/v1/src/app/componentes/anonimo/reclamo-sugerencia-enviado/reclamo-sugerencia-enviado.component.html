@@ -1,5 +1,5 @@
 <!----------------------------------------------------->
-<!-- SUGERENCIA Y RECLAMO ENVIADO -->
+<!-- SUGERENCIA Y RECLAMO ENVIADO ANON -->
 <!----------------------------------------------------->
 
 <!------------------------------------------------------------------>
@@ -114,17 +114,14 @@
 					<div style="background-color: rgba(0, 0, 0, 0.2); border-radius: 30px; padding-top: 20px; padding-bottom: 20px">
 						<h2 style="color:white; text-align: center; text-shadow: 2px 2px 5px #222222">¡Tu opinión se ha enviado con éxito!</h2>
 						<br>
-						<div class="text-center">
-							<button (click)="generarPdf()"class="btn btn-info">descargar PDF</button>
-						</div>
-						<br>
 						<div style="text-align: center">
 							<a href="/home" style="color: #eeeeee;">¿Deseas realizar otro reclamo?</a>
                         </div>
                         <hr>
                         <div class="form-group">
-                        <button (click)="registrarse()" class="btn btn-lg btn-block" id=BotonRegistrarse>Descargar PDF con ID</button>
-                        </div>
+						<button (click)="generarPdf()"class="btn btn-lg btn-block" id=BotonDescargarPDF>Descargar PDF</button>
+						<button (click)="registrarse()" class="btn btn-lg btn-block" id=BotonRegistrarse>Registrarse</button>
+						</div>
 					</div>
 				</div>
 			</div>

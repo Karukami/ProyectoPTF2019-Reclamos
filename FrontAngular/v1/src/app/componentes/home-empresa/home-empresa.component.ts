@@ -25,7 +25,7 @@ export class HomeEmpresaComponent implements OnInit {
   //redirige a la url empresa/registro
   //que hace referencia al componente registro-empresa
   //la referencia esta declarada en el archivo app-routing.module
-  registrar(){
+  registrarEmpresa(){
     this.router.navigate(["empresa/registro"]);
   }
  //loginEmpresa(): vacio->vacio
@@ -63,5 +63,9 @@ export class HomeEmpresaComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+  
 
 }
