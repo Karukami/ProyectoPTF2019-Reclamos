@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,9 +47,9 @@ public class SendMailController {
 		String message =
 		"Estimad@ " + nombreUsuario + " : \n\n" + 
 		
-		"Tu reclamo ha sido ingresado con exito en nuestra plataforma! \n\n" +
+		"Tu reclamo o sugerencia ha sido ingresado con exito en nuestra plataforma! \n\n" +
 		
-		"Estate atento a la respuesta de tu reclamo con el numero de ID: " + iDRS + 
+		"Estate atento a la respuesta de tu reclamo o sugerencia con el numero de ID: " + iDRS + 
 		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com  \n\n"
 		+ "Cordiales saludos del equipo G3";
 		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);
