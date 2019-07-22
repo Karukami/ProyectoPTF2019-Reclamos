@@ -128,4 +128,12 @@ export class PerfilEmpresaComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+
 }
