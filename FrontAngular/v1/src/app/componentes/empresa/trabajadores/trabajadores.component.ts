@@ -38,7 +38,20 @@ export class TrabajadoresComponent implements OnInit {
   agregarTrabajador(){
     this.router.navigate(["empresa/agregarTrabajador"]);
   }
-  itTrabajadores(){
+  irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
+  }
+  irPerfil(){
+    this.router.navigate(["empresa/perfil"]);
+  }
+
+  irSugerencia(){
+    this.router.navigate(["empresa/listaSugerencias"]);
+  }
+  irReclamo(){
+    this.router.navigate(["empresa/listaReclamos"]);
+  }
+  verEstadisticas(){
+    this.router.navigate(["empresa/estadisticas"]);
   }
 }

@@ -94,7 +94,7 @@
 						<div id=ApellidoUsuario>{{apellidoUsuario}}</div>
 						<button id= BotonMiPerfil class="btn btn-lg btn-block" (click)= "miPerfil()">Mi perfil</button>
 						<br><br><br><br>
-						<button id= BotonHistorial class="btn btn-lg btn-block" onclick="location.href='InterfazUR-Historial.html'">Historial de Reclamos</button>
+						<button id= BotonHistorial class="btn btn-lg btn-block" (click)="iraPerfil()">Historial de Reclamos</button>
 						<br>
 						<button id= BotonRealizarSugerencia class="btn btn-lg btn-block" (click)="realizarSugerencia()">Realizar Sugerencia</button>
 						<br>
@@ -103,14 +103,15 @@
 					</div>
 				</div>
 				<div class="col-9">
-                        <div *ngFor="let rs of reclamosSugerencias" >
+                        <div *ngFor="let rs of reclamosSugerencias;let i = index" >
                                 <!---color angtiguo rgba(255, 255, 255, 0.9)  -->
                                 <br>
-                                <div style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color:rgb(154, 115, 177);">
+                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color:white;">
                                     <br>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3" style="padding-top: 3px">
+                                                <h2>ID#{{rs.idReclamoSugerencia}}</h2>
                                                 <button class="btn btn-warning" >{{rs.estado}}</button>
                                                 
                                             </div>
@@ -119,7 +120,7 @@
                                                 <h6 style="text-align:left">Titulo: {{rs.tituloRS}}</h6>
                                                 
                                                 <p>Detalle: {{rs.detalleReclamoSugerencia}}</p>
-                                                <small style="text-align: right;">Empresa: {{rs.empresa}}</small>
+                                                <small style="text-align: right;">Empresa: {{nombresEmpresas[i]}}</small>
                                             </div>
                                             <div class="col-2" style="text-align: center">
                                                 {{rs.fechaReclamoSugerencia}}
@@ -130,5 +131,5 @@
                                 
                             </div>
 
-				</div>
+                </div> 
 			</div>

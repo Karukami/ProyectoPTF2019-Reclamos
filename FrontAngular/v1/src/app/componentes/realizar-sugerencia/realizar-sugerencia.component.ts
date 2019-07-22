@@ -112,6 +112,9 @@ realizarReclamo(){
 miPerfil() {
   this.router.navigate(['miPerfil']);
 }
+iraPerfil() {
+  this.router.navigate(['home']);
+}
 enviarEmail(){
   this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
 }

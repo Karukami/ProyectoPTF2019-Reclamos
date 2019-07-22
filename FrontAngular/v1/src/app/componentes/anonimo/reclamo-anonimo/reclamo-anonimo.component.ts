@@ -97,5 +97,13 @@ export class ReclamoAnonimoComponent implements OnInit {
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
   }
+  registrar(){
+    this.router.navigate(['registrar']);
+  }
+  //login():vacio-> vacio
+  //redirige al componente login
+  login(){
+    this.router.navigate(['login']);
+  }
 
 }

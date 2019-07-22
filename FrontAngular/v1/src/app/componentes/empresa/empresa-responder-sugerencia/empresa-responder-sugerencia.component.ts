@@ -43,7 +43,7 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
     this.router.navigate(["empresa/perfil"]);
   }
   
-  itTrabajadores(){
+  irTrabajadores(){
     this.router.navigate(["empresa/listarTrabajadores"]);
   }
 }
