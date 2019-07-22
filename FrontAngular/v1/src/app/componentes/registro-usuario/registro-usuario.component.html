@@ -94,7 +94,7 @@
         <router-outlet></router-outlet>
     </div>  
 
-<form name="formRegistro" [formGroup]="formRegistro" >
+<form name="formRegistro" [formGroup]="formRegistro" class="testsss">
 <!-- CONTENIDO -->
             <div class="row" id=idFondoRegistro>
                 <div class="col-4"></div>
@@ -110,21 +110,21 @@
                             Ingresa tu información para crear tu usuario:
                         </p>
                         <div>
-                            <div class="form-group">
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Nombre</label>
                                 <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Apellido</label>
                                 <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="5" maxlength="45" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-reg">
 
                                 <label for="" style="color: #dddddd">Rut</label>
                                 <input [(ngModel)]="rut" type="text" (keyup)="validateRut()" class="form-control"  id="" name="Rut" formControlName="Rut" placeholder="Ejemplo: 19.315.750-5" minlength="8" maxlength="10" required >
                                 <p style="color: white;">{{errRut}}</p>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
                                 <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >
 
@@ -147,19 +147,19 @@
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p>
                             </div>
-                            <div>
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="text" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required>
+                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                             </div>
-                            <div>
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input [(ngModel)]="correo2" type="text" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com">
+                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                             </div>
-                            <div>
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Contraseña</label>
                                 <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="pass" name="pass" formControlName="pass" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
-                            <div>
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
                                 <input [(ngModel)]="pass2"type="password" class="form-control" id="pass2" name="pass2" formControlName="pass2" placeholder="********************">
                                  <br>       
@@ -167,7 +167,7 @@
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
                                  </div>
                             </div>                            
-                            <br><br><button type="button" (click)="registro()" [disabled]="!formRegistro.valid" id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
+                            <br><br><button type="button" (click)="registro()"  id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
                         </div>
                     <br>
@@ -180,5 +180,5 @@
                     <br><br>
                 </div>
                 <div class="col-4"></div>
-            </div>
+            </div> 
         </form>

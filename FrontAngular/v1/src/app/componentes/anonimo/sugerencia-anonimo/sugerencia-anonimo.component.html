@@ -111,12 +111,12 @@
                 </div> 
                             <div class="form-group">
                                 <label  style="color: #eeeeee" for="">Titulo</label>
-                                <input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="">
+                                <input class="form-control"  [(ngModel)]="rs.tituloRS"type="text" name="" id="" minlength="4" maxlength="45" required >
                             </div>
         
                             <label style="color: #eeeeee" for="exampleFormControlTextarea1">Detalle</label>
                             <div class="form-group">
-                                <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo"></textarea>
+                                <textarea [(ngModel)]="rs.detalleReclamoSugerencia" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escribe aquí el detalle de tu reclamo" minlength="4" maxlength="265" required ></textarea>
                                 <p style= "color: white">maximo 265 caracteres </p>
                             </div>
                             
