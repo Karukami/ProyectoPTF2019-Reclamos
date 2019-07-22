@@ -43,9 +43,8 @@ public class TrabajadorControlador {
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
 	@RequestMapping(value = "/delete/{idTrabajador}", method = RequestMethod.GET)
-	public String deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
+	public void deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
 		service.delete(service.buscarUno(idTrabajador));
-		return "Trabajador Eliminado";
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de todos los trabajadores
