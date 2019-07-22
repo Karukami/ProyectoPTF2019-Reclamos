@@ -38,5 +38,7 @@ export class TrabajadoresComponent implements OnInit {
   agregarTrabajador(){
     this.router.navigate(["empresa/agregarTrabajador"]);
   }
-
+  itTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
 }

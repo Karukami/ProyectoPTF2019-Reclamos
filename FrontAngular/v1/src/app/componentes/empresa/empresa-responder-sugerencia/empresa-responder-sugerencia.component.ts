@@ -42,4 +42,8 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
     this.servicioRS.responderRS(this.rs).subscribe(data=>{});
     this.router.navigate(["empresa/perfil"]);
   }
+  
+  itTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
 }
