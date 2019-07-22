@@ -6,6 +6,8 @@ import * as html2canvas from 'html2canvas';
 import { Router } from '@angular/router';
 import { Trabajador } from 'src/app/Modelo/trabajador';
 import { Empresa } from 'src/app/Modelo/Empresa';
+import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 @Component({
   selector: 'app-estadisticas',
   templateUrl: './estadisticas.component.html',
@@ -13,7 +15,8 @@ import { Empresa } from 'src/app/Modelo/Empresa';
 })
 export class EstadisticasComponent implements OnInit {
   administrador:boolean=false;
-  constructor(private router:Router){}
+  ReclamosSugerencias:ReclamoSugerencia[]=[];
+  constructor(private router:Router,private servicioRS:RsServiceService){}
 
   //opciones grafico reclamo Vs sugerencia (codigo = rVSs)
   public rVSsOptions: ChartOptions = {
@@ -31,7 +34,7 @@ export class EstadisticasComponent implements OnInit {
    }
  };
  public rVSsLabels: Label[] = ['Reclamos', 'Sugerencias'];
- public rVSsData: number[] = [10, 20];
+ public rVSsData: number[] = [0, 0];
  public rVSsType: ChartType = 'pie';
  public rVSsLegend = true;
  public rVSsPlugins = 0;//[pluginDataLabels];
@@ -58,7 +61,7 @@ export class EstadisticasComponent implements OnInit {
     }
   };
   public  rRVSrNrLabels: Label[] = ['Reclamos resueltos', 'Reclamos no resueltos'];
-  public  rRVSrNrData: number[] = [30, 9];
+  public  rRVSrNrData: number[] = [0, 0];
   public  rRVSrNrType: ChartType = 'pie';
   public  rRVSrNrLegend = true;
   public  rRVSrNrPlugins = 0;//[pluginDataLabels];
@@ -84,7 +87,7 @@ export class EstadisticasComponent implements OnInit {
     }
   };
   public  sRVSsNrLabels: Label[] = ['Sugerencias resueltas', 'Sugerencias no resueltas'];
-  public  sRVSsNrData: number[] = [30, 9];
+  public  sRVSsNrData: number[] = [0, 0];
   public  sRVSsNrType: ChartType = 'pie';
   public  sRVSsNrLegend = true;
   public  sRVSsNrPlugins = 0;//[pluginDataLabels];
@@ -95,7 +98,36 @@ export class EstadisticasComponent implements OnInit {
   ];
   //#########################################################################################
   
+  //cantReclamosResueltos(): ReclamoSugerencia[] ->number
+  //devuelve la cantidad de reclamos resueltos 
+  cantReclamosResueltos(reclamos:ReclamoSugerencia[]){
+    let cantReclamosResueltos:number=0;
+    for(let i=0;i<reclamos.length;i++){
+      if(reclamos[i].estado=="resuelto"){
+        cantReclamosResueltos++;
+      }
+    }
+    return cantReclamosResueltos;
+  }
+  cantSugerenciasResueltas(Sugerencias:ReclamoSugerencia[]){
+    let cantReclamosResueltos:number=0;
+    for(let i=0;i<Sugerencias.length;i++){
+      if(Sugerencias[i].estado=="resuelto"){
+        cantReclamosResueltos++;
+      }
+    }
+    return cantReclamosResueltos;
+  }
+  formatoDatosGrafico(cantResueltos,arr:ReclamoSugerencia[]):number[]{
+    let nuevoArreglo:number[]=[];
+    nuevoArreglo.push(cantResueltos);
+    nuevoArreglo.push(arr.length-cantResueltos);
+    console.log("asdfs");
+    console.log(nuevoArreglo);
+    return nuevoArreglo;
+  }
 
+  
  ngOnInit() {
    //se utiliza el metodo parse de la calse JSON para convertir la informacion
     // guardada en localstorage en el "campo" trabajador a un objeto de tipo Trabajador
@@ -109,7 +141,19 @@ export class EstadisticasComponent implements OnInit {
     if (infoTrabajador.tipoTrabajador=="Administrador"){
       this.administrador=true;
     }
-  this.sRVSsNrData=[2,20];
+    this.servicioRS.getSugerenciaEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
+    
+      this.sRVSsNrData=this.formatoDatosGrafico(this.cantSugerenciasResueltas(data),data);
+    });
+    this.servicioRS.getReclamoEmpresa(infoEmpresa.rutEmpresa).subscribe(data=>{
+      this.rRVSrNrData=this.formatoDatosGrafico(this.cantReclamosResueltos(data),data);
+    });
+
+    this.servicioRS.getEstadistica(infoEmpresa.rutEmpresa).subscribe(data=>{
+      this.rVSsData=data;
+    });
+
+
  }
 
 descargarInforme(){
@@ -137,7 +181,7 @@ descargarInforme(){
         doc.text(6,74,"Grafico Reclamos Vs Sugerencias");
         doc.addImage(img1,'PNG',6,74,180,100);
      
-        
+        console.log()
         doc.text(6,185,"Reclamos:     "+reclamosVSsugerenciaData[0]);
         doc.text(6,192,"Sugerencias : "+reclamosVSsugerenciaData[1]);
 
