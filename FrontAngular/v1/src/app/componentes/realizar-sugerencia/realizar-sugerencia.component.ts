@@ -4,7 +4,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { Router } from '@angular/router';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { Empresa } from 'src/app/Modelo/Empresa';
-
+import { EnviarEmailService } from 'src/app/Services/enviar-email.service';
 
 @Component({
   selector: 'app-realizar-sugerencia',
@@ -21,7 +21,7 @@ nombre:string = localStorage.getItem('Email');
 nombreUsuario:string;
 apellidoUsuario:string;
 
-constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService) { }
+constructor(private router:Router, private serviceRS:RsServiceService,private servicioEmpresa:EmpresaServiceService, private servicioMail:EnviarEmailService) { }
 
 ngOnInit() {
   this.rs.idReclamoSugerencia=0;
@@ -72,6 +72,7 @@ realizarReclamoSugerencia() {
           localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
           console.log(localStorage.getItem("idRS"));
           //alert("reclamo generado enviado con exito ");
+          this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
           this.router.navigate(["rs_enviado"]);
         });
       } catch (error) {
@@ -110,5 +111,8 @@ realizarReclamo(){
 }
 miPerfil() {
   this.router.navigate(['miPerfil']);
+}
+enviarEmail(){
+  this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
 }
 }

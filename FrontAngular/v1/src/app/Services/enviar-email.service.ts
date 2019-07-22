@@ -12,6 +12,6 @@ export class EnviarEmailService {
   
   sendEmail(id:number){
     console.log(this.url+"/"+id);
-    return this.http.get<void>(this.url+"/"+id);
+    return this.http.get(this.url+"/"+id).subscribe();
   }
 }

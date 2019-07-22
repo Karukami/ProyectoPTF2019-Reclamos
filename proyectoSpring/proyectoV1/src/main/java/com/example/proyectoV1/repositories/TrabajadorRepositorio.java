@@ -20,5 +20,8 @@ public interface TrabajadorRepositorio extends Repository<Trabajador,Integer>{
 	List<Trabajador> findAll();
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//Buscar trabajador por nombre empresa, nombre trabajador y pass trabajador
-	Trabajador findByEmpresaAndNombreTrabajadorAndPassTrabajador(String empresa, String nombreTrabajador, String passTrabajador);	
+	Trabajador findByEmpresaAndNombreTrabajadorAndPassTrabajador(String empresa, String nombreTrabajador, String passTrabajador);
+	/////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Lista de trabajadores por empresa
+	List<Trabajador> findByEmpresa(String empresa);
 }
