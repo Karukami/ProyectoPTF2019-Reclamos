@@ -125,7 +125,7 @@ validarEmail(){
       localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
     }else{
       this.mensaje="Error en: constraseña o correo, no coinciden ";
-    }
+    }  
 
   }
   validarCorreo(correo_usuario:string,correo2:string):boolean{

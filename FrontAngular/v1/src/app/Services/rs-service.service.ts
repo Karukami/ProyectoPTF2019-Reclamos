@@ -43,4 +43,7 @@ export class RsServiceService {
   getRSUsuario(id:number){
     return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/"+id);
   }
+  getEstadistica(id:number){
+    return this.http.get<number[]>(this.url+"/Estadistica/"+id);
+  }
 }
