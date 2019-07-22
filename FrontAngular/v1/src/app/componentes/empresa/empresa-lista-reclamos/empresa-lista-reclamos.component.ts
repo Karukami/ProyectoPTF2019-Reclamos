@@ -19,6 +19,7 @@ export class EmpresaListaReclamosComponent implements OnInit {
   reclamos:ReclamoSugerencia[]=[];
   colores:string[]=[];
   administrador:boolean=false;
+  infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioTrabajador:TrabajadorServiceService,private router:Router,private servicioRS:RsServiceService) { }
   //formatoDate():string->string
   // este metodo invierte el formato de una fecha 
@@ -109,4 +110,16 @@ export class EmpresaListaReclamosComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
+  home(){
+    this.router.navigate(['home']);
+  }
+
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+
+  irTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
+
 }

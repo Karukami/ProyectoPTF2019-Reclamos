@@ -29,15 +29,17 @@ export class RegistroUsuarioComponent implements OnInit {
   generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
-
   errGenero:string;
   errorTel:String;
   errorEmail:string;
 
   formRegistro :FormGroup;
+  
+ regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
-  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
-  ngOnInit() {
+constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
+
+ngOnInit() {
     this.formRegistro = this.formBuilder.group({
       
       Nombre:[ '', Validators.required ],
