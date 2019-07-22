@@ -120,4 +120,9 @@ export class PerfilEmpresaComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
+  }
 }

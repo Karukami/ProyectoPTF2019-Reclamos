@@ -105,4 +105,8 @@ export class EmpresaListaReclamosComponent implements OnInit {
   trabajadores(){
 
   }
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
+  }
 }
