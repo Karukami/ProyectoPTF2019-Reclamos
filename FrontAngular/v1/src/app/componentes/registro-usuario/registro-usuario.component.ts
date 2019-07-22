@@ -97,19 +97,8 @@ validarTelefono(){
 }
 
 
-rutVacio(){
-  if(!(this.genero==null)){
-    this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-    return true ;
-  }else{
-    this.errRut="este campo no puede estar vacio";
-    return false;
-  }
-}
   registro(){
-    if(!(this.rutVacio())){
-
-    }else  if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
+    if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
       this.errRut="este campo no puede estar vacio";
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.emailUsuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.passUsuario))){
