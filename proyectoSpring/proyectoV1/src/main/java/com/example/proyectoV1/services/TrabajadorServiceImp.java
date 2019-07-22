@@ -49,6 +49,10 @@ public class TrabajadorServiceImp implements TrabajadorService{
 			}
 			return trabajadorAVerificar;
 	}
+	@Override
+	public List<Trabajador> empleadosPorEmpresa(String empresa) {
+		return repositorio.findByEmpresa(empresa);
+	}
 
 
 }

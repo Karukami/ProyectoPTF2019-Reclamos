@@ -93,40 +93,45 @@
             <button *ngIf="administrador"class="btn btn-lg btn-block" (click)="verEstadisticas()" id=BotonVerEstadisticas>Ver Estadisticas</button>
             <br> 
             <br>
-            <button *ngIf="administrador"class="btn btn-lg btn-block" (click)="irTrabajadores()" id=BotonTrabajadores>Trabajadores</button>
+            <button *ngIf="administrador"class="btn btn-lg btn-block" (click)="trabajadores()" id=BotonTrabajadores>Trabajadores</button>
             <br>
 
         </div>
     </div>
     <!-- CONTENIDO -->
 				<div class="col-9"  ><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes [Reclamos]</h1>
-					<div style="text-align: right"><button class="btn btn-light">Ordenar por fecha</button>	</div>
-					<br><br>
-					<br>
-					<div *ngFor="let rs of reclamos;let i=index " >
-						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
-						<div [style.background-color]="colores[i]" style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
-							<br>
-							<div class="container">
-								<div class="row">
-									<div class="col-3" style="padding-top: 3px">
-										<button class="btn btn-danger">{{rs.tipo}}</button>
-										<button class="btn btn-info">Enviado</button>
-									</div>
-									<div class="col-7">
-										<h6 style="text-align:left">Reclamo: {{rs.detalle}} </h6>
-										<small style="text-align: right;">Empresa: {{rs.empresa}}</small>
-									</div>
-									<div class="col-2" style="text-align: center">
-										{{rs.fechaReclamoSugerencia}}
-										<button (click)="responderReclamo(rs)"class="btn btn-danger">Responder</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
+					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Agregar Trabajador</h1>
+            
+                                                          
+                        <!-- registro trabajador empresa-->
+                        <h2 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">Informacion del usuario</h2>
+                        <div clas="form-grup">  
+                            <label for="">Nombre Trabajador/Username</label>  
+                            <input [(ngModel)]="trabajador.nombreTrabajador"class="form-control" type="text">              
+                        </div>
+                        <div clas="form-grup">  
+                            <label for="">Apellido Trabajador</label>  
+                            <input [(ngModel)]="trabajador.apellidoTrabajador"class="form-control" type="text">              
+                        </div>
+                        <div class="form-grup">  
+                            <label for="">Tipo trabajador</label> 
+                            <select class="browser-default custom-select " [(ngModel)]="trabajador.tipoTrabajador"name="" id="">
+                                <option value="Administrador">Administrador</option>
+                                <option value="Moderador">Moderador</option>
+                            </select>          
+                        </div>
+                        <div class="form-grup"> 
+                            <label for="">Contraseña trabajador </label>
+                            <input [(ngModel)]="trabajador.passTrabajador"class="form-control" type="password">            
+                        </div>
+                        <div class="form-grup"> 
+                            <label for="">Confirmar Contraseña trabajador </label>
+                            <input [(ngModel)]="pass2" class="form-control" type="password">            
+                        </div>
+                        <br>
+                        <button style="background-color: blueviolet" type="button" (click)="agregarTrabajador()" class="btn btn-lg btn-block" >agregar Trabajador</button>     
+                        <br><br><br>
+              
 					
 					
 				</div>

@@ -46,9 +46,9 @@ public class SendMailController {
 		String message =
 		"Estimad@ " + nombreUsuario + " : \n\n" + 
 		
-		"Tu reclamo ha sido ingresado con exito en nuestra plataforma! \n\n" +
+		"Tu reclamo o sugerencia ha sido ingresado con exito en nuestra plataforma! \n\n" +
 		
-		"Estate atento a la respuesta de tu reclamo con el numero de ID: " + iDRS + 
+		"Estate atento a la respuesta de tu reclamo o sugerencia con el numero de ID: " + iDRS + 
 		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com  \n\n"
 		+ "Cordiales saludos del equipo G3";
 		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);

@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,7 +33,7 @@ public class ReclamoSugerenciaControlador {
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Agrega una Respuesta al RS
-	@RequestMapping(value = "/responder", method = RequestMethod.GET)
+	@RequestMapping(value = "/responder", method = RequestMethod.POST)
 	public ReclamoSugerencia responderRS(@RequestBody ReclamoSugerencia x) {
 		return service.add(x);
 	}

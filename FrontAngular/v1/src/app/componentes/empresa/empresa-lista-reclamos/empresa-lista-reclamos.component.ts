@@ -118,4 +118,8 @@ export class EmpresaListaReclamosComponent implements OnInit {
     this.router.navigate(['home_empresa']);
   }
 
+  irTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
+
 }

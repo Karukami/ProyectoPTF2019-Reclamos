@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Empresa } from '../Modelo/Empresa';
 import { ReclamoSugerencia } from '../Modelo/ReclamoSugerencia';
 import { Trabajador } from '../Modelo/trabajador';
+import { NumberValueAccessor } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,14 @@ export class TrabajadorServiceService {
   logInTrabajador(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url+"/login",trabajador);
   }
-  
+  listaTrabajadores(idEmrpesa:number){
+    return this.http.get<Trabajador[]>(this.url+"/"+idEmrpesa);
+  }
+  eliminarTrabajador(id:number){
+   return this.http.get<void>(this.url+"/delete/"+id) ;
+  }
+  agregarTrabajador(trabajador:Trabajador){
+    return this.http.post<Trabajador>(this.url+"/add",trabajador);
+  }
 
 }

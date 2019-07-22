@@ -110,4 +110,8 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['home_empresa']);
   }
+  
+  irTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
+  }
 }
