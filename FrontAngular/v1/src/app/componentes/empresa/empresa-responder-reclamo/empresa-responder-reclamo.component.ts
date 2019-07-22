@@ -10,7 +10,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 })
 export class EmpresaResponderReclamoComponent implements OnInit {
   rs:ReclamoSugerencia;
-  constructor(private servivioRS:RsServiceService,private router:Router) { }
+  constructor(private servicioRS:RsServiceService,private router:Router) { }
 
   ngOnInit() {
     this.rs= JSON.parse(localStorage.getItem("Reclamo"));
@@ -37,5 +37,9 @@ export class EmpresaResponderReclamoComponent implements OnInit {
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
+  }
+  realizarReclamoSugerencia(){
+    this.rs.estado="resuelto";
+    this.servicioRS.responderRS(this.rs).subscribe(data=>{});
   }
 }

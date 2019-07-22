@@ -46,4 +46,7 @@ export class RsServiceService {
   getEstadistica(id:number){
     return this.http.get<number[]>(this.url+"/Estadistica/"+id);
   }
+  responderRS(rs:ReclamoSugerencia){
+    return this.http.post<ReclamoSugerencia>(this.url+"/responder",rs);
+  }
 }
