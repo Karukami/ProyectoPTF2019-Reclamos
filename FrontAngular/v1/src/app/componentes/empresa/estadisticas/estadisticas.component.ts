@@ -15,6 +15,7 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 })
 export class EstadisticasComponent implements OnInit {
   administrador:boolean=false;
+  infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   ReclamosSugerencias:ReclamoSugerencia[]=[];
   constructor(private router:Router,private servicioRS:RsServiceService){}
 

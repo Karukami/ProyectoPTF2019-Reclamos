@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
+import { Trabajador } from 'src/app/Modelo/trabajador';
 
 @Component({
   selector: 'app-empresa-responder-reclamo',
@@ -10,6 +11,7 @@ import { RsServiceService } from 'src/app/Services/rs-service.service';
 })
 export class EmpresaResponderReclamoComponent implements OnInit {
   rs:ReclamoSugerencia;
+  infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioRS:RsServiceService,private router:Router) { }
 
   ngOnInit() {

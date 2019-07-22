@@ -43,4 +43,7 @@
 
 #botonInicio {
 	margin-top: 5px;
+	text-align: center;
+	background-color: #003053;
+	color: white; 
 }

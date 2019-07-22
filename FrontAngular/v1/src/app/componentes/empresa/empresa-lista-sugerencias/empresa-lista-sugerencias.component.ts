@@ -17,6 +17,7 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
   sugerencias:ReclamoSugerencia[]=[];
   colores:string[]=[];
   administrador:boolean=false;
+  infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private router:Router,private servicioRS:RsServiceService) { }
   //formatoDate():string->string
   // este metodo invierte el formato de una fecha 

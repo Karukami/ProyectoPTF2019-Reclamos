@@ -1,9 +1,3 @@
-#loginerror{
-	color: white;
-	background-color: rgba(255, 0, 0, 0.6);
-	border-radius: 30px;
-}
-
 #navbar {
 	background-color: #F8F9FB;
 }
@@ -27,8 +21,28 @@
 	padding-bottom: 0px;
 	overflow: hidden;
 }
-
 #navbarseccion3 {
 	padding-top: 23px;
 	padding-bottom: 0px;
+}
+#idBotonRegistrar {
+	background-color: #83888f;
+	color: white;
+}
+#idBotonLogin {
+	background-color: #6e787e;
+	color: white;
+}
+#idBotonEmpresa {
+	background-color: #4f595c;
+	color: white;
+}
+#FondoLoginEmpresa {
+	/*background-image: linear-gradient(rgb(180, 187, 194), rgb(115, 122, 126),rgb(103, 112, 119));*/
+	background-image: url('/../assets/fondousuario2.jpg'); 
+	background-repeat: no-repeat;
+}
+#BotonIngresarEmpresa {
+	background-color: #303536;
+	color: white;
 }
