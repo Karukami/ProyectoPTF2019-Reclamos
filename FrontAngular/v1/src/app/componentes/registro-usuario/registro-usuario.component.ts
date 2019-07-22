@@ -40,12 +40,12 @@ export class RegistroUsuarioComponent implements OnInit {
       Apellidos:[ '', Validators.required ],
       Rut:['',Validators.required],
       //Fecha:['',Validators.required],
-       Telefono:['',Validators.required],
-       //Genero:['',Validators.required],
-       Correo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
-       confirmCorreo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
-       pass:['',Validators.required],
-       pass2:['',Validators.required]
+      Telefono:['',Validators.required],
+      //Genero:['',Validators.required],
+      Correo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
+      confirmCorreo:['',Validators.required, Validators.email, Validators.pattern(this.regexp)],
+      pass:['',Validators.required],
+      pass2:['',Validators.required]
     });
   }
 
@@ -78,7 +78,7 @@ generoVacio():boolean{
 }
 
 validateRut(){
-  
+
   let validar:ValidarRut  = new ValidarRut();
   let resultado = validar.esValido( this.rut);
   if(resultado.result ){
@@ -128,11 +128,11 @@ validarEmail(){
     }  
 
   }
-  validarCorreo(correo_usuario:string,correo2:string):boolean{
-    return (correo2==correo_usuario);
+  validarCorreo(correo:string,confirmCorreo:string):boolean{
+    return (correo==confirmCorreo);
   }
-  validarPass(p1:string,p2:string):boolean{
-    return (p1==p2);
+  validarPass(pass:string,pass2:string):boolean{
+    return (pass==pass2);
   }
   //infoUsuario(): vacio ->vacio
   //muestra por la consola del navegador la informacion de registro 
