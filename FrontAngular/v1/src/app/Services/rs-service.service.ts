@@ -43,4 +43,5 @@ export class RsServiceService {
   getRSUsuario(id:number){
     return this.http.get<ReclamoSugerencia[]>(this.url+"/listar/"+id);
   }
+
 }

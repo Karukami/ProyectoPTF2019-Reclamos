@@ -37,7 +37,8 @@ public class SendMailController {
 	}
 	
 	@RequestMapping (value="/{usuarioReclamoSugerencia}", method=RequestMethod.GET)
-	public String sendMail(@PathVariable ("usuarioReclamoSugerencia")int usuarioReclamoSugerencia ) {
+	public void sendMail(@PathVariable ("usuarioReclamoSugerencia")int usuarioReclamoSugerencia ) {
+		System.out.println(usuarioReclamoSugerencia);
 		user = new ControladorUsuario();
 		String nombreUsuario =  service.listarId_RutUsuario(usuarioReclamoSugerencia).getNombreUsuario();
 		String emailUsuario = service.listarId_RutUsuario(usuarioReclamoSugerencia).getEmailUsuario();
@@ -51,6 +52,7 @@ public class SendMailController {
 		"\n\n\nGracias por utilizar nuestra plataforma!\n\nVisitanos en www.g3.com  \n\n"
 		+ "Cordiales saludos del equipo G3";
 		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);
-		return message;
+		System.out.println(message);
+		
 	}
 }
