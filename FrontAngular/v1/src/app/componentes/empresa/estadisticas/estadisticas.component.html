@@ -109,48 +109,76 @@
 						<br>
 						<br>
 						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="verEstadisticas()">Ver Estadisticas</button>
-						<br> 
+						<br>
 						<br>
 						<button *ngIf="administrador"class="btn btn-success btn-lg btn-block" (click)="trabajadores()">Trabajadores</button>
 						<br>
 
 					</div>
 				</div>
-                <div class="col-9" ><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes</h1>
-                    <button class="btn btn-warning">solo en proceso</button>
-					<div style="text-align: right">
-						<button (click)="reclamosPrimero()"class="btn btn-light">reclamos primero</button>	
-						<button (click)="ordenarPorFecha()"class="btn btn-light">fecha</button>
-					</div>
-					
-					<br><br>
+                <!-- area de graficos --> 
+                <div class="col-9">
+                    <h1 style="color: white; text-shadow: 2px 2px 5px black;">Estadisticas</h1>
+                    <div class="row">
+                        <!--grafico 1-->
+                        <div class="col-9">
+                            <h1 style="color: white">Reclamos vs Sugerenciass</h1>
+                            <div id="chart-rVSs" class="chart">
+                                <canvas baseChart
+                                    [data]="rVSsData"
+                                    [labels]="rVSsLabels"
+                                    [chartType]="rVSsType"
+                                    [options]="rVSsOptions"
+                                    [plugins]="rVSsPlugins"
+                                    [colors]="rVSsColors"
+                                    [legend]="rVSsLegend">
+                                </canvas>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="row">
+                         <!--grafico 2-->
+                        <div class="col-9">
+                            <div id="chart-rRVSrNr" class="chart">
+                                <h1 style="color: white">Reclamos resueltos VS Reclamos no resueltos</h1>
+                                <canvas  baseChart
+                                    [data]="rRVSrNrData"
+                                    [labels]="rRVSrNrLabels"
+                                    [chartType]="rRVSrNrType"
+                                    [options]="rRVSrNrOptions"
+                                    [plugins]="rRVSrNrPlugins"
+                                    [colors]="rRVSrNrColors"
+                                    [legend]="rRVSrNrLegend">
+                                </canvas>
+                            </div>
+                        </div> 
+                    </div>
+                    <hr>
+                    <div class="row">
+                         <!--grafico 3-->
+                            <div class="col-9">
+                                <div id="chart-sRVSsNr" class="chart">
+                                    <h1 style="color: white">Sugerencias resueltas VS Seclamos no resueltss</h1>
+                                    <canvas  baseChart
+                                        [data]="sRVSsNrData"
+                                        [labels]="sRVSsNrLabels"
+                                        [chartType]="sRVSsNrType"
+                                        [options]="sRVSsNrOptions"
+                                        [plugins]="sRVSsNrPlugins"
+                                        [colors]="sRVSsNrColors"
+                                        [legend]="sRVSsNrLegend">
+                                    </canvas>
+                                </div>
+                            </div> 
+                        </div>
+                    
 					<br>
-					<div *ngFor="let rs of reclamosSugerencias;let i=index " >
-						<!---color angtiguo rgba(255, 255, 255, 0.9)  -->
-						<div [style.background-color]="colores[i]" style="border-radius: 10px; padding-top: 15px; padding-bottom: 10px">
-							<br>
-							<div class="container">
-								<div class="row">
-									<div class="col-3" style="padding-top: 3px">
-										<button class="btn btn-warning" >{{rs.estado}}</button>
-										
-									</div>
-									<div class="col-7">
-										<h6 style="text-align:left">tipo: {{rs.tipo}}</h6>
-										<br>
-										<p>{{rs.detalleReclamoSugerencia}}</p>
-										<small style="text-align: right;">Empresa: {{rs.empresa}}</small>
-									</div>
-									<div class="col-2" style="text-align: center">
-										{{rs.fechaReclamoSugerencia}}
-										<button (click)="responderRS(rs)"class="btn btn-danger">Responder</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<br>
-					</div>
-					<h1 style="color: white">{{mensaje}}</h1>
+					<br>
+					<button class="btn btn-primary btn-lg btn-block" (click)="descargarInforme()">Descargar infrome</button>
+					<br>
+					<br>
+					
 				</div>
 			</div>

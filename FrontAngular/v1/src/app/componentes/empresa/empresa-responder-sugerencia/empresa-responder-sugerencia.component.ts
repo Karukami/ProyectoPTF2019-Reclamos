@@ -24,7 +24,7 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
     this.router.navigate(["empresa/listaReclamos"]);
   }
   verEstadisticas(){
-
+    this.router.navigate(["empresa/estadisticas"]);
   }
   trabajadores(){
 

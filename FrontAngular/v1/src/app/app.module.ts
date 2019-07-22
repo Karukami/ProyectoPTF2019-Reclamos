@@ -6,6 +6,8 @@ import {FormsModule, ReactiveFormsModule}from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceService } from './Services/service.service';
 
+
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { LoginComponent } from './componentes/login/login.component';
@@ -30,6 +32,8 @@ import { EmpresaResponderReclamoComponent } from './componentes/empresa/empresa-
 import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empresa-responder-sugerencia/empresa-responder-sugerencia.component';
 import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
+import { EstadisticasComponent } from './componentes/empresa/estadisticas/estadisticas.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -59,6 +63,8 @@ import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equ
     EmpresaResponderSugerenciaComponent,
     MiPerfilComponent,
     NuestroEquipoComponent,
+    EstadisticasComponent,
+    
 
   ],
   imports: [
@@ -66,7 +72,8 @@ import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equ
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
 
    
   ],
