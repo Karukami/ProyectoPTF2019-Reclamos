@@ -34,4 +34,8 @@ export class EmpresaResponderReclamoComponent implements OnInit {
   trabajadores(){
 
   }
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
+  }
 }

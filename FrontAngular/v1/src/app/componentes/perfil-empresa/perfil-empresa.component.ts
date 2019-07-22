@@ -31,7 +31,10 @@ export class PerfilEmpresaComponent implements OnInit {
   }
   ngOnInit() {
     
-    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa"));
+    let infoEmpresa:Empresa= JSON.parse(localStorage.getItem("empresa")); //trae datos (objeto) empresa
+    let infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador")); //trae datos (objeto) trabajador
+    console.log(infoTrabajador.nombreTrabajador); //imprime en consola
+    console.log(this.infoTrabajador);
 
     console.log("asdka "+ this.infoTrabajador.tipoTrabajador);
     if (this.infoTrabajador.tipoTrabajador=="Administrador"){
@@ -119,5 +122,10 @@ export class PerfilEmpresaComponent implements OnInit {
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
+  }
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.router.navigate(['home_empresa']);
   }
 }
