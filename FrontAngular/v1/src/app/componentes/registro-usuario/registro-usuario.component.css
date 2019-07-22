@@ -5,7 +5,7 @@
 #navbarseccion1 {
 	text-align: center;
 	vertical-align: middle;
-}
+} 
 
 #btn_home_navbar {
 	margin-top: 0px;
@@ -54,12 +54,12 @@
 	color: white;
 }
 
-input.ng-valid{
-	border:2px solid green;
+.form-reg > input.ng-valid ,input.ng-pending {
+	border:3px solid green;
 
 }
 
-input.ng-invalid{
+.form-reg > input.ng-invalid{
 	border:2px solid red;
 }
 

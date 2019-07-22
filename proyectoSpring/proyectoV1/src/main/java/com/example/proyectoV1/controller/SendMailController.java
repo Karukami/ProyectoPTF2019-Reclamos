@@ -30,7 +30,7 @@ public class SendMailController {
 	@Autowired
 	ReclamoSugerenciaService servicioRS;
 
-
+ 
 	@GetMapping("/sendMail/mail")
 	 public String index() {
 		return "send_mail_view";
@@ -53,6 +53,6 @@ public class SendMailController {
 		+ "Cordiales saludos del equipo G3";
 		sendMailService.sendMail(emailUsuario,"Reclamo ID: " + iDRS , message);
 		System.out.println(message);
-		
+		 
 	}
 }

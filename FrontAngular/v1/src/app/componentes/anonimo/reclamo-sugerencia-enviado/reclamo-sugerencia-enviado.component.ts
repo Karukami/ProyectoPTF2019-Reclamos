@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { Empresa } from 'src/app/Modelo/Empresa';
 import * as jsPDF from 'jspdf';
+import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 @Component({
   selector: 'app-reclamo-sugerencia-enviado',
   templateUrl: './reclamo-sugerencia-enviado.component.html',
   styleUrls: ['./reclamo-sugerencia-enviado.component.css']
 })
 export class ReclamoSugerenciaEnviadoComponent implements OnInit {
+  idBusqueda:number;
+  rs:ReclamoSugerencia;
 
   constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
 
@@ -17,6 +20,22 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   }
   registrarse(){
     this.router.navigate(["registrar"]);
+  }
+  login(){
+    this.router.navigate(['login']);
+  }
+  //homeEmpresa():vacio->vacio
+  //redirige al componente home_empresa
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
   }
     //formatoParrafo():string->string[]
   //genera un areglo de string con el tamaño necesario para

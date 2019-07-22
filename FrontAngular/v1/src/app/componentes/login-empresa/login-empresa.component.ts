@@ -37,7 +37,7 @@ export class LoginEmpresaComponent implements OnInit {
   //registrar():vacio->vacio
   //redirige a la url empresa/registro
   //que hace referencia al componente registro-empresa 
-  registrar(){
+  registrarEmpresa(){
     this.router.navigate(["empresa/registro"]);
   } 
 
@@ -76,6 +76,9 @@ export class LoginEmpresaComponent implements OnInit {
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
     
+  }
+  home(){
+    this.router.navigate(['home']);
   }
 
 
