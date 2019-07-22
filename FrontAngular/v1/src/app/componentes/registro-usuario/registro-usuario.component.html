@@ -130,7 +130,7 @@
                             </div >
 <!-- #############################   TELEFONO    ####################################################################################################################-->
                             <label style="color: #dddddd;">Telefono</label><br>    
-                            <div class="btn-group" >
+                            <div class="btn-group" class="form-group form-reg" >
                                     <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
@@ -138,10 +138,10 @@
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
 <!-- ##############################   GENERO   ###################################################################################################################-->
-                            <div class="form-group form-reg">
+                            <div class="form-group ">
                                 <br><label style="color: #dddddd;">Género</label><br>
                                 <select class="browser-default custom-select "[(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  value="{{genero}}">{{genero}}</option>  
+                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p>
                             </div>  
@@ -152,7 +152,6 @@
                                 <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
                             </div>
 <!-- #############################  CONFIRMAR CORREO ELECTRONICO  ####################################################################################################################-->
-
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
                                 <input  [(ngModel)]="correo2" type="email" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">

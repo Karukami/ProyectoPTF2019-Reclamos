@@ -24,17 +24,18 @@ export class RegistroUsuarioComponent implements OnInit {
   generos:string[]=["masculino","femenimo","otro","prefiero no decirlo"];
   genero:string;
   errRut:string;
-
   errGenero:string;
   rut:string;
   errorTel:String;
   errorEmail:String;
 
-  formRegistro :FormGroup;
-  regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
 
-  constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
-  ngOnInit() {
+ formRegistro :FormGroup;
+ regexp: RegExp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
+
+constructor(private router:Router,private service:ServiceService,  private serviceRS:RsServiceService, private formBuilder: FormBuilder) { }
+
+ngOnInit() {
     this.formRegistro = this.formBuilder.group({
       Nombres:[ '', Validators.required ],
       Apellidos:[ '', Validators.required ],
@@ -47,7 +48,7 @@ export class RegistroUsuarioComponent implements OnInit {
        pass:['',Validators.required],
        pass2:['',Validators.required]
     });
-  }
+}
 
   homeEmpresa(){
     this.router.navigate(['home_empresa']);
@@ -56,7 +57,7 @@ export class RegistroUsuarioComponent implements OnInit {
   login(){
     this.router.navigate(['login']);
   }
-
+/*
   //noNulo(): vacio ->boolean
   //debuelve true en el caso que ninguna de las variables no tenga el estado null
   //ejemplo: noNulo() con this.correo = null devuelve -> false
@@ -74,8 +75,9 @@ generoVacio():boolean{
     this.errGenero="este campo no puede estar vacio";
     return false;
   }
-}
+} */
 
+//jose
 validateRut(){
   
   let validar:ValidarRut  = new ValidarRut();
@@ -86,7 +88,7 @@ validateRut(){
     this.errRut=resultado.message;
   }
 }
-
+//jose
 validarTelefono(){
   let validar:ValidarTelefono = new ValidarTelefono();
   let resultado = validar.checkTelefono( this.usuarioARegistrar.fonoUsuario);
@@ -109,14 +111,17 @@ validarTelefono(){
   }
 } */
 
-
   registro(){
-    if (this.noNulo()&&!this.esValido(this.rut)&&this.generoVacio()){
+    console.log("nombre " + this.usuarioARegistrar.nombreUsuario);
+    console.log("genero " + this.usuarioARegistrar.generoUsuario);
+    console.log("telefono " + this.usuarioARegistrar.fonoUsuario);
+
+    /*if (this.noNulo()&&this.generoVacio()){
       this.mensaje="los campos de contraseña y correo electronico no pueden estar vacios"
       this.errRut="este campo no puede estar vacio";
     }else if((this.validarCorreo(this.correo2,this.usuarioARegistrar.emailUsuario))&&(this.validarPass(this.pass2,this.usuarioARegistrar.passUsuario))){
       this.mensaje="";
-      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
+      this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut); */
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
       })
@@ -126,13 +131,14 @@ validarTelefono(){
       this.mensaje="Error en: constraseña o correo, no coinciden ";
     }  
 
-  }
+  
+  /*
   validarCorreo(correo_usuario:string,correo2:string):boolean{
     return (correo2==correo_usuario);
   }
   validarPass(p1:string,p2:string):boolean{
     return (p1==p2);
-  }
+  }*/
   //infoUsuario(): vacio ->vacio
   //muestra por la consola del navegador la informacion de registro 
   //esta funcion es de testeo, para comprobar la informacion del formulario 
@@ -145,27 +151,26 @@ validarTelefono(){
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
-    
   }
-  
+
+  /*
   formatRut(rut:string):number{
     let rutNumeros;
     if(rut.length>9){
       rutNumeros= rut.substr(0,8); 
-
    }else{
     rutNumeros= rut.substr(0,7); 
 
    }
-    console.log (rutNumeros)
+    console.log ("rut " + rutNumeros);
     return Number(rutNumeros);
-  }
+  } */
 
-  esValido(rut:any) {
+  /*esValido(rut:any) {
     console.log("este valor es el del tur: "+rut);
     // Despejar Puntos
     let valor = rut.replace('.','');
-    // Despejar Gui�n
+    // Despejar Gui�n 
     valor = valor.replace('-','');
     // Aislar Cuerpo y D�gito Verificador
     let cuerpo = valor.slice(0,-1);
@@ -197,7 +202,7 @@ validarTelefono(){
     // Casos Especiales (0 y K)
     dv = (dv == 'K')?10:dv;
     dv = (dv == 0)?11:dv;
-  }
+  } 
 infoUsuario(){
     
   console.log("rut: "+this.usuarioARegistrar.rutUsuario.toString()+" nombre: "+this.usuarioARegistrar.nombreUsuario+
@@ -205,14 +210,15 @@ infoUsuario(){
   +this.usuarioARegistrar.generoUsuario+" pass: "+this.usuarioARegistrar.passUsuario+" fecha n: "+
   this.usuarioARegistrar.fechaNacUsuario+" telefono: "+this.usuarioARegistrar.fonoUsuario+"pass2: "+this.pass2+" correo2: "+ this.correo2);
   
-}
+} */
 reclamo(){
   if(localStorage.getItem("Email")==null||localStorage.getItem("Email")=="anonimo"){
     this.router.navigate(["anonimo/realizar_reclamo"]);
   }else{
     this.router.navigate(["realizar_reclamo"]);
-
   }
-}
+} 
+
 
 }
+
