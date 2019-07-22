@@ -115,5 +115,8 @@ export class RealizarReclamoComponent implements OnInit {
   miPerfil() {
     this.router.navigate(['miPerfil']);
   }
+  iraPerfil() {
+    this.router.navigate(['home']);
+  }
   
 }

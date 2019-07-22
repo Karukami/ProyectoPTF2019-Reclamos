@@ -56,6 +56,9 @@ export class PerfilComponent implements OnInit {
   buscarPorId(){
     localStorage.setItem("idBusqueda",""+this.idBusqueda);
     this.router.navigate(['buscar_id']);
-    
+
+  }
+  iraPerfil() {
+    this.router.navigate(['Perfil']);
   }
 }

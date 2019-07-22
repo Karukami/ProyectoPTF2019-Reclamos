@@ -111,4 +111,7 @@ realizarReclamo(){
 miPerfil() {
   this.router.navigate(['miPerfil']);
 }
+iraPerfil() {
+  this.router.navigate(['home']);
+}
 }
