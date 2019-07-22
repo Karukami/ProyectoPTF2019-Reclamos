@@ -1,4 +1,5 @@
 package com.example.proyectoV1.controller;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.proyectoV1.entities.Trabajador;
 import com.example.proyectoV1.exceptions.LoginException;
+import com.example.proyectoV1.services.EmpresaService;
 import com.example.proyectoV1.services.TrabajadorService;
 
 @CrossOrigin(origins="http://localhost:4200",maxAge=3600)
@@ -23,17 +25,17 @@ import com.example.proyectoV1.services.TrabajadorService;
 public class TrabajadorControlador {
 	@Autowired
 	TrabajadorService service;
+	@Autowired
+	EmpresaService serviceE;
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Agregar
-	@PostMapping
+	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public Trabajador agregar(@RequestBody Trabajador t) {
-		System.out.println("nombre t: "+ t.getNombreTrabajador() );
-		System.out.println("tipo t: "+ t.getTipoTrabajador() );
 		return service.add(t);
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Editar
-	@RequestMapping(value = "/editar", method = RequestMethod.GET)
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
 	public String editarTrabajador(@RequestBody Trabajador x) {
 		service.add(x);
 		return "Trabajador Editado";
@@ -41,9 +43,8 @@ public class TrabajadorControlador {
 	/////////////////////////////////////////////////////////////////////////////////////////////////
 	//Eliminar
 	@RequestMapping(value = "/delete/{idTrabajador}", method = RequestMethod.GET)
-	public String deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
+	public void deleteTrabajador(@PathVariable("idTrabajador") int idTrabajador) {
 		service.delete(service.buscarUno(idTrabajador));
-		return "Trabajador Eliminado";
 	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lista de todos los trabajadores
@@ -51,6 +52,13 @@ public class TrabajadorControlador {
 	public List<Trabajador> listar(){
 		return service.listar();
 	} 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Listar trabajadores por empresa
+	@RequestMapping (value = "/{idEmpresa}", method=RequestMethod.GET)
+	public ArrayList<Trabajador> trabajadoresByEmpresa(@PathVariable("idEmpresa")int idEmpresa){
+		ArrayList<Trabajador> trabajadores = (ArrayList<Trabajador>) service.empleadosPorEmpresa(serviceE.idEmpresa(idEmpresa).getNombreEmpresa());
+		return trabajadores;
+	}
 	//////////////////////////////////////////////////////////////////////////////////////////////////
 	//LogIn de Trabajador
 	@PostMapping (path= {"/login"})
@@ -62,5 +70,26 @@ public class TrabajadorControlador {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
 		}
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     

@@ -65,4 +65,7 @@ export class RegistroEmpresaComponent implements OnInit {
     this.router.navigate(['buscar_id']);
     
   }
+  home(){
+    this.router.navigate(['home']);
+  }
 }

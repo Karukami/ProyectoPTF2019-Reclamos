@@ -2,10 +2,11 @@
 <!-- LOGIN COMPONENT : COMPONENTE PARA INICIO DE SESIÓN -->
 <!-------------------------------------------------------->
 
-    <!------------------------------------------------------------------>
+       <!------------------------------------------------------------------>
     <!-- NAVBAR: Barra de navegación superior, con vínculos y botones -->
     <!------------------------------------------------------------------>
 
+	<!-- SECCIÓN 1: BOTONES HOME, RECLAMO E HISTORIAL -->
     <div class="row" id="navbar">
         <div id="navbarseccion1" class="col-5">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,7 +19,7 @@
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
                             <a class="nav-link" (click)="homeEmpresa()">
-                                <img src="../../assets/homeiconmini.png" alt="">
+                                <img src="../../assets/homeiconminiEmpresa.png" alt="">
                                 <br>
                                 INICIO
                             </a>
@@ -26,85 +27,55 @@
                       </li>
                       <li class="nav-item">
                         <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/reclamoiconmini.png" alt="">
+                            <a class="nav-link" href="/nuestro_equipo">
+                                <img src="../../assets/usiconminiEmpresa.png" alt="">
                                 <br>
-                                RECLAMO
+                                NOSOTROS
                             </a>
-                        </div>
-                      </li>
-                      <li class="nav-item">
-                        <div class="col">
-                            <a class="nav-link" href="#">
-                                <img src="../../assets/historialiconmini.png" alt="">
-                                <br>
-                                HISTORIAL
-                            </a>
-                        </div>
+                        </div> 
                       </li>
                     </ul>
                 </div>            
             </nav>
         </div>
 
-        <!-- SECCIÓN 2: BOTONES REGISTRO, LOGIN Y EMPRESAS -->
+        <!-- SECCIÓN 2: VACIO EXISTENCIAL -->
         <div class="col-4 padding-0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li>
-                            <button type="button" (click)="registrar()" class="btn btn-primary" style="margin-left: 0px; margin-right: 10px">¡Regístrate!</button>   
-                        </li>
-                        <li>
-                            <button type="button" class="btn btn-dark" style="margin-left: 10px; margin-right: 10px" (click)="login()" disabled>Login</button>  
-                        </li>
-                        <li>
-                            <button type="button" (click)="homeEmpresa()" class="btn btn-dark" style="margin-left: 10px; margin-right: 0px">Empresas</button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            
         </div>
 
-        <!-- SECCIÓN 3: BUSCAR POR ID -->
+        <!-- SECCIÓN 3: BOTONES REGISTRAR, LOGIN, EMPRESA-->
 
-            <div class="col padding-0">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion3">
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbarseccion2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div style="margin-bottom: 20px" class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <button type="button" id=idBotonRegistrar (click)="registrarEmpresa()" class="btn" style="margin-left: 0px; margin-right: 10px">Registrarse</button>   
+                    </li>
+                    <li> 
                         
-                        <div class="col-8 padding-0" style="text-align: right">
-                          <input [(ngModel)]="idBusqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar #ID..." aria-label="Search">
-                             
-                        </div>
-                        <div class="col padding-0">
-                            <button (click)="buscarPorId()" class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                                Buscar
-                            </button>
-                        </div>
-                              
-                      </div>
-                </nav>
+                        <button type="button"  id=idBotonLogin (click)="loginEmpresa()" class="btn" style="margin-left: 10px; margin-right: 10px">Login</button>  
+                    </li>
+                    <li>
+                        <button type="button" id= idBotonEmpresa (click)="home()" class="btn" style="margin-left: 10px; margin-right: 0px">Usuarios</button>
+                    </li>
+                </ul>
             </div>
+        </nav>
         <router-outlet></router-outlet>
-    </div>  
-
-
+    </div> 
 
      <!-- CONTENIDO -->
-			<div class="row" style="background-image: linear-gradient(#355C7D, #6C5B7B, #C06C84)">
+			<div class="row" id=FondoLoginEmpresa>
                     <div class="col-4"></div>
                     <div class="col-4" style="height:730px; ">
                         
                             <h4 style="color: #ffffff; text-align: center; margin-top: 100px; text-shadow: 2px 2px 5px black; font-size: 40px">
-                                Iniciar Sesión EMPRESA
+                                Iniciar Sesión Empresa
                             </h4><br> 
     
                             <p style="color: #eeeeee; text-align: center">
@@ -124,7 +95,7 @@
                                     <input [(ngModel)]="trabajador.passTrabajador" type="password" class="form-control" id="Apellidos" placeholder="*********">
                                 </div>
                                 
-                                <br><button type="button" (click)="logInEmpresa()" class="btn btn-primary btn-lg btn-block">Ingresar</button><br>
+                                <br><button type="button" (click)="logInEmpresa()" class="btn btn-primary btn-lg btn-block" id=BotonIngresarEmpresa>Ingresar</button><br>
                                 <div id="loginerror">
                                 <p class="text-center">{{errorMsg}}</p>
                                 </div>

@@ -19,5 +19,5 @@ public interface TrabajadorService {
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	//LogIn Trabajador
 	public Trabajador logIn(Trabajador t) throws LoginException;
-
+	List<Trabajador> empleadosPorEmpresa(String empresa);
 }

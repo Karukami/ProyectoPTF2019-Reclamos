@@ -46,10 +46,10 @@
 #idBotonBuscar {
 	color: #00546c; 
 }
-#contenido1{
+#Imagen{
 	height: 730px;
 	background-color: #000000; 
-	background-image: url('/../assets/fondousuario.png');
+	background-image: url('/../../assets/fondousuario.png');
 	background-repeat: no-repeat;
 }
 #contenido2{

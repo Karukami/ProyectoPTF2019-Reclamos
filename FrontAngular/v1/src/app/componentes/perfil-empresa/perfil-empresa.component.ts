@@ -54,7 +54,7 @@ export class PerfilEmpresaComponent implements OnInit {
       }
     });
     if (this.reclamosSugerencias.length==0){
-      this.mensaje="no tienes mas reclamos ni sugerencas que revisar";
+      this.mensaje="* No tienes más reclamos ni sugerencias por revisar.";
       this.mostrarMensaje=true;
     }
   }
@@ -127,5 +127,15 @@ export class PerfilEmpresaComponent implements OnInit {
   cerrarSesion(){
     localStorage.clear();
     this.router.navigate(['home_empresa']);
+  }
+  home(){
+    this.router.navigate(['home']);
+  }
+
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+  irTrabajadores(){
+    this.router.navigate(["empresa/listarTrabajadores"]);
   }
 }

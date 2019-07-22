@@ -23,6 +23,8 @@ import { EmpresaResponderSugerenciaComponent } from './componentes/empresa/empre
 import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 import { EstadisticasComponent } from './componentes/empresa/estadisticas/estadisticas.component';
+import { TrabajadoresComponent } from './componentes/empresa/trabajadores/trabajadores.component';
+import { AgregarTrabajadoresComponent } from './componentes/empresa/agregar-trabajadores/agregar-trabajadores.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -50,7 +52,9 @@ const routes: Routes = [
   {path:"empresa/responderSugerencia",component:EmpresaResponderSugerenciaComponent},
   {path: "miPerfil", component:MiPerfilComponent},
   {path:"nuestro_equipo",component:NuestroEquipoComponent},
-  {path:"empresa/estadisticas",component:EstadisticasComponent}
+  {path:"empresa/estadisticas",component:EstadisticasComponent},
+  {path:"empresa/listarTrabajadores",component:TrabajadoresComponent},
+  {path:"empresa/agregarTrabajador",component:AgregarTrabajadoresComponent}
 ];
  
 @NgModule({

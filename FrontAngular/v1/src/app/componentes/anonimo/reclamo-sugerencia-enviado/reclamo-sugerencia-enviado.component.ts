@@ -21,6 +21,22 @@ export class ReclamoSugerenciaEnviadoComponent implements OnInit {
   registrarse(){
     this.router.navigate(["registrar"]);
   }
+  login(){
+    this.router.navigate(['login']);
+  }
+  //homeEmpresa():vacio->vacio
+  //redirige al componente home_empresa
+  homeEmpresa(){
+    this.router.navigate(['home_empresa']);
+  }
+  //buscarPorId(): vacio -> vacio
+  //guarda el id de busqueda idbusqueda y 
+  //redirige al componente buscar_id
+  buscarPorId(){
+    localStorage.setItem("idBusqueda",""+this.idBusqueda);
+    this.router.navigate(['buscar_id']);
+    
+  }
     //formatoParrafo():string->string[]
   //genera un areglo de string con el tamaño necesario para
   //que no se alga del pdf 

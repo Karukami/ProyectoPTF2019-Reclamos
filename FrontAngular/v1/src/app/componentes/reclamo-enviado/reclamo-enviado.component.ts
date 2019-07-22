@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as jsPDF from 'jspdf';
-
+import { UsuarioRegistrado } from 'src/app/Modelo/UsuarioRegistrado';
 import { EmpresaServiceService } from 'src/app/Services/empresa-service.service';
 import { ConditionalExpr } from '@angular/compiler';
 import { Empresa } from 'src/app/Modelo/Empresa';
+import { EnviarEmailService } from 'src/app/Services/enviar-email.service';
 
 @Component({
   selector: 'app-reclamo-enviado',
@@ -17,8 +18,8 @@ export class ReclamoEnviadoComponent implements OnInit {
   empresa:Empresa=new Empresa();
   nombreUsuario:String;
   apellidoUsuario:String;
-  
-  constructor(private router:Router,private servicioEmpresa:EmpresaServiceService) { }
+  rutUsuario:number;
+  constructor(private router:Router,private servicioEmpresa:EmpresaServiceService, private servicioMail:EnviarEmailService) { }
 
   ngOnInit() {
     this.nombreUsuario=localStorage.getItem("nombre");
@@ -123,4 +124,5 @@ export class ReclamoEnviadoComponent implements OnInit {
   realizarReclamo(){
     this.router.navigate(["realizar_reclamo"]);
   }
+  
 }

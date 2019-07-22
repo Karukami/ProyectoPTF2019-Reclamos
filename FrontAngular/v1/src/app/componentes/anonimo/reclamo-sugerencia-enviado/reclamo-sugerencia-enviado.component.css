@@ -46,16 +46,6 @@
 #idBotonBuscar {
 	color: #00546c; 
 }
-#contenido1{
-	height: 730px;
-	background-color: #000000; 
-	background-image: url('/../assets/fondousuario.png');
-	background-repeat: no-repeat;
-}
-#contenido2{
-	height: 730px; 
-	background-image: linear-gradient(#00546c, #0184c8); 	
-}
 #BotonRegistrarse{
 	background-color: #60afc7;
 	color: #F8F9FB; 
@@ -66,8 +56,15 @@
 }
 #FondoEnviadoConExito {
 	background-image: linear-gradient(88deg,  #00546c, #38728d);
+	background-image: url('/../assets/fondologin.png');
+	background-repeat: no-repeat;
+	
 }
 #BotonRegistrarse {
-	background-color: #3793c5;
+	background-color: #0184c8;
 	color: white;
+}
+#BotonDescargarPDF {
+	background-color: #00546c;
+	color: #F8F9FB; 
 }

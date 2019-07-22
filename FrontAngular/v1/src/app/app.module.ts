@@ -34,6 +34,8 @@ import { MiPerfilComponent } from './componentes/mi-perfil/mi-perfil.component';
 import { NuestroEquipoComponent } from './componentes/nuestro-equipo/nuestro-equipo.component';
 import { EstadisticasComponent } from './componentes/empresa/estadisticas/estadisticas.component';
 import { ChartsModule } from 'ng2-charts';
+import { TrabajadoresComponent } from './componentes/empresa/trabajadores/trabajadores.component';
+import { AgregarTrabajadoresComponent } from './componentes/empresa/agregar-trabajadores/agregar-trabajadores.component';
 
 
 
@@ -64,6 +66,8 @@ import { ChartsModule } from 'ng2-charts';
     MiPerfilComponent,
     NuestroEquipoComponent,
     EstadisticasComponent,
+    TrabajadoresComponent,
+    AgregarTrabajadoresComponent,
     
 
   ],
