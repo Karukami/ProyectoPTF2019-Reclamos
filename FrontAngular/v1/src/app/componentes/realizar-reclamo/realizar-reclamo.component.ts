@@ -119,13 +119,11 @@ export class RealizarReclamoComponent implements OnInit {
   miPerfil() {
     this.router.navigate(['miPerfil']);
   }
-<<<<<<< HEAD
   iraPerfil() {
     this.router.navigate(['home']);
-=======
+  }
   enviarEmail(){
     this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
->>>>>>> 90147f679494356c43349be7ef178436c3ca48bc
   }
   
 }
