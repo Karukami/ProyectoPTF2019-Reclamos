@@ -102,12 +102,11 @@
 						<br>
 					</div>
 				</div>
-				<div class="col-9">
+				<div class="col-9" style="color:#00546c">
                         <div *ngFor="let rs of reclamosSugerencias;let i = index" >
                                 <!---color angtiguo rgba(255, 255, 255, 0.9)  -->
                                 <br>
-                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color:white;">
-                                    <br>
+                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 25px; padding-bottom: 25px; background-color:white;">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3" style="padding-top: 3px">
@@ -118,9 +117,8 @@
                                             <div class="col-7">
                                                 <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
                                                 <h6 style="text-align:left">Titulo: {{rs.tituloRS}}</h6>
-                                                
-                                                <p>Detalle: {{rs.detalleReclamoSugerencia}}</p>
-                                                <small style="text-align: right;">Empresa: {{nombresEmpresas[i]}}</small>
+                                                <h6>Detalle: {{rs.detalleReclamoSugerencia}}</h6>
+                                                <h6>Empresa: {{nombresEmpresas[i]}}</h6>
                                             </div>
                                             <div class="col-2" style="text-align: center">
                                                 {{rs.fechaReclamoSugerencia}}
