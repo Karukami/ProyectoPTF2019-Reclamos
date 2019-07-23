@@ -51,6 +51,18 @@ export class PerfilEmpresaComponent implements OnInit {
         }else{
           this.colores[i]="green";
         } 
+<<<<<<< HEAD
+=======
+        let fechaResuelto=this.reclamosSugerencias[i].fechaResuelto;
+        let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
+
+        let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
+        
+        if(comparacion>=2 && (this.reclamosSugerencias[i].estado=="en proceso")){
+          this.colores[i]="red";
+        }
+    
+>>>>>>> branch 'master' of https://github.com/Karukami/ProyectoPTF2019-Reclamos.git
       }
     });
     if (this.reclamosSugerencias.length==0){
