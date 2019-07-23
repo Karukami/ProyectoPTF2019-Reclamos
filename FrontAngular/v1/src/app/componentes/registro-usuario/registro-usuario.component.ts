@@ -165,7 +165,7 @@ validarTelefono(){
     console.log("este valor es el del tur: "+rut);
     // Despejar Puntos
     let valor = rut.replace('.','');
-    // Despejar Gui�n
+    // Despejar Gui�n 
     valor = valor.replace('-','');
     // Aislar Cuerpo y D�gito Verificador
     let cuerpo = valor.slice(0,-1);
