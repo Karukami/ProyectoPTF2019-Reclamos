@@ -53,6 +53,8 @@ export class HomeComponent implements OnInit {
   home(){
     this.router.navigate(['home']);
   }
-    
-  
+
+  reclamoAnonimo(){
+    this.router.navigate(["anonimo/realizar_reclamo"]);
+  } 
 }
