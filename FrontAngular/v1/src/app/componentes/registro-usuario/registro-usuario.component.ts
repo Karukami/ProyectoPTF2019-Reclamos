@@ -65,6 +65,17 @@ ngOnInit() {
     this.router.navigate(['login']);
   }
 
+  validateRut(){
+  
+    let validar:ValidarRut  = new ValidarRut();
+    let resultado = validar.esValido( this.rut);
+    if(resultado.result ){
+      this.errRut="";
+    }else{
+      this.errRut=resultado.message;
+    }
+  }
+
   formatFono(fono:string):number{
     let numFono;
     numFono = fono.substr(0,6);

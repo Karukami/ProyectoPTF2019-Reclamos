@@ -18,7 +18,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" (click)="homeEmpresa()">
+                            <a class="nav-link" (click)="irPerfil()">
                                 <img src="../../assets/homeiconminiEmpresa.png" alt="">
                                 <br>
                                 INICIO
@@ -67,7 +67,7 @@
 
 <!-- CONTENIDO -->
 <!--SIDEBAR-->
-<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
+<div class="row" style="background-color: rgba(255, 255, 255, 0.4)">
     <div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
         <div>
             <br> 
@@ -100,8 +100,10 @@
     </div>
     <!-- CONTENIDO -->
 				<div class="col-9"  ><br>
-					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes [Reclamos]</h1>
-					<div style="text-align: right"><button class="btn btn-light">Ordenar por fecha</button>	</div>
+					<h1 style="text-align: center; color: white; text-shadow: 2px 2px 5px #222222">Solicitudes de Reclamos Pendientes</h1>
+                    <div style="text-align: right">
+                        <button class="btn" id=BotonOrdenarFecha>Ordenar por fecha</button>	
+                    </div>
 					<br><br>
 					<br>
 					<div *ngFor="let rs of reclamos;let i=index " >
