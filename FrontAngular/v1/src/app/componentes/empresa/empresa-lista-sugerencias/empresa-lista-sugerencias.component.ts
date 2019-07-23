@@ -30,6 +30,14 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
     return year+"-"+month+"-"+day;
 
   }
+
+  formoatoNumero(date:string):string{
+    let year=date.substr(0,4);
+    let month=date.substr(5,2)
+    let day=date.substr(8,2); 
+    return year+""+month+""+day;
+  }
+  
   // este metodo es ejecutato al momento de iniciar el componente 
   ngOnInit() {
     //se utiliza el metodo parse de la calse JSON para convertir la informacion
@@ -61,6 +69,14 @@ export class EmpresaListaSugerenciasComponent implements OnInit {
           this.colores[i]="white";
         }else{
           this.colores[i]="green";
+        }
+        let fechaResuelto=this.sugerencias[i].fechaResuelto;
+        let fechaReclamo=this.sugerencias[i].fechaReclamoSugerencia;
+
+        let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
+        
+        if(comparacion>=2 && (this.sugerencias[i].estado=="en proceso")){
+          this.colores[i]="red";
         }
       }
     console.log("empresa listar reclmaos: "+infoEmpresa.rutEmpresa);

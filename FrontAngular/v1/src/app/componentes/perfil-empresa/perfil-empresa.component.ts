@@ -60,11 +60,11 @@ export class PerfilEmpresaComponent implements OnInit {
         let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
 
         let comparacion:number=((+this.formoatoNumero(""+fechaReclamo))-(+this.formoatoNumero(""+this.formatoDate(hoy.toLocaleDateString()))))*-1;
-        console.log(comparacion);
+        
         if(comparacion>=2 && (this.reclamosSugerencias[i].estado=="en proceso")){
           this.colores[i]="red";
         }
-        console.log(this.colores[i]);
+    
       }
     });
     if (this.reclamosSugerencias.length==0){
