@@ -139,13 +139,13 @@
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
 <!-- ##############################   GENERO   ###################################################################################################################-->
-                            <div class="form-group ">
+                            <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
                                 <select class="browser-default custom-select "[(ngModel)]="genero" >
                                         <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
-                                    <p style="color: white; background-color: red">{{errGenero}}</p>
-                            </div>  
+                                    <p style="color: white; background-color: red">{{errGenero}}</p> 
+                            </div>
 <!-- #############################  CORREO ELECTRONICO ####################################################################################################################-->
 
                             <div class="form-group form-reg">
@@ -187,4 +187,4 @@
                 </div>
                 <div class="col-4"></div>
             </div> 
-        </form>
+        </form>  

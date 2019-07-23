@@ -13,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from  '@angular/forms';
   templateUrl: './registro-usuario.component.html',
   styleUrls: ['./registro-usuario.component.css']})
 
+
 export class RegistroUsuarioComponent implements OnInit {
   usuarioARegistrar:UsuarioRegistrado= new UsuarioRegistrado();
   nombre:string;
@@ -89,7 +90,7 @@ ngOnInit() {
   }else{
     this.errorTel=resultado.message;
   }
-}
+} 
 
   registro(){
 
