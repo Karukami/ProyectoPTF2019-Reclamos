@@ -65,6 +65,17 @@ ngOnInit() {
     this.router.navigate(['login']);
   }
 
+  validateRut(){
+  
+    let validar:ValidarRut  = new ValidarRut();
+    let resultado = validar.esValido( this.rut);
+    if(resultado.result ){
+      this.errRut="";
+    }else{
+      this.errRut=resultado.message;
+    }
+  }
+
   formatFono(fono:string):number{
     let numFono;
     numFono = fono.substr(0,6);
@@ -93,7 +104,6 @@ ngOnInit() {
 } 
 
   registro(){
-
       this.usuarioARegistrar.nombreUsuario=this.nombre;
       this.usuarioARegistrar.apellidoUsuario=this.apellido;
       this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
@@ -101,7 +111,16 @@ ngOnInit() {
       this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
       this.usuarioARegistrar.generoUsuario="mono";
       this.usuarioARegistrar.emailUsuario=this.correo;
-      this.usuarioARegistrar.passUsuario=this.pass;
+      this.usuarioARegistrar.passUsuario=this.pass;  
+
+      console.log(this.nombre);
+      console.log(this.apellido);
+      console.log(this.rut);
+      console.log(this.fono);
+      console.log(this.correo);
+      console.log(this.pass);
+
+
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
       })
