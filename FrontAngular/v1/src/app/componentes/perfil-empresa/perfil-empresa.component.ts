@@ -4,7 +4,6 @@ import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
 import { Empresa } from 'src/app/Modelo/Empresa';
 import { Router } from '@angular/router';
 import { Trabajador } from 'src/app/Modelo/trabajador';
-import { ConditionalExpr } from '@angular/compiler';
 
 @Component({
   selector: 'app-perfil-empresa',
@@ -22,17 +21,13 @@ export class PerfilEmpresaComponent implements OnInit {
   infoTrabajador:Trabajador=JSON.parse(localStorage.getItem("trabajador"));
   constructor(private servicioRS:RsServiceService,private router:Router) { }
   formatoDate(date:string):string{
+    let nuevaFecha:string;
+    
     let year=date.substr(6,10);
     let month=date.substr(3,2)
     let day=date.substr(0,2);
     return year+"-"+month+"-"+day;
 
-  }
-  formoatoNumero(date:string):string{
-    let year=date.substr(0,4);
-    let month=date.substr(5,2)
-    let day=date.substr(8,2); 
-    return year+""+month+""+day;
   }
   ngOnInit() {
     
@@ -56,6 +51,8 @@ export class PerfilEmpresaComponent implements OnInit {
         }else{
           this.colores[i]="green";
         } 
+<<<<<<< HEAD
+=======
         let fechaResuelto=this.reclamosSugerencias[i].fechaResuelto;
         let fechaReclamo=this.reclamosSugerencias[i].fechaReclamoSugerencia;
 
@@ -65,6 +62,7 @@ export class PerfilEmpresaComponent implements OnInit {
           this.colores[i]="red";
         }
     
+>>>>>>> branch 'master' of https://github.com/Karukami/ProyectoPTF2019-Reclamos.git
       }
     });
     if (this.reclamosSugerencias.length==0){

@@ -18,7 +18,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" (click)="irPerfil()">
+                            <a class="nav-link" (click)="homeEmpresa()">
                                 <img src="../../assets/homeiconminiEmpresa.png" alt="">
                                 <br>
                                 INICIO
@@ -66,7 +66,7 @@
 
 
 <!-- CONTENIDO -->
-			<div class="row" style="background-image: linear-gradient(120deg, #000000, #232526, #414345, #232526, #000000)">
+			<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
 				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
 					<div>
                         <br> 
@@ -98,14 +98,12 @@
 					</div>
 				</div>
                 <!-- area de graficos --> 
-                <div class="col-9" style="text-align: center;">
-                    <br>
-                    <h1 style="color: white; text-shadow: 2px 2px 5px black; font-size: 50px">- Estadísticas -</h1><br>
-                    <div class="row" style="text-align: center">
+                <div class="col-9">
+                    <h1 style="color: white; text-shadow: 2px 2px 5px black;">Estadisticas</h1>
+                    <div class="row">
                         <!--grafico 1-->
-                        <div class="col"></div>
-                        <div class="col-9" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 30px; padding-top: 10px; padding-bottom: 20px">
-                            <h1 style="color: white; text-shadow: 2px 2px 5px black">Reclamos vs Sugerencias</h1><br>
+                        <div class="col-9">
+                            <h1 style="color: white">Reclamos vs Sugerenciass</h1>
                             <div id="chart-rVSs" class="chart">
                                 <canvas baseChart
                                     [data]="rVSsData"
@@ -118,14 +116,14 @@
                                 </canvas>
                             </div>
                         </div>
-                        <div class="col"></div>
+                        
                     </div>
+                    <hr>
                     <div class="row">
                          <!--grafico 2-->
-                        <div class="col"></div>
-                        <div class="col-9" >
-                            <div id="chart-rRVSrNr" class="chart" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 30px; padding-top: 10px; padding-bottom: 20px; margin-top: 50px">
-                                <h1 style="color: white; text-shadow: 2px 2px 5px black">Reclamos resueltos VS Reclamos no resueltos</h1><br>
+                        <div class="col-9">
+                            <div id="chart-rRVSrNr" class="chart">
+                                <h1 style="color: white">Reclamos resueltos VS Reclamos no resueltos</h1>
                                 <canvas  baseChart
                                     [data]="rRVSrNrData"
                                     [labels]="rRVSrNrLabels"
@@ -137,14 +135,13 @@
                                 </canvas>
                             </div>
                         </div> 
-                        <div class="col"></div>
                     </div>
+                    <hr>
                     <div class="row">
                          <!--grafico 3-->
-                            <div class="col"></div>
-                            <div class="col-9" style="background-color: rgba(255, 255, 255, 0.4); border-radius: 30px; padding-top: 10px; padding-bottom: 20px; margin-top: 50px">
+                            <div class="col-9">
                                 <div id="chart-sRVSsNr" class="chart">
-                                    <h1 style="color: white; text-shadow: 2px 2px 5px black">Sugerencias resueltas VS Reclamos no resueltos</h1><br>
+                                    <h1 style="color: white">Sugerencias resueltas VS Seclamos no resueltss</h1>
                                     <canvas  baseChart
                                         [data]="sRVSsNrData"
                                         [labels]="sRVSsNrLabels"
@@ -156,7 +153,6 @@
                                     </canvas>
                                 </div>
                             </div> 
-                            <div class="col"></div>
                         </div>
                     
 					<br>

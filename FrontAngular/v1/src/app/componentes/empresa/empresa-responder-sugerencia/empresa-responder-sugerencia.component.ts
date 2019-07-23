@@ -38,7 +38,6 @@ export class EmpresaResponderSugerenciaComponent implements OnInit {
   }
   responderSugerencia(){
     this.rs.estado="resuelto";
-    this.rs.fechaResuelto=new Date();
     console.log(" se esta respondiendo");
     this.servicioRS.responderRS(this.rs).subscribe(data=>{});
     this.router.navigate(["empresa/perfil"]);

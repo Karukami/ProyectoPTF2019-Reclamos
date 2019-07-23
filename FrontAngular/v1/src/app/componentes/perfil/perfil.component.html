@@ -103,25 +103,24 @@
 					</div>
 				</div>
 				<div class="col-9">
-                        <div *ngFor="let rs of reclamosSugerencias;let i = index">
+                        <div *ngFor="let rs of reclamosSugerencias;let i = index" >
+                                <!---color angtiguo rgba(255, 255, 255, 0.9)  -->
                                 <br>
-                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 25px; padding-bottom: 25px; background-color:white;">
+                                <div style=" margin-bottom: 20px; border-radius: 10px; padding-top: 15px; padding-bottom: 10px; background-color:white;">
+                                    <br>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-3" style="padding-top: 3px">
                                                 <h2>ID#{{rs.idReclamoSugerencia}}</h2>
-                                                <!-- Tengo que cambiar esto -->
-                                                <!-- Necesito que el warning pase a primary cuando el rs.estado
-                                                     sea resuelto -->
-                                                <button *ngIf="botonEstadoEnProceso[i]" class="btn btn-warning">{{rs.estado}}</button>
-                                                <button *ngIf="botonEstadoResuelto[i]" class="btn btn-success">{{rs.estado}}</button>
+                                                <button class="btn btn-warning" >{{rs.estado}}</button>
                                                 
                                             </div>
                                             <div class="col-7">
                                                 <h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
                                                 <h6 style="text-align:left">Titulo: {{rs.tituloRS}}</h6>
-                                                <h6>Detalle: {{rs.detalleReclamoSugerencia}}</h6>
-                                                <h6>Empresa: {{nombresEmpresas[i]}}</h6>
+                                                
+                                                <p>Detalle: {{rs.detalleReclamoSugerencia}}</p>
+                                                <small style="text-align: right;">Empresa: {{nombresEmpresas[i]}}</small>
                                             </div>
                                             <div class="col-2" style="text-align: center">
                                                 {{rs.fechaReclamoSugerencia}}
@@ -129,23 +128,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                             </div>
+
                 </div> 
 			</div>
-<!-- Esta es la funcion de prueba para cambiar el boton de estado, de color. -->
-<!-- Sorpresa! angular no deja que funcione.
-<script type="text/javascript">
-    var botonEstado = document.getElementById("botonEstado").innerText;
-
-    function botonEstadoColor() {
-        console.log("botonEstadoColor() on process...");
-
-        if (botonEstado = "en proceso") {
-            document.getElementById("botonEstado").setAttribute("class", "btn btn-warning");
-        }
-
-        else if (botonEstado = "resuelto") {
-            document.getElementById("botonEstado").setAttribute("class", "btn btn-success");
-        }
-    }
-</script> -->

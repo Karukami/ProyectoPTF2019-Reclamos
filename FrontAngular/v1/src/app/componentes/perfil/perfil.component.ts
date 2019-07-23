@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RsServiceService } from 'src/app/Services/rs-service.service';
 import { ReclamoSugerencia } from 'src/app/Modelo/ReclamoSugerencia';
@@ -21,38 +21,28 @@ export class PerfilComponent implements OnInit {
   mensaje:string="";
   mostrarMensaje:boolean=false;
   nombresEmpresas:string[]=[];
-  @ViewChild('botonEstado') botonEstado: ElementRef;
-  botonEstadoEnProceso:boolean[]=[];
-  botonEstadoResuelto:boolean[]=[];
   ngOnInit() {
-      if(this.nombre=="anonimo"){
-        this.router.navigate(["home"]);
-      }
-      this.nombreUsuario=localStorage.getItem("nombre");
-      this.apellidoUsuario=localStorage.getItem("apellido");
-      this.servicioRS.getRSUsuario(+localStorage.getItem("idUsuario")).subscribe(data=>{
-        this.reclamosSugerencias=data;
-        
-        for(let i=0;i<this.reclamosSugerencias.length;i++){
-          this.servicioEmpresa.nombreEmpresa(this.reclamosSugerencias[i].idEmpresa).subscribe(data=>{
-           this.nombresEmpresas.push(data.nombreEmpresa);
-          })
-          //botones de estado
-          if (this.reclamosSugerencias[i].estado == "en proceso") {
-            this.botonEstadoEnProceso[i] = true;
-            this.botonEstadoResuelto[i] = false;
-          }
-          else {
-            this.botonEstadoEnProceso[i] = false;
-            this.botonEstadoResuelto[i] = true;
-          }
-        }
-      });
+    if(this.nombre=="anonimo"){
+      this.router.navigate(["home"]);
+    }
+    this.nombreUsuario=localStorage.getItem("nombre");
+    this.apellidoUsuario=localStorage.getItem("apellido");
+    this.servicioRS.getRSUsuario(+localStorage.getItem("idUsuario")).subscribe(data=>{
+      this.reclamosSugerencias=data;
       
-      if (this.reclamosSugerencias.length==0){
-        this.mensaje="Aun no tienes Reclamos ni Sugerencias";
-        this.mostrarMensaje=true;
-      }   
+      for(let i=0;i<this.reclamosSugerencias.length;i++){
+        this.servicioEmpresa.nombreEmpresa(this.reclamosSugerencias[i].idEmpresa).subscribe(data=>{
+         this.nombresEmpresas.push(data.nombreEmpresa);
+        })
+        
+      }
+    });
+    
+    if (this.reclamosSugerencias.length==0){
+      this.mensaje="Aun no tienes Reclamos ni Sugerencias";
+      this.mostrarMensaje=true;
+    }
+    
   } 
   realizarReclamo() {
   	this.router.navigate(['realizar_reclamo']);

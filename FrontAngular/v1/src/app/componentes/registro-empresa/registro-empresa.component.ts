@@ -32,7 +32,6 @@ export class RegistroEmpresaComponent implements OnInit {
       });
       this.trabajadorServicio.crearTrabajador(this.trabajador).subscribe(data=>{
         this.trabajador=data;
-        console.log(data);
       });
       this.router.navigate(['empresa/login']);
     }

@@ -9,7 +9,7 @@ export class ReclamoSugerencia{
     tipo:string;
     respuestaRS:string;
     tituloRS:string;
-    fechaResuelto:Date;
+    
     constructor(){
         this.idReclamoSugerencia=0;
         this.idEmpresa=0;

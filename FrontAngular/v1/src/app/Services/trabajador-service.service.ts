@@ -21,7 +21,7 @@ export class TrabajadorServiceService {
   //envia atravex de metodo post el objeto Trabajador 
   //el cual sera agregado a la db desde el back
   crearTrabajador(trabajador:Trabajador){
-    return this.http.post<Trabajador>(this.url+"/add",trabajador);
+    return this.http.post<Trabajador>(this.url,trabajador);
   }
   logInTrabajador(trabajador:Trabajador){
     return this.http.post<Trabajador>(this.url+"/login",trabajador);

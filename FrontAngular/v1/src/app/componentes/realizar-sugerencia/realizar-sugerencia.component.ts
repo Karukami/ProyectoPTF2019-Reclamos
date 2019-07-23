@@ -64,8 +64,6 @@ realizarReclamoSugerencia() {
       localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString());
       localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
       localStorage.setItem("tipo",this.rs.tipo);
-      this.rs.fechaResuelto=new Date("2019-01-01");
-      
       this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
       try {
         this.serviceRS.getLastReclamoUsuario(this.rs.usuarioReclamoSugerencia).subscribe(data=>{
@@ -74,21 +72,10 @@ realizarReclamoSugerencia() {
           localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
           console.log(localStorage.getItem("idRS"));
           //alert("reclamo generado enviado con exito ");
-          //this.enviarEmail();
           this.servicioMail.sendEmail(+localStorage.getItem("idUsuario"));
-          console.log("hola");
           this.router.navigate(["rs_enviado"]);
         });
       } catch (error) {
-        this.serviceRS.getLastReclamo().subscribe(data=>{
-          let rs:ReclamoSugerencia=data;
-          
-          localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
-          console.log(localStorage.getItem("idRS"));
-          //alert("reclamo generado enviado con exito ");
-          this.router.navigate(["rs_enviado"]);
-        });
-      }finally{
         this.serviceRS.getLastReclamo().subscribe(data=>{
           let rs:ReclamoSugerencia=data;
           

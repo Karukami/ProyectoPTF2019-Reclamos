@@ -18,7 +18,7 @@
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active" id="btn_home_navbar">
                         <div class="col">
-                            <a class="nav-link" (click)="irPerfil()">
+                            <a class="nav-link" (click)="homeEmpresa()">
                                 <img src="../../assets/homeiconminiEmpresa.png" alt="">
                                 <br>
                                 INICIO
@@ -67,7 +67,7 @@
 
 <!-- CONTENIDO -->
 <!--SIDEBAR-->
-			<div class="row" style="background-color: rgba(255, 255, 255, 0.4)">
+			<div class="row" style="background-image: linear-gradient(90deg, #0f0c29, #302b63, #24243e)">
 				<div class="col-3" style="background-color: #444444; padding-left: 20px; padding-right:20px">
 					<div>
 						<br> 
@@ -100,13 +100,13 @@
                 </div>
 <!-- CONTENIDO -->
                 <div class="col-9" ><br>
-                    <h1 style="text-align: center; color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes</h1>
-                    <br><br>
-                    <div style="text-align: right">
-                        <button class="btn" id=BotonSoloEnProceso>Ver Solo en proceso</button>
-						<button (click)="reclamosPrimero()"class="btn"id=BotonReclamosPrimero>Ver Reclamos Primero</button>	
-						<button (click)="ordenarPorFecha()"class="btn"id=BotonPorFecha> Ordenar por Fecha</button>
+					<h1 style="color: white; text-shadow: 2px 2px 5px #222222">Solicitudes pendientes</h1>
+                    <button class="btn btn-warning">solo en proceso</button>
+					<div style="text-align: right">
+						<button (click)="reclamosPrimero()"class="btn btn-light">reclamos primero</button>	
+						<button (click)="ordenarPorFecha()"class="btn btn-light">fecha</button>
 					</div>
+					
 					<br><br>
 					<br>
 					<div *ngFor="let rs of reclamosSugerencias;let i=index " >
@@ -120,7 +120,7 @@
 										
 									</div>
 									<div class="col-7">
-										<h6 style="text-align:left">Tipo: {{rs.tipo}}</h6>
+										<h6 style="text-align:left">tipo: {{rs.tipo}}</h6>
 										<br>
 										<p>{{rs.detalleReclamoSugerencia}}</p>
 										<small style="text-align: right;">Empresa: {{rs.empresa}}</small>
