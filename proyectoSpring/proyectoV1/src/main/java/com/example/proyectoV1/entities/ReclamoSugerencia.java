@@ -27,6 +27,10 @@ public class ReclamoSugerencia {
 	private String respuestaRS;
 	@Column (name = "titulo")
 	private String tituloRS;
+	@Column (name = "fecharespuesta")
+	private Date fechaResuelto;
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//GETTER & SETTER
 	public int getIdReclamoSugerencia() {
 		return idReclamoSugerencia;
 	}
