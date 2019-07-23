@@ -74,6 +74,6 @@ public String getGeneroUsuario() {
 }
 public void setGeneroUsuario(String generoUsuario) {
 	this.generoUsuario = generoUsuario;
-}
+}  
  
 }
