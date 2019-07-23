@@ -115,7 +115,7 @@
 <!-- ##############################   APELLIDO  ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="5" maxlength="45" required>
+                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
 <!-- ##############################   RUT   ###################################################################################################################-->
                             <div class="form-group form-reg">
@@ -139,23 +139,23 @@
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
 <!-- ##############################   GENERO   ###################################################################################################################-->
-                            <div class="form-group form-reg">
+                           <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
-                                <select class="browser-default custom-select "[(ngModel)]="genero" >
+                                <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
                                         <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
                                     <p style="color: white; background-color: red">{{errGenero}}</p> 
-                            </div>
+                            </div> 
 <!-- #############################  CORREO ELECTRONICO ####################################################################################################################-->
 
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="correo"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <input [(ngModel)]="correo"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
 <!-- #############################  CONFIRMAR CORREO ELECTRONICO  ####################################################################################################################-->
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
 <!-- ##############################  CONTRASEÑA  ###################################################################################################################-->
 
