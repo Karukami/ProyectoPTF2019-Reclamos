@@ -69,6 +69,10 @@ export class RealizarReclamoComponent implements OnInit {
         localStorage.setItem("fecha",this.rs.fechaReclamoSugerencia.toString());
         localStorage.setItem("detalleRS",this.rs.detalleReclamoSugerencia);
         localStorage.setItem("tipo",this.rs.tipo);
+        
+        this.rs.fechaResuelto=new Date("2019-01-01");
+        console.log("nombre empresa: "+this.rs.idEmpresa);
+        console.log(this.rs.fechaResuelto.toDateString());
         this.serviceRS.crearReclamo(this.rs).subscribe(data =>{this.rs= data});
   
         try {
@@ -84,6 +88,15 @@ export class RealizarReclamoComponent implements OnInit {
             this.router.navigate(["rs_enviado"]);
           });
         } catch (error) {
+          this.serviceRS.getLastReclamo().subscribe(data=>{
+            let rs:ReclamoSugerencia=data;
+            
+            localStorage.setItem("idRS",""+rs.idReclamoSugerencia);
+            console.log(localStorage.getItem("idRS"));
+            //alert("reclamo generado enviado con exito ");
+            this.router.navigate(["rs_enviado"]);
+          });
+        }finally{
           this.serviceRS.getLastReclamo().subscribe(data=>{
             let rs:ReclamoSugerencia=data;
             

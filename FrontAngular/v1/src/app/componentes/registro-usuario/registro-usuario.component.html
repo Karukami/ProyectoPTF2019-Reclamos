@@ -110,12 +110,12 @@
 <!-- ###############################   NOMBRE    ##################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Nombre</label>
-                                <input [(ngModel)]="usuarioARegistrar.nombreUsuario" type="text" class="form-control" id="Nombres" name="Nombres" formControlName="Nombres"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
+                                <input [(ngModel)]="nombre" type="text" class="form-control" id="Nombre" name="Nombre" formControlName="Nombre"  placeholder="Ingresa tu nombre..." onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
 <!-- ##############################   APELLIDO  ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Apellido</label>
-                                <input [(ngModel)]="usuarioARegistrar.apellidoUsuario"type="text" class="form-control" id="Apellidos" name="Apellidos" formControlName="Apellidos" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="5" maxlength="45" required>
+                                <input [(ngModel)]="apellido"type="text" class="form-control" id="Apellido" name="Apellido" formControlName="Apellido" placeholder="Ingresa tu apellido..."  onKeypress="if (event.keyCode < 65 || event.keyCode > 90) if (event.keyCode < 97 || event.keyCode > 122) event.returnValue = false;" minlength="3" maxlength="45" required>
                             </div>
 <!-- ##############################   RUT   ###################################################################################################################-->
                             <div class="form-group form-reg">
@@ -126,60 +126,53 @@
 <!-- ##############################  FECHA DE NACIMIENTO ###################################################################################################################-->
                             <div class="form-group form-reg">
                                 <label style="color: #dddddd;">Fecha de Nacimiento</label>
-                                <input [(ngModel)]="usuarioARegistrar.fechanacusuario"type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >
-                            </div >
-<!-- #############################   TELEFONO    ####################################################################################################################-->
-                            <label style="color: #dddddd;">Telefono</label><br>    
-                            <div class="btn-group" >
-                                    <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <input [(ngModel)]="fecha" type="date" class="form-control" id="Fecha" name="Fecha" formControlName="Fecha" placeholder="MM/DD/YYYY" max="2009-01-01" required >                             
+                            </div>
+<!-- ##############################  TELEFONO ###################################################################################################################-->
+                       
+                            <label style="color: #dddddd;">Telefono</label><br>
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Chile(+56)
                               </button>
-                            <input [(ngModel)]="usuarioARegistrar.fonoUsuario" type="text" class="form-control" id="Telefono" name="Telefono" formControlName="Telefono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required >
+                            <input [(ngModel)]="fono" type="text" class="form-control" id="Fono" name="Fono" formControlName="Fono" placeholder="X XXXX XXXX" (keyup)="validarTelefono()" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" required >
                             </div>
                             <p style="color: white;">{{errorTel}}</p>
 <!-- ##############################   GENERO   ###################################################################################################################-->
-                            <div class="form-group form-reg">
+                           <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Género</label><br>
-                                <select class="browser-default custom-select "[(ngModel)]="genero" >
-                                        <option *ngFor="let genero of generos"  value="{{genero}}">{{genero}}</option>  
+                                <select class="browser-default custom-select " name="Genero" id="Genero" formControlName="Genero" [(ngModel)]="genero" >
+                                        <option *ngFor="let genero of generos"  [ngValue]="genero">{{genero}}</option>  
                                     </select>
-                                    <p style="color: white; background-color: red">{{errGenero}}</p>
-                            </div>  
+                                    <p style="color: white; background-color: red">{{errGenero}}</p> 
+                            </div> 
 <!-- #############################  CORREO ELECTRONICO ####################################################################################################################-->
 
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Correo electrónico</label>
-                                <input [(ngModel)]="usuarioARegistrar.emailUsuario"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <input [(ngModel)]="correo"type="email" class="form-control" id="Correo" name="Correo" formControlName="Correo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
 <!-- #############################  CONFIRMAR CORREO ELECTRONICO  ####################################################################################################################-->
-
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar correo electrónico</label>
-                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="confirmCorreo" name="confirmCorreo" formControlName="confirmCorreo" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$">
+                                <input  [(ngModel)]="correo2" type="email" class="form-control" id="Correo2" name="Correo2" formControlName="Correo2" placeholder="JuanPerez@ejemplo.com" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{0,5})$">
                             </div>
 <!-- ##############################  CONTRASEÑA  ###################################################################################################################-->
 
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Contraseña</label>
-                                <input [(ngModel)]="usuarioARegistrar.passUsuario" type="password" class="form-control" id="pass" name="pass" formControlName="pass" placeholder="Recuerda usar números, símbolos y letras">
+                                <input [(ngModel)]="pass" type="password" class="form-control" id="Pass" name="Pass" formControlName="Pass" placeholder="Recuerda usar números, símbolos y letras">
                             </div>
 <!-- ##############################  CONFIRMAR CONTRASEÑA  ###################################################################################################################-->
-
                             <div class="form-group form-reg">
                                 <br><label style="color: #dddddd;">Confirmar contraseña</label>
-                                <input [(ngModel)]="pass2"type="password" class="form-control" id="pass2" name="pass2" formControlName="pass2" placeholder="********************">
+                                <input [(ngModel)]="pass2"type="password" class="form-control" id="Pass2" name="Pass2" formControlName="Pass2" placeholder="********************">
                                  <br>       
                                 <div class ="row">
                                     <h3 style="background-color: firebrick; color: white;">{{mensaje}}</h3>
                                  </div>
                             </div>       
-
-
-
-
-
 <!-- ############################# BOTON PARA CONFIRMAR REGISTRO  ####################################################################################################################-->
-                     
                             <br><br><button type="button" (click)="registro()"  id=idBotonConfirmarRegistro class="btn btn-lg btn-block">Confirmar registro</button><br>
                             <small id="emailHelp" class="form-text" style="color: #dddddd; text-align: center">Tu información está segura con nosotros.</small>
                         </div>
@@ -194,4 +187,4 @@
                 </div>
                 <div class="col-4"></div>
             </div> 
-        </form>
+        </form>  
