@@ -63,11 +63,11 @@ public Date getFechaNacUsuario() {
 public void setFechaNacUsuario(Date fechaNacUsuario) {
 	this.fechaNacUsuario = fechaNacUsuario;
 }
-public int getFonousuario() {
+public int getFonoUsuario() {
 	return fonoUsuario;
 }
-public void setFonousuario(int fonousuario) {
-	this.fonoUsuario = fonousuario;
+public void setFonoUsuario(int fonoUsuario) {
+	this.fonoUsuario = fonoUsuario;
 }
 public String getGeneroUsuario() {
 	return generoUsuario;
