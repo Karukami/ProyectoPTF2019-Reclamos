@@ -19,7 +19,7 @@ export class RegistroUsuarioComponent implements OnInit {
   nombre:string;
   apellido:string;
   rut:string;
-  Fecha:Date;
+  fecha:Date;
   fono:string;
   correo:string;
   correo2:string;
@@ -108,16 +108,19 @@ ngOnInit() {
       this.usuarioARegistrar.nombreUsuario=this.nombre;
       this.usuarioARegistrar.apellidoUsuario=this.apellido;
       this.usuarioARegistrar.rutUsuario=this.formatRut(this.rut);
-      this.usuarioARegistrar.fechaNacUsuario= new Date(1997,12,23);
+      this.usuarioARegistrar.fechaNacUsuario= this.fecha;
       this.usuarioARegistrar.fonoUsuario=this.formatFono(this.fono);
       this.usuarioARegistrar.generoUsuario="mono";
       this.usuarioARegistrar.emailUsuario=this.correo;
       this.usuarioARegistrar.passUsuario=this.pass;
+      console.log("genero "+this.genero);
+      console.log("fecha: "+this.fecha)
+
       this.service.crearUsuarioPrueba(this.usuarioARegistrar).subscribe(data=>{
         alert("se agrego correctamente");
       })
       this.router.navigate(["perfil"]); 
       localStorage.setItem("id", ""+this.usuarioARegistrar.rutUsuario);
-    }
+    }  
   }
 
